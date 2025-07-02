@@ -22,7 +22,7 @@ xgboost
 fpdf
 joblib
 altair
-st-aggrid
+streamlit-aggrid
 matplotlib
 seaborn
 ydata-profiling
