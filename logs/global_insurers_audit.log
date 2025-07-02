@@ -1,0 +1,50 @@
+{"timestamp": "2025-06-05T04:53:39.741607", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T04:53:39.809832", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T04:53:39.943768", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T04:54:57.991302", "user": "Underwriter User", "action": "logout", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T05:47:56.590030", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T05:47:56.722537", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T05:47:57.078044", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T05:49:58.408336", "user": "Underwriter User", "action": "logout", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:30:29.697782", "user": "initech_finance", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:31:00.303488", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:31:00.448129", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:31:00.903343", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:43:15.057274", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:43:15.154283", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T07:43:15.593127", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:19:19.260104", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:19:19.375630", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:19:19.788932", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:20:59.028350", "user": "Underwriter User", "action": "logout", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:09.072067", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:09.205256", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:09.627641", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:12.610862", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:12.613112", "user": "Underwriter User", "action": "fraud_center_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:22.416010", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T11:13:22.417994", "user": "Underwriter User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T16:56:13.287976", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T16:56:13.384762", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T16:56:13.516910", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T17:41:15.311170", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T17:41:15.362369", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T17:41:15.494703", "user": "Underwriter User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:10.514845", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:10.609064", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:10.621507", "user": "Underwriter User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:39.403740", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:39.405249", "user": "Underwriter User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:47.013899", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:47.018966", "user": "Underwriter User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:51.003686", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:53:51.003686", "user": "Underwriter User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T07:56:02.708774", "user": "Underwriter User", "action": "logout", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:49:44.669591", "user": "underwriter1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:49:44.884092", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:49:44.890415", "user": "Underwriter User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:49:50.511986", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:49:50.511986", "user": "Underwriter User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:49:50.849538", "user": "Underwriter User", "action": "data_uploaded", "target": "200 records", "ip": ""}
+{"timestamp": "2025-06-07T19:51:05.589965", "user": "Underwriter User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T19:51:05.589965", "user": "Underwriter User", "action": "client_mgmt_accessed", "target": null, "ip": ""}

@@ -1,0 +1,201 @@
+Claim_ID,Employee_ID,Visit_Type,Diagnosis,Treatment,Provider_Name,Claim_Amount_KES,Hospital_County,Co_Payment_KES,Employee_Gender,Employee_Age,Submission_Date,Pre_Authorization_Required,Employer,Approved_Amount_KES,Employer_Fund_Allocation_KES,Inpatient_Cap_KES,Outpatient_Cap_KES,Optical_Cap_KES,Dental_Cap_KES,Maternity_Cap_KES,Category
+CLM1000,EMP1000,Maternity,Delivery,Normal Delivery,Nairobi West Hospital,102386,Machakos,500,Male,50,27/09/2024,No,Tech Innovators Ltd,101886,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1001,EMP1001,Dental,Cavity,Filling,AAR Hospital,70263,Kisumu,200,Male,32,28/03/2024,Yes,Tech Innovators Ltd,70063,20000000,750000,75000,40000,40000,50000,Silver
+CLM1002,EMP1002,Inpatient,Cancer,Chemotherapy,Nairobi West Hospital,114925,Machakos,0,Male,23,09/12/2024,Yes,Tech Innovators Ltd,114925,20000000,750000,75000,40000,40000,50000,Silver
+CLM1003,EMP1003,Inpatient,Surgery,Major Surgery,AAR Hospital,180608,Mombasa,1000,Female,33,09/11/2024,Yes,Tech Innovators Ltd,179608,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1004,EMP1004,Dental,Gum Infection,Medication,Avenue Hospital,45773,Uasin Gishu,500,Male,49,06/07/2024,No,Tech Innovators Ltd,45273,20000000,750000,75000,40000,40000,50000,Silver
+CLM1005,EMP1005,Optical,Eye Infection,Eye Drops,AAR Hospital,13792,Uasin Gishu,200,Female,24,02/11/2024,No,Tech Innovators Ltd,13592,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1006,EMP1006,Optical,Glaucoma,Medication,AAR Hospital,49974,Kisumu,200,Male,30,11/12/2024,No,Tech Innovators Ltd,49774,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1007,EMP1007,Inpatient,Surgery,Major Surgery,Avenue Hospital,69457,Mombasa,500,Female,38,19/02/2024,Yes,Tech Innovators Ltd,68957,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1008,EMP1008,Dental,Cavity,Filling,AAR Hospital,42606,Machakos,200,Female,39,05/08/2024,Yes,Tech Innovators Ltd,42406,20000000,750000,75000,40000,40000,50000,Silver
+CLM1009,EMP1009,Maternity,Pregnancy,Antenatal Visit,Avenue Hospital,32185,Uasin Gishu,0,Male,44,08/09/2024,No,Tech Innovators Ltd,32185,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1010,EMP1010,Outpatient,Typhoid,Medication,Avenue Hospital,19216,Kisumu,0,Female,50,15/01/2024,Yes,Tech Innovators Ltd,19216,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1011,EMP1011,Optical,Blurred Vision,Eye Test,Nairobi West Hospital,18986,Kisumu,0,Female,29,03/03/2024,Yes,Tech Innovators Ltd,18986,20000000,750000,75000,40000,40000,50000,Silver
+CLM1012,EMP1012,Outpatient,Malaria,Medication,Aga Khan,9184,Uasin Gishu,1000,Male,26,18/08/2024,Yes,Tech Innovators Ltd,8184,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1013,EMP1013,Maternity,Pre-natal Checkup,Ultrasound,AAR Hospital,44538,Kiambu,500,Male,33,02/02/2024,Yes,Tech Innovators Ltd,44038,20000000,750000,75000,40000,40000,50000,Silver
+CLM1014,EMP1014,Inpatient,Cancer,Chemotherapy,Coptic Hospital,163252,Kiambu,200,Male,22,14/08/2024,Yes,Tech Innovators Ltd,163052,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1015,EMP1015,Inpatient,Cancer,Chemotherapy,Coptic Hospital,171626,Machakos,500,Female,35,24/12/2024,No,Tech Innovators Ltd,171126,20000000,750000,75000,40000,40000,50000,Silver
+CLM1016,EMP1016,Dental,Toothache,Filling,Coptic Hospital,64268,Kisumu,200,Male,53,18/08/2024,No,Tech Innovators Ltd,64068,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1017,EMP1017,Inpatient,Surgery,Minor Surgery,Nairobi West Hospital,112623,Mombasa,0,Male,58,18/08/2024,Yes,Tech Innovators Ltd,112623,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1018,EMP1018,Maternity,Delivery,Normal Delivery,Aga Khan,68925,Kisumu,200,Male,27,10/10/2024,Yes,Tech Innovators Ltd,68725,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1019,EMP1019,Outpatient,Typhoid,Medication,Nairobi West Hospital,13230,Nairobi,200,Male,32,07/05/2024,No,Tech Innovators Ltd,13030,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1020,EMP1020,Outpatient,Typhoid,Medication,AAR Hospital,12474,Kiambu,0,Male,54,09/10/2024,No,Tech Innovators Ltd,12474,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1021,EMP1021,Outpatient,Flu,Consultation,Avenue Hospital,3663,Nairobi,1000,Female,58,12/08/2024,No,Tech Innovators Ltd,2663,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1022,EMP1022,Inpatient,Cancer,Radiation,Aga Khan,168451,Mombasa,500,Male,53,20/08/2024,Yes,Tech Innovators Ltd,167951,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1023,EMP1023,Dental,Toothache,Filling,Nairobi West Hospital,10854,Nairobi,0,Female,23,22/04/2024,Yes,Tech Innovators Ltd,10854,20000000,750000,75000,40000,40000,50000,Silver
+CLM1024,EMP1024,Outpatient,Flu,Medication,Aga Khan,8791,Nairobi,1000,Male,22,05/05/2024,No,Tech Innovators Ltd,7791,20000000,750000,75000,40000,40000,50000,Silver
+CLM1025,EMP1025,Dental,Cavity,Filling,Aga Khan,35342,Nairobi,0,Male,32,02/07/2024,Yes,Tech Innovators Ltd,35342,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1026,EMP1026,Dental,Gum Infection,Medication,Nairobi West Hospital,32671,Mombasa,1000,Male,55,16/07/2024,Yes,Tech Innovators Ltd,31671,20000000,750000,75000,40000,40000,50000,Silver
+CLM1027,EMP1027,Optical,Eye Infection,Eye Drops,Aga Khan,52011,Mombasa,200,Female,27,14/12/2024,Yes,Tech Innovators Ltd,51811,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1028,EMP1028,Inpatient,Fracture,Casting,Coptic Hospital,192483,Kisumu,0,Male,24,26/05/2024,Yes,Tech Innovators Ltd,192483,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1029,EMP1029,Dental,Toothache,Extraction,AAR Hospital,18155,Kisumu,200,Male,39,25/12/2024,No,Tech Innovators Ltd,17955,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1030,EMP1030,Inpatient,Fracture,Orthopedic Review,Nairobi West Hospital,80306,Nairobi,0,Female,44,24/10/2024,No,Tech Innovators Ltd,80306,20000000,750000,75000,40000,40000,50000,Silver
+CLM1031,EMP1031,Dental,Toothache,Filling,AAR Hospital,53016,Machakos,500,Male,23,30/10/2024,No,Tech Innovators Ltd,52516,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1032,EMP1032,Dental,Cavity,Filling,Coptic Hospital,69040,Machakos,500,Male,37,10/05/2024,No,Tech Innovators Ltd,68540,20000000,750000,75000,40000,40000,50000,Silver
+CLM1033,EMP1033,Optical,Eye Infection,Eye Drops,Aga Khan,21482,Kisumu,0,Female,29,13/04/2024,Yes,Tech Innovators Ltd,21482,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1034,EMP1034,Maternity,Delivery,Normal Delivery,Aga Khan,132296,Uasin Gishu,1000,Female,39,03/12/2024,No,Tech Innovators Ltd,131296,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1035,EMP1035,Dental,Gum Infection,Cleaning,Avenue Hospital,68871,Machakos,500,Female,54,08/03/2024,No,Tech Innovators Ltd,68371,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1036,EMP1036,Outpatient,Flu,Consultation,Coptic Hospital,7555,Mombasa,200,Male,24,07/05/2024,No,Tech Innovators Ltd,7355,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1037,EMP1037,Optical,Glaucoma,Surgery,Coptic Hospital,24738,Mombasa,200,Female,51,07/02/2024,No,Tech Innovators Ltd,24538,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1038,EMP1038,Maternity,Delivery,Normal Delivery,AAR Hospital,113179,Mombasa,0,Female,42,12/10/2024,No,Tech Innovators Ltd,113179,20000000,750000,75000,40000,40000,50000,Silver
+CLM1039,EMP1039,Dental,Toothache,Extraction,Avenue Hospital,66491,Uasin Gishu,200,Male,40,04/01/2024,Yes,Tech Innovators Ltd,66291,20000000,750000,75000,40000,40000,50000,Silver
+CLM1040,EMP1040,Maternity,Pregnancy,Ultrasound,Coptic Hospital,116752,Uasin Gishu,200,Male,27,08/04/2024,No,Tech Innovators Ltd,116552,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1041,EMP1041,Outpatient,Malaria,Medication,AAR Hospital,3190,Machakos,500,Female,52,08/04/2024,Yes,Tech Innovators Ltd,2690,20000000,750000,75000,40000,40000,50000,Silver
+CLM1042,EMP1042,Maternity,Delivery,Normal Delivery,Nairobi West Hospital,86105,Mombasa,500,Male,54,12/09/2024,Yes,Tech Innovators Ltd,85605,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1043,EMP1043,Optical,Glaucoma,Surgery,Coptic Hospital,23070,Machakos,500,Female,45,23/04/2024,No,Tech Innovators Ltd,22570,20000000,750000,75000,40000,40000,50000,Silver
+CLM1044,EMP1044,Optical,Blurred Vision,Eye Test,Avenue Hospital,10801,Mombasa,200,Female,48,29/09/2024,No,Tech Innovators Ltd,10601,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1045,EMP1045,Dental,Cavity,Filling,Aga Khan,18716,Kisumu,500,Male,56,01/11/2024,No,Tech Innovators Ltd,18216,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1046,EMP1046,Maternity,Pregnancy,Antenatal Visit,Avenue Hospital,90031,Mombasa,200,Male,57,21/06/2024,No,Tech Innovators Ltd,89831,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1047,EMP1047,Outpatient,Malaria,IV Therapy,Coptic Hospital,16121,Nairobi,0,Female,33,22/05/2024,No,Tech Innovators Ltd,16121,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1048,EMP1048,Outpatient,Typhoid,Medication,Nairobi West Hospital,12907,Nairobi,1000,Male,43,09/11/2024,No,Tech Innovators Ltd,11907,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1049,EMP1049,Dental,Cavity,Filling,Coptic Hospital,64021,Kisumu,1000,Male,58,20/09/2024,No,Tech Innovators Ltd,63021,20000000,750000,75000,40000,40000,50000,Silver
+CLM1050,EMP1050,Optical,Blurred Vision,Glasses,Coptic Hospital,51185,Mombasa,500,Female,51,16/02/2024,No,Tech Innovators Ltd,50685,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1051,EMP1051,Optical,Eye Infection,Eye Drops,Coptic Hospital,42945,Uasin Gishu,200,Male,38,29/04/2024,Yes,Tech Innovators Ltd,42745,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1052,EMP1052,Outpatient,Typhoid,Medication,AAR Hospital,4150,Mombasa,500,Female,58,26/04/2024,No,Tech Innovators Ltd,3650,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1053,EMP1053,Optical,Blurred Vision,Eye Test,Coptic Hospital,50543,Nairobi,0,Female,55,05/04/2024,No,Tech Innovators Ltd,50543,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1054,EMP1054,Optical,Eye Infection,Eye Drops,Aga Khan,52893,Nairobi,500,Male,22,28/09/2024,Yes,Tech Innovators Ltd,52393,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1055,EMP1055,Inpatient,Surgery,Major Surgery,AAR Hospital,117215,Uasin Gishu,0,Male,24,16/03/2024,Yes,Tech Innovators Ltd,117215,20000000,750000,75000,40000,40000,50000,Silver
+CLM1056,EMP1056,Inpatient,Cancer,Chemotherapy,Coptic Hospital,128832,Kiambu,1000,Female,35,07/08/2024,No,Tech Innovators Ltd,127832,20000000,750000,75000,40000,40000,50000,Silver
+CLM1057,EMP1057,Maternity,Pre-natal Checkup,Ultrasound,Avenue Hospital,43049,Nairobi,200,Female,47,06/12/2024,Yes,Tech Innovators Ltd,42849,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1058,EMP1058,Dental,Gum Infection,Medication,Coptic Hospital,75417,Machakos,200,Male,26,09/04/2024,Yes,Tech Innovators Ltd,75217,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1059,EMP1059,Outpatient,Malaria,IV Therapy,Nairobi West Hospital,12540,Kiambu,1000,Male,53,13/09/2024,Yes,Tech Innovators Ltd,11540,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1060,EMP1060,Optical,Glaucoma,Surgery,AAR Hospital,5851,Uasin Gishu,1000,Female,37,03/09/2024,Yes,Tech Innovators Ltd,4851,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1061,EMP1061,Inpatient,Fracture,Orthopedic Review,Coptic Hospital,54000,Machakos,500,Male,56,02/02/2024,No,Tech Innovators Ltd,53500,20000000,750000,75000,40000,40000,50000,Silver
+CLM1062,EMP1062,Maternity,Pre-natal Checkup,Consultation,Nairobi West Hospital,112658,Machakos,200,Female,50,12/01/2024,No,Tech Innovators Ltd,112458,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1063,EMP1063,Maternity,Delivery,C-Section,Avenue Hospital,96797,Mombasa,200,Male,56,02/08/2024,No,Tech Innovators Ltd,96597,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1064,EMP1064,Optical,Glaucoma,Surgery,Aga Khan,16338,Mombasa,1000,Male,28,14/07/2024,No,Tech Innovators Ltd,15338,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1065,EMP1065,Optical,Eye Infection,Consultation,Aga Khan,23888,Machakos,1000,Female,57,04/08/2024,No,Tech Innovators Ltd,22888,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1066,EMP1066,Dental,Gum Infection,Cleaning,Nairobi West Hospital,75510,Machakos,500,Male,56,25/06/2024,Yes,Tech Innovators Ltd,75010,20000000,750000,75000,40000,40000,50000,Silver
+CLM1067,EMP1067,Optical,Blurred Vision,Glasses,Coptic Hospital,10644,Nairobi,0,Female,53,06/02/2024,No,Tech Innovators Ltd,10644,20000000,750000,75000,40000,40000,50000,Silver
+CLM1068,EMP1068,Dental,Toothache,Filling,Avenue Hospital,24397,Kiambu,0,Female,56,26/12/2024,No,Tech Innovators Ltd,24397,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1069,EMP1069,Maternity,Delivery,C-Section,Nairobi West Hospital,44466,Uasin Gishu,1000,Female,43,05/07/2024,No,Tech Innovators Ltd,43466,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1070,EMP1070,Dental,Cavity,Filling,Avenue Hospital,18335,Nairobi,500,Male,30,10/10/2024,Yes,Tech Innovators Ltd,17835,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1071,EMP1071,Maternity,Pre-natal Checkup,Ultrasound,Avenue Hospital,47192,Machakos,500,Male,33,25/01/2024,No,Tech Innovators Ltd,46692,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1072,EMP1072,Maternity,Pre-natal Checkup,Consultation,AAR Hospital,94460,Kisumu,500,Male,35,10/08/2024,No,Tech Innovators Ltd,93960,20000000,750000,75000,40000,40000,50000,Silver
+CLM1073,EMP1073,Outpatient,Typhoid,Medication,Nairobi West Hospital,9731,Nairobi,1000,Male,32,25/05/2024,No,Tech Innovators Ltd,8731,20000000,750000,75000,40000,40000,50000,Silver
+CLM1074,EMP1074,Maternity,Delivery,Normal Delivery,Coptic Hospital,82856,Kisumu,200,Male,38,09/09/2024,Yes,Tech Innovators Ltd,82656,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1075,EMP1075,Optical,Blurred Vision,Eye Test,Aga Khan,31432,Uasin Gishu,1000,Male,48,01/05/2024,Yes,Tech Innovators Ltd,30432,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1076,EMP1076,Inpatient,Surgery,Minor Surgery,Coptic Hospital,182396,Mombasa,1000,Male,38,22/11/2024,Yes,Tech Innovators Ltd,181396,20000000,750000,75000,40000,40000,50000,Silver
+CLM1077,EMP1077,Maternity,Delivery,Normal Delivery,Avenue Hospital,29435,Kiambu,200,Male,48,20/07/2024,No,Tech Innovators Ltd,29235,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1078,EMP1078,Maternity,Pregnancy,Ultrasound,Coptic Hospital,119518,Uasin Gishu,1000,Female,41,12/11/2024,No,Tech Innovators Ltd,118518,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1079,EMP1079,Dental,Gum Infection,Cleaning,Nairobi West Hospital,77641,Mombasa,1000,Male,46,07/11/2024,Yes,Tech Innovators Ltd,76641,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1080,EMP1080,Dental,Gum Infection,Cleaning,Avenue Hospital,31732,Nairobi,1000,Male,42,20/03/2024,Yes,Tech Innovators Ltd,30732,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1081,EMP1081,Outpatient,Malaria,IV Therapy,Coptic Hospital,8645,Mombasa,200,Female,39,16/02/2024,No,Tech Innovators Ltd,8445,20000000,750000,75000,40000,40000,50000,Silver
+CLM1082,EMP1082,Dental,Gum Infection,Medication,Coptic Hospital,20975,Machakos,200,Male,24,23/05/2024,Yes,Tech Innovators Ltd,20775,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1083,EMP1083,Maternity,Pre-natal Checkup,Ultrasound,Coptic Hospital,104665,Mombasa,1000,Male,33,04/06/2024,Yes,Tech Innovators Ltd,103665,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1084,EMP1084,Dental,Toothache,Extraction,AAR Hospital,30159,Machakos,500,Male,49,07/08/2024,No,Tech Innovators Ltd,29659,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1085,EMP1085,Maternity,Delivery,C-Section,AAR Hospital,142402,Uasin Gishu,0,Female,38,19/07/2024,No,Tech Innovators Ltd,142402,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1086,EMP1086,Dental,Gum Infection,Medication,Coptic Hospital,60990,Machakos,200,Male,27,22/03/2024,Yes,Tech Innovators Ltd,60790,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1087,EMP1087,Dental,Gum Infection,Medication,AAR Hospital,11015,Kiambu,1000,Male,51,29/08/2024,Yes,Tech Innovators Ltd,10015,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1088,EMP1088,Maternity,Pregnancy,Ultrasound,Nairobi West Hospital,26970,Kiambu,500,Male,32,06/12/2024,Yes,Tech Innovators Ltd,26470,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1089,EMP1089,Optical,Blurred Vision,Glasses,Nairobi West Hospital,5384,Uasin Gishu,1000,Female,34,07/04/2024,No,Tech Innovators Ltd,4384,20000000,750000,75000,40000,40000,50000,Silver
+CLM1090,EMP1090,Dental,Cavity,Filling,Aga Khan,60612,Uasin Gishu,0,Male,27,15/07/2024,Yes,Tech Innovators Ltd,60612,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1091,EMP1091,Optical,Blurred Vision,Eye Test,Nairobi West Hospital,43765,Kisumu,500,Male,58,20/07/2024,No,Tech Innovators Ltd,43265,20000000,750000,75000,40000,40000,50000,Silver
+CLM1092,EMP1092,Dental,Cavity,Filling,Coptic Hospital,47744,Nairobi,200,Male,34,16/09/2024,No,Tech Innovators Ltd,47544,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1093,EMP1093,Outpatient,Flu,Consultation,Nairobi West Hospital,17489,Mombasa,500,Female,49,04/04/2024,No,Tech Innovators Ltd,16989,20000000,750000,75000,40000,40000,50000,Silver
+CLM1094,EMP1094,Dental,Gum Infection,Cleaning,Aga Khan,34285,Nairobi,0,Female,33,23/02/2024,No,Tech Innovators Ltd,34285,20000000,750000,75000,40000,40000,50000,Silver
+CLM1095,EMP1095,Maternity,Pregnancy,Antenatal Visit,Aga Khan,73682,Mombasa,500,Male,44,25/07/2024,No,Tech Innovators Ltd,73182,20000000,750000,75000,40000,40000,50000,Silver
+CLM1096,EMP1096,Inpatient,Fracture,Casting,Avenue Hospital,128587,Machakos,200,Female,59,10/07/2024,No,Tech Innovators Ltd,128387,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1097,EMP1097,Dental,Cavity,Filling,Coptic Hospital,62329,Mombasa,0,Male,51,30/11/2024,No,Tech Innovators Ltd,62329,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1098,EMP1098,Optical,Eye Infection,Eye Drops,AAR Hospital,10569,Kiambu,200,Female,25,17/05/2024,No,Tech Innovators Ltd,10369,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1099,EMP1099,Dental,Toothache,Filling,Aga Khan,16090,Kiambu,1000,Female,32,20/04/2024,Yes,Tech Innovators Ltd,15090,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1100,EMP1100,Optical,Blurred Vision,Eye Test,Nairobi West Hospital,23271,Mombasa,500,Female,25,25/12/2024,No,Tech Innovators Ltd,22771,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1101,EMP1101,Outpatient,Flu,Consultation,Avenue Hospital,14314,Machakos,1000,Female,50,08/06/2024,Yes,Tech Innovators Ltd,13314,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1102,EMP1102,Optical,Glaucoma,Surgery,Coptic Hospital,23777,Mombasa,200,Male,43,21/11/2024,No,Tech Innovators Ltd,23577,20000000,750000,75000,40000,40000,50000,Silver
+CLM1103,EMP1103,Maternity,Pre-natal Checkup,Consultation,AAR Hospital,30488,Uasin Gishu,500,Female,35,05/08/2024,Yes,Tech Innovators Ltd,29988,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1104,EMP1104,Inpatient,Cancer,Chemotherapy,Coptic Hospital,168831,Kisumu,0,Male,43,26/08/2024,Yes,Tech Innovators Ltd,168831,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1105,EMP1105,Dental,Gum Infection,Medication,AAR Hospital,18717,Machakos,200,Female,56,09/09/2024,No,Tech Innovators Ltd,18517,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1106,EMP1106,Optical,Glaucoma,Medication,Nairobi West Hospital,51391,Machakos,500,Male,45,30/12/2024,Yes,Tech Innovators Ltd,50891,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1107,EMP1107,Dental,Toothache,Extraction,Coptic Hospital,77067,Mombasa,200,Male,24,20/04/2024,Yes,Tech Innovators Ltd,76867,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1108,EMP1108,Dental,Toothache,Extraction,Aga Khan,56271,Kisumu,0,Male,59,14/08/2024,No,Tech Innovators Ltd,56271,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1109,EMP1109,Optical,Eye Infection,Eye Drops,Nairobi West Hospital,54277,Mombasa,0,Female,49,20/07/2024,Yes,Tech Innovators Ltd,54277,20000000,750000,75000,40000,40000,50000,Silver
+CLM1110,EMP1110,Inpatient,Cancer,Radiation,Nairobi West Hospital,159779,Mombasa,0,Male,38,13/01/2024,No,Tech Innovators Ltd,159779,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1111,EMP1111,Outpatient,Typhoid,Medication,Coptic Hospital,17369,Kisumu,0,Female,39,20/04/2024,Yes,Tech Innovators Ltd,17369,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1112,EMP1112,Maternity,Pregnancy,Antenatal Visit,Coptic Hospital,96090,Uasin Gishu,0,Female,40,11/02/2024,No,Tech Innovators Ltd,96090,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1113,EMP1113,Dental,Cavity,Filling,Avenue Hospital,37139,Mombasa,200,Female,27,16/08/2024,No,Tech Innovators Ltd,36939,20000000,750000,75000,40000,40000,50000,Silver
+CLM1114,EMP1114,Optical,Glaucoma,Surgery,Nairobi West Hospital,40358,Machakos,0,Female,51,04/04/2024,No,Tech Innovators Ltd,40358,20000000,750000,75000,40000,40000,50000,Silver
+CLM1115,EMP1115,Optical,Blurred Vision,Glasses,Nairobi West Hospital,27350,Mombasa,200,Male,57,10/08/2024,No,Tech Innovators Ltd,27150,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1116,EMP1116,Maternity,Delivery,Normal Delivery,Avenue Hospital,133689,Nairobi,500,Female,51,02/03/2024,Yes,Tech Innovators Ltd,133189,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1117,EMP1117,Inpatient,Fracture,Orthopedic Review,AAR Hospital,92101,Kisumu,500,Female,26,21/11/2024,Yes,Tech Innovators Ltd,91601,20000000,750000,75000,40000,40000,50000,Silver
+CLM1118,EMP1118,Dental,Gum Infection,Medication,Avenue Hospital,52533,Kisumu,500,Male,22,30/03/2024,Yes,Tech Innovators Ltd,52033,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1119,EMP1119,Maternity,Pre-natal Checkup,Consultation,Avenue Hospital,102180,Machakos,500,Female,57,28/11/2024,No,Tech Innovators Ltd,101680,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1120,EMP1120,Dental,Toothache,Filling,AAR Hospital,44387,Machakos,0,Male,31,20/06/2024,Yes,Tech Innovators Ltd,44387,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1121,EMP1121,Optical,Glaucoma,Surgery,AAR Hospital,41258,Kiambu,500,Female,30,29/09/2024,Yes,Tech Innovators Ltd,40758,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1122,EMP1122,Inpatient,Fracture,Orthopedic Review,Aga Khan,62219,Machakos,500,Female,26,13/11/2024,No,Tech Innovators Ltd,61719,20000000,750000,75000,40000,40000,50000,Silver
+CLM1123,EMP1123,Outpatient,Typhoid,Medication,Nairobi West Hospital,8415,Nairobi,1000,Female,30,16/03/2024,Yes,Tech Innovators Ltd,7415,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1124,EMP1124,Optical,Glaucoma,Surgery,Coptic Hospital,28930,Nairobi,200,Male,50,23/11/2024,Yes,Tech Innovators Ltd,28730,20000000,750000,75000,40000,40000,50000,Silver
+CLM1125,EMP1125,Dental,Cavity,Filling,AAR Hospital,69207,Uasin Gishu,200,Male,25,29/03/2024,Yes,Tech Innovators Ltd,69007,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1126,EMP1126,Dental,Gum Infection,Medication,Nairobi West Hospital,28574,Nairobi,0,Male,53,27/06/2024,No,Tech Innovators Ltd,28574,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1127,EMP1127,Optical,Glaucoma,Surgery,Aga Khan,6970,Uasin Gishu,200,Male,54,04/11/2024,No,Tech Innovators Ltd,6770,20000000,750000,75000,40000,40000,50000,Silver
+CLM1128,EMP1128,Optical,Eye Infection,Consultation,AAR Hospital,30053,Uasin Gishu,500,Female,24,27/06/2024,No,Tech Innovators Ltd,29553,20000000,750000,75000,40000,40000,50000,Silver
+CLM1129,EMP1129,Dental,Toothache,Extraction,Coptic Hospital,54028,Machakos,0,Male,57,05/06/2024,Yes,Tech Innovators Ltd,54028,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1130,EMP1130,Maternity,Pregnancy,Antenatal Visit,Aga Khan,145733,Mombasa,0,Male,25,26/03/2024,Yes,Tech Innovators Ltd,145733,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1131,EMP1131,Inpatient,Cancer,Chemotherapy,Nairobi West Hospital,121907,Mombasa,0,Male,52,29/10/2024,Yes,Tech Innovators Ltd,121907,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1132,EMP1132,Maternity,Pregnancy,Ultrasound,Avenue Hospital,134074,Nairobi,500,Male,29,17/09/2024,No,Tech Innovators Ltd,133574,20000000,750000,75000,40000,40000,50000,Silver
+CLM1133,EMP1133,Inpatient,Surgery,Major Surgery,Aga Khan,174714,Mombasa,200,Male,57,18/10/2024,No,Tech Innovators Ltd,174514,20000000,750000,75000,40000,40000,50000,Silver
+CLM1134,EMP1134,Dental,Toothache,Extraction,Coptic Hospital,12443,Uasin Gishu,1000,Male,29,23/01/2024,Yes,Tech Innovators Ltd,11443,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1135,EMP1135,Dental,Gum Infection,Cleaning,Coptic Hospital,37306,Machakos,1000,Male,39,20/04/2024,Yes,Tech Innovators Ltd,36306,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1136,EMP1136,Maternity,Delivery,C-Section,AAR Hospital,47632,Uasin Gishu,1000,Male,25,12/05/2024,No,Tech Innovators Ltd,46632,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1137,EMP1137,Inpatient,Fracture,Orthopedic Review,AAR Hospital,184869,Mombasa,0,Male,52,20/02/2024,No,Tech Innovators Ltd,184869,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1138,EMP1138,Inpatient,Surgery,Minor Surgery,Nairobi West Hospital,182717,Kiambu,200,Female,42,11/12/2024,No,Tech Innovators Ltd,182517,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1139,EMP1139,Dental,Cavity,Filling,AAR Hospital,67545,Uasin Gishu,0,Male,36,28/05/2024,Yes,Tech Innovators Ltd,67545,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1140,EMP1140,Outpatient,Typhoid,Medication,Coptic Hospital,19920,Nairobi,500,Female,47,17/10/2024,No,Tech Innovators Ltd,19420,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1141,EMP1141,Dental,Cavity,Filling,Aga Khan,51914,Uasin Gishu,500,Female,55,12/12/2024,Yes,Tech Innovators Ltd,51414,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1142,EMP1142,Inpatient,Surgery,Major Surgery,AAR Hospital,117526,Machakos,0,Female,45,25/01/2024,Yes,Tech Innovators Ltd,117526,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1143,EMP1143,Dental,Toothache,Extraction,Nairobi West Hospital,26241,Kisumu,500,Female,50,03/03/2024,Yes,Tech Innovators Ltd,25741,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1144,EMP1144,Optical,Glaucoma,Medication,Aga Khan,29917,Kiambu,500,Female,38,24/03/2024,No,Tech Innovators Ltd,29417,20000000,750000,75000,40000,40000,50000,Silver
+CLM1145,EMP1145,Maternity,Pregnancy,Antenatal Visit,Coptic Hospital,53719,Kiambu,500,Male,28,13/09/2024,Yes,Tech Innovators Ltd,53219,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1146,EMP1146,Dental,Toothache,Filling,Nairobi West Hospital,28449,Kiambu,500,Male,53,06/06/2024,No,Tech Innovators Ltd,27949,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1147,EMP1147,Maternity,Pre-natal Checkup,Ultrasound,Nairobi West Hospital,139614,Kisumu,1000,Female,23,22/04/2024,Yes,Tech Innovators Ltd,138614,20000000,750000,75000,40000,40000,50000,Silver
+CLM1148,EMP1148,Dental,Cavity,Filling,AAR Hospital,50806,Machakos,200,Male,22,20/09/2024,Yes,Tech Innovators Ltd,50606,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1149,EMP1149,Optical,Eye Infection,Eye Drops,AAR Hospital,24846,Uasin Gishu,1000,Male,31,10/06/2024,Yes,Tech Innovators Ltd,23846,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1150,EMP1150,Optical,Blurred Vision,Glasses,Aga Khan,54148,Kiambu,200,Female,22,08/11/2024,No,Tech Innovators Ltd,53948,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1151,EMP1151,Inpatient,Surgery,Major Surgery,Avenue Hospital,89986,Uasin Gishu,1000,Male,58,07/03/2024,Yes,Tech Innovators Ltd,88986,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1152,EMP1152,Optical,Blurred Vision,Eye Test,Coptic Hospital,46124,Nairobi,0,Female,35,14/10/2024,Yes,Tech Innovators Ltd,46124,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1153,EMP1153,Dental,Cavity,Filling,Aga Khan,16150,Mombasa,0,Female,35,10/08/2024,No,Tech Innovators Ltd,16150,20000000,750000,75000,40000,40000,50000,Silver
+CLM1154,EMP1154,Optical,Glaucoma,Medication,AAR Hospital,28236,Mombasa,500,Male,44,25/03/2024,No,Tech Innovators Ltd,27736,20000000,750000,75000,40000,40000,50000,Silver
+CLM1155,EMP1155,Dental,Cavity,Filling,AAR Hospital,24596,Uasin Gishu,1000,Male,23,13/07/2024,No,Tech Innovators Ltd,23596,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1156,EMP1156,Outpatient,Malaria,IV Therapy,Nairobi West Hospital,14093,Uasin Gishu,200,Male,51,13/08/2024,No,Tech Innovators Ltd,13893,20000000,750000,75000,40000,40000,50000,Silver
+CLM1157,EMP1157,Inpatient,Fracture,Casting,Coptic Hospital,117642,Uasin Gishu,500,Male,51,29/04/2024,No,Tech Innovators Ltd,117142,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1158,EMP1158,Maternity,Delivery,C-Section,Aga Khan,75029,Kisumu,200,Male,38,14/01/2024,No,Tech Innovators Ltd,74829,20000000,750000,75000,40000,40000,50000,Silver
+CLM1159,EMP1159,Outpatient,Flu,Consultation,Aga Khan,11996,Mombasa,0,Male,25,02/06/2024,No,Tech Innovators Ltd,11996,20000000,750000,75000,40000,40000,50000,Silver
+CLM1160,EMP1160,Optical,Glaucoma,Surgery,Nairobi West Hospital,36896,Machakos,200,Male,57,10/02/2024,No,Tech Innovators Ltd,36696,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1161,EMP1161,Dental,Toothache,Filling,Avenue Hospital,26725,Kiambu,500,Male,33,27/03/2024,Yes,Tech Innovators Ltd,26225,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1162,EMP1162,Outpatient,Typhoid,Medication,Avenue Hospital,17060,Kisumu,0,Male,27,06/08/2024,Yes,Tech Innovators Ltd,17060,20000000,750000,75000,40000,40000,50000,Silver
+CLM1163,EMP1163,Outpatient,Malaria,Medication,AAR Hospital,6067,Kiambu,500,Male,38,08/07/2024,No,Tech Innovators Ltd,5567,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1164,EMP1164,Maternity,Delivery,C-Section,Aga Khan,116999,Uasin Gishu,500,Male,57,08/10/2024,No,Tech Innovators Ltd,116499,20000000,750000,75000,40000,40000,50000,Silver
+CLM1165,EMP1165,Optical,Glaucoma,Surgery,Aga Khan,36987,Nairobi,0,Male,55,24/02/2024,No,Tech Innovators Ltd,36987,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1166,EMP1166,Dental,Cavity,Filling,AAR Hospital,25048,Nairobi,0,Male,55,19/07/2024,No,Tech Innovators Ltd,25048,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1167,EMP1167,Inpatient,Cancer,Radiation,Coptic Hospital,133559,Machakos,200,Male,46,01/03/2024,No,Tech Innovators Ltd,133359,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1168,EMP1168,Outpatient,Typhoid,Medication,Nairobi West Hospital,19314,Nairobi,0,Male,58,17/04/2024,Yes,Tech Innovators Ltd,19314,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1169,EMP1169,Dental,Gum Infection,Cleaning,Nairobi West Hospital,54623,Machakos,1000,Male,31,26/02/2024,Yes,Tech Innovators Ltd,53623,20000000,750000,75000,40000,40000,50000,Silver
+CLM1170,EMP1170,Optical,Blurred Vision,Glasses,Aga Khan,7421,Uasin Gishu,200,Female,52,28/05/2024,No,Tech Innovators Ltd,7221,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1171,EMP1171,Dental,Gum Infection,Cleaning,Aga Khan,37935,Kiambu,500,Male,29,25/01/2024,No,Tech Innovators Ltd,37435,20000000,750000,75000,40000,40000,50000,Silver
+CLM1172,EMP1172,Optical,Blurred Vision,Eye Test,Nairobi West Hospital,42198,Kiambu,500,Male,38,08/10/2024,No,Tech Innovators Ltd,41698,20000000,750000,75000,40000,40000,50000,Silver
+CLM1173,EMP1173,Outpatient,Typhoid,Medication,Coptic Hospital,4500,Kiambu,1000,Male,30,24/06/2024,Yes,Tech Innovators Ltd,3500,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1174,EMP1174,Optical,Glaucoma,Surgery,Avenue Hospital,40435,Kisumu,0,Male,56,12/04/2024,No,Tech Innovators Ltd,40435,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1175,EMP1175,Inpatient,Fracture,Orthopedic Review,Avenue Hospital,184055,Mombasa,1000,Male,55,10/05/2024,No,Tech Innovators Ltd,183055,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1176,EMP1176,Outpatient,Malaria,Medication,AAR Hospital,16737,Kiambu,500,Female,50,28/07/2024,Yes,Tech Innovators Ltd,16237,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1177,EMP1177,Maternity,Pregnancy,Ultrasound,Nairobi West Hospital,36371,Mombasa,0,Male,34,20/05/2024,No,Tech Innovators Ltd,36371,20000000,750000,75000,40000,40000,50000,Silver
+CLM1178,EMP1178,Outpatient,Flu,Medication,Coptic Hospital,15984,Machakos,500,Male,50,13/11/2024,No,Tech Innovators Ltd,15484,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1179,EMP1179,Outpatient,Typhoid,Medication,Coptic Hospital,13816,Uasin Gishu,0,Male,31,24/12/2024,Yes,Tech Innovators Ltd,13816,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1180,EMP1180,Outpatient,Typhoid,Medication,Coptic Hospital,10832,Kiambu,200,Female,35,06/06/2024,No,Tech Innovators Ltd,10632,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1181,EMP1181,Optical,Eye Infection,Eye Drops,Nairobi West Hospital,6828,Machakos,0,Male,36,13/03/2024,No,Tech Innovators Ltd,6828,20000000,750000,75000,40000,40000,50000,Silver
+CLM1182,EMP1182,Optical,Blurred Vision,Glasses,Nairobi West Hospital,39636,Mombasa,0,Male,27,21/10/2024,No,Tech Innovators Ltd,39636,20000000,750000,75000,40000,40000,50000,Silver
+CLM1183,EMP1183,Dental,Cavity,Filling,Coptic Hospital,48197,Kisumu,0,Male,28,21/02/2024,Yes,Tech Innovators Ltd,48197,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1184,EMP1184,Inpatient,Fracture,Casting,Coptic Hospital,111665,Nairobi,0,Female,31,16/04/2024,Yes,Tech Innovators Ltd,111665,20000000,1000000,100000,50000,50000,75000,Gold
+CLM1185,EMP1185,Dental,Toothache,Extraction,Aga Khan,72483,Mombasa,0,Male,26,23/02/2024,No,Tech Innovators Ltd,72483,20000000,750000,75000,40000,40000,50000,Silver
+CLM1186,EMP1186,Inpatient,Fracture,Orthopedic Review,Avenue Hospital,162855,Nairobi,0,Female,56,26/06/2024,No,Tech Innovators Ltd,162855,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1187,EMP1187,Inpatient,Surgery,Minor Surgery,Avenue Hospital,152979,Kisumu,500,Male,46,24/11/2024,No,Tech Innovators Ltd,152479,20000000,750000,75000,40000,40000,50000,Silver
+CLM1188,EMP1188,Outpatient,Typhoid,Medication,AAR Hospital,8016,Kiambu,500,Male,49,29/01/2024,No,Tech Innovators Ltd,7516,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1189,EMP1189,Optical,Eye Infection,Eye Drops,Coptic Hospital,45059,Mombasa,200,Male,46,17/09/2024,Yes,Tech Innovators Ltd,44859,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1190,EMP1190,Dental,Cavity,Filling,Nairobi West Hospital,51873,Uasin Gishu,1000,Female,29,07/09/2024,Yes,Tech Innovators Ltd,50873,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1191,EMP1191,Outpatient,Flu,Medication,Nairobi West Hospital,15880,Kiambu,0,Female,34,10/10/2024,Yes,Tech Innovators Ltd,15880,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1192,EMP1192,Maternity,Pre-natal Checkup,Ultrasound,Coptic Hospital,39623,Uasin Gishu,1000,Female,24,25/02/2024,Yes,Tech Innovators Ltd,38623,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1193,EMP1193,Dental,Cavity,Filling,Aga Khan,61756,Machakos,200,Male,54,28/02/2024,No,Tech Innovators Ltd,61556,20000000,750000,75000,40000,40000,50000,Silver
+CLM1194,EMP1194,Inpatient,Cancer,Radiation,Avenue Hospital,119274,Kisumu,500,Male,57,09/07/2024,No,Tech Innovators Ltd,118774,20000000,1500000,150000,75000,75000,100000,Platinum
+CLM1195,EMP1195,Outpatient,Flu,Consultation,Coptic Hospital,10561,Machakos,200,Male,52,23/01/2024,Yes,Tech Innovators Ltd,10361,20000000,750000,75000,40000,40000,50000,Silver
+CLM1196,EMP1196,Optical,Eye Infection,Consultation,Avenue Hospital,31588,Kisumu,500,Male,52,22/03/2024,Yes,Tech Innovators Ltd,31088,20000000,750000,75000,40000,40000,50000,Silver
+CLM1197,EMP1197,Dental,Gum Infection,Medication,Nairobi West Hospital,44832,Machakos,1000,Female,23,11/08/2024,No,Tech Innovators Ltd,43832,20000000,750000,75000,40000,40000,50000,Silver
+CLM1198,EMP1198,Outpatient,Typhoid,Medication,AAR Hospital,8445,Kisumu,0,Female,45,30/12/2024,No,Tech Innovators Ltd,8445,20000000,750000,75000,40000,40000,50000,Silver
+CLM1199,EMP1199,Optical,Blurred Vision,Eye Test,Coptic Hospital,10084,Machakos,1000,Female,53,14/11/2024,Yes,Tech Innovators Ltd,9084,20000000,1000000,100000,50000,50000,75000,Gold

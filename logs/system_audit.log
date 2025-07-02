@@ -1,0 +1,12 @@
+{"timestamp": "2025-06-05T05:16:21.732517", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:21:07.888989", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:21:26.045616", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T08:24:09.980237", "user": "acme_123", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T16:55:51.404077", "user": "broker2", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-05T17:41:03.867690", "user": "underwriter1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-06T02:56:38.037913", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-07T23:18:43.930689", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-08T12:05:38.825999", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-06-16T19:54:00.744850", "user": "brokerpass", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-02T08:46:01.937573", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-02T15:09:43.147761", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}

@@ -1,0 +1,10 @@
+2025-06-06 08:16:21,467 - __main__ - WARNING - No data file found for tenant virtual_analytics
+2025-06-06 08:16:21,470 - __main__ - WARNING - No model found for tenant virtual_analytics
+2025-06-06 08:16:34,320 - __main__ - INFO - Saved data for tenant virtual_analytics to data\virtual_analytics_claims.csv
+2025-06-06 08:16:39,211 - __main__ - INFO - Saved data for tenant virtual_analytics to data\virtual_analytics_claims.csv
+2025-06-06 10:46:00,167 - root - ERROR - Error loading claims data: 'date'
+2025-06-06 10:53:39,674 - root - ERROR - Error loading claims data: Cannot convert non-finite values (NA or inf) to integer
+2025-06-06 10:53:51,003 - root - ERROR - Error loading claims data: 'date'
+2025-06-06 11:00:49,227 - root - ERROR - Error loading claims data: 'date'
+2025-06-06 11:09:46,795 - root - ERROR - Error loading claims data: 'date'
+2025-06-06 13:05:08,131 - root - ERROR - Error loading claims data: 'date'

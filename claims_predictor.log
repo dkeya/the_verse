@@ -1,0 +1,47 @@
+2025-06-08 21:01:14,328 - __main__ - INFO - Data cleaning completed successfully
+2025-06-08 21:02:19,818 - __main__ - ERROR - Failed to generate data report: <matplotlib.backends.backend_mixed.MixedModeRenderer object at 0x000001FDB646E330>
+2025-06-09 18:42:25,399 - __main__ - INFO - Data cleaning completed successfully
+2025-06-12 19:01:53,090 - __main__ - INFO - Data cleaning completed successfully
+2025-06-12 19:19:07,445 - __main__ - INFO - Data cleaning completed successfully
+2025-06-13 17:18:38,069 - __main__ - INFO - Data cleaning completed successfully
+2025-06-14 20:33:40,741 - __main__ - INFO - Data cleaning completed successfully
+2025-06-14 22:56:34,961 - __main__ - INFO - Data cleaning completed successfully
+2025-06-16 22:54:26,085 - root - ERROR - Error loading claims data: 'employee_id'
+2025-06-16 22:55:32,985 - __main__ - INFO - Data cleaning completed successfully
+2025-07-01 16:56:33,718 - __main__ - INFO - Data cleaning completed successfully
+2025-07-01 16:57:21,055 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 06:53:56,694 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 08:48:57,562 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 09:52:37,167 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 10:11:50,601 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 10:30:12,813 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 10:59:25,796 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 11:17:45,153 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 11:58:00,151 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 12:06:17,141 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 12:09:23,238 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 12:24:15,801 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 13:05:14,322 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 13:25:03,552 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 14:13:53,382 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 14:16:17,196 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 14:23:39,081 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 14:44:16,502 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 15:44:41,536 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 15:45:39,983 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 17:48:16,594 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 17:59:36,272 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 18:02:27,727 - __main__ - INFO - Best params for GradientBoosting: {'regressor__n_estimators': 100, 'regressor__max_depth': 3, 'regressor__learning_rate': 0.01}
+2025-07-02 18:02:27,769 - __main__ - WARNING - Fraud model training failed: This ColumnTransformer instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-07-02 18:04:35,183 - root - ERROR - Report generation failed: Could not convert string '554479' to numeric
+2025-07-02 18:09:59,528 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 18:10:58,980 - root - ERROR - Report generation failed: Invalid binary data format: <class 'dict'>
+2025-07-02 19:12:54,896 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 19:19:22,779 - __main__ - INFO - Best params for GradientBoosting: {'regressor__n_estimators': 100, 'regressor__max_depth': 3, 'regressor__learning_rate': 0.01}
+2025-07-02 19:19:31,463 - __main__ - INFO - Best params for RandomForest: {'regressor__n_estimators': 50, 'regressor__min_samples_split': 5, 'regressor__max_depth': 5}
+2025-07-02 19:19:43,671 - __main__ - INFO - Best params for NeuralNetwork: {'regressor__solver': 'sgd', 'regressor__hidden_layer_sizes': (50,), 'regressor__activation': 'tanh'}
+2025-07-02 19:29:02,456 - __main__ - INFO - Data cleaning completed successfully
+2025-07-02 19:31:00,107 - __main__ - INFO - Best params for GradientBoosting: {'regressor__n_estimators': 100, 'regressor__max_depth': 3, 'regressor__learning_rate': 0.01}
+2025-07-02 19:31:23,497 - __main__ - INFO - Best params for RandomForest: {'regressor__n_estimators': 50, 'regressor__min_samples_split': 5, 'regressor__max_depth': 5}
+2025-07-02 19:32:35,992 - __main__ - INFO - Best params for NeuralNetwork: {'regressor__solver': 'sgd', 'regressor__hidden_layer_sizes': (50,), 'regressor__activation': 'tanh'}
+2025-07-02 20:58:19,192 - __main__ - INFO - Data cleaning completed successfully
