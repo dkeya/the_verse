@@ -2542,13 +2542,13 @@ def broker_underwriter_dashboard(user_info):
     st.title(f"The Verse - {user_info['tenant'].title()} Dashboard")
     log_audit_event(user_info['name'], "broker_login")
 
-    # NEW ENHANCEMENT: Broker-specific logo
-    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"  # Broker logo
-    try:
-        st.sidebar.image(logo_path, use_container_width=True)
-    except FileNotFoundError:
-        st.sidebar.warning("Logo image not found - using placeholder")
-        st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
+    # # NEW ENHANCEMENT: Broker-specific logo 
+    # logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"  # Broker logo
+    # try:
+    #     st.sidebar.image(logo_path, use_container_width=True)
+    # except FileNotFoundError:
+    #     st.sidebar.warning("Logo image not found - using placeholder")
+    #     st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
 
     st.sidebar.markdown("---")
     st.sidebar.markdown("### About")
