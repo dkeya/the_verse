@@ -17,6 +17,8 @@ import tempfile
 import os
 import hmac
 import joblib
+from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler

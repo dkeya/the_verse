@@ -45,3 +45,101 @@
 2025-07-02 19:31:23,497 - __main__ - INFO - Best params for RandomForest: {'regressor__n_estimators': 50, 'regressor__min_samples_split': 5, 'regressor__max_depth': 5}
 2025-07-02 19:32:35,992 - __main__ - INFO - Best params for NeuralNetwork: {'regressor__solver': 'sgd', 'regressor__hidden_layer_sizes': (50,), 'regressor__activation': 'tanh'}
 2025-07-02 20:58:19,192 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 04:50:35,352 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 05:59:27,709 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 07:04:16,639 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 07:04:28,773 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 07:12:06,590 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 07:12:18,814 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 07:16:39,949 - __main__ - INFO - Best params for GradientBoosting: {'regressor__n_estimators': 100, 'regressor__max_depth': 3, 'regressor__learning_rate': 0.01}
+2025-07-03 07:16:39,995 - __main__ - WARNING - Fraud model training failed: This ColumnTransformer instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-07-03 07:22:23,133 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 07:22:30,379 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 07:30:56,992 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 07:34:40,837 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 07:46:22,361 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 07:46:52,594 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 08:33:16,688 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 08:33:28,669 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 08:49:41,837 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 08:49:49,344 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 09:03:21,600 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 09:17:12,185 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 09:21:11,943 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 10:46:06,360 - root - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-03 10:46:41,577 - root - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-03 10:47:44,036 - root - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-03 10:51:26,907 - root - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-03 10:54:44,852 - root - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-03 11:08:00,036 - root - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-03 11:08:22,468 - root - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-07-03 11:11:23,393 - root - ERROR - Data loading failed
+Traceback (most recent call last):
+  File "C:\Users\dkeya\Documents\projects\the Verse\demo\app.py", line 1585, in load_real_claims_data
+    df = pd.read_csv(uploaded_file, thousands=',', encoding=encoding)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1898, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "parsers.pyx", line 581, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2025-07-03 11:11:35,374 - root - ERROR - Data loading failed
+Traceback (most recent call last):
+  File "C:\Users\dkeya\Documents\projects\the Verse\demo\app.py", line 1585, in load_real_claims_data
+    df = pd.read_csv(uploaded_file, thousands=',', encoding=encoding)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1898, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dkeya\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "parsers.pyx", line 581, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2025-07-03 11:19:35,103 - root - ERROR - File processing error: 'utf-8' codec can't decode bytes in position 15-16: invalid continuation byte
+2025-07-03 11:20:41,308 - root - ERROR - File processing error: 'utf-8' codec can't decode bytes in position 15-16: invalid continuation byte
+2025-07-03 11:25:29,365 - root - INFO - Renamed PROV_NAME to provider_id
+2025-07-03 11:25:29,367 - root - INFO - Renamed AMOUNT to amount
+2025-07-03 11:25:29,368 - root - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-03 11:25:29,368 - root - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-03 11:25:29,368 - root - INFO - Renamed Ailment to diagnosis
+2025-07-03 11:25:29,368 - root - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-03 11:25:29,368 - root - INFO - Renamed POL_NAME to employer
+2025-07-03 11:25:29,368 - root - INFO - Renamed Department to department
+2025-07-03 11:25:41,359 - __main__ - INFO - Data cleaning completed successfully
+2025-07-03 11:32:31,491 - root - INFO - Renamed PROV_NAME to provider_id
+2025-07-03 11:32:31,494 - root - INFO - Renamed AMOUNT to amount
+2025-07-03 11:32:31,494 - root - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-03 11:32:31,494 - root - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-03 11:32:31,494 - root - INFO - Renamed Ailment to diagnosis
+2025-07-03 11:32:31,500 - root - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-03 11:32:31,500 - root - INFO - Renamed POL_NAME to employer
+2025-07-03 11:32:31,504 - root - INFO - Renamed Department to department
+2025-07-03 11:33:04,143 - __main__ - INFO - Data cleaning completed successfully

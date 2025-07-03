@@ -10,3 +10,6 @@
 {"timestamp": "2025-06-16T19:54:00.744850", "user": "brokerpass", "action": "login_failed", "target": null, "ip": ""}
 {"timestamp": "2025-07-02T08:46:01.937573", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
 {"timestamp": "2025-07-02T15:09:43.147761", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T05:15:03.151574", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T05:15:10.650569", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T05:15:12.065470", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
