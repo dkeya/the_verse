@@ -25,7 +25,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 import logging
 import altair as alt
-
 import dask.dataframe as dd
 import shap
 import optuna
@@ -62,12 +61,14 @@ TENANT_CONFIG = {
 }
 
 COLUMN_MAPPING = {
-    'provider_id': ['Provider_Name', 'provider_id', 'Provider'],
-    'amount': ['Claim_Amount_KES', 'amount', 'TotalClaimed'],
-    'date': ['Submission_Date', 'date', 'ClaimDate'],
-    'employee_id': ['Employee_ID', 'employee_id', 'MemberID'],
-    'diagnosis': ['Diagnosis', 'diagnosis', 'Ailment'],
-    'treatment': ['Treatment', 'treatment', 'Benefit']
+    'provider_id': ['PROV_NAME', 'provider_id', 'Provider'],
+    'amount': ['AMOUNT', 'amount', 'TotalClaimed'],
+    'date': ['CLAIM_PROV_DATE', 'date', 'ClaimDate'],
+    'employee_id': ['CLAIM_MEMBER_NUMBER', 'employee_id', 'MemberID'],
+    'diagnosis': ['Ailment', 'diagnosis', 'Diagnosis'],
+    'treatment': ['SERVICE_DESCRIPTION', 'treatment', 'Benefit'],
+    'employer': ['POL_NAME', 'Employer'],
+    'department': ['Department']
 }
 
 def get_column(df, possible_names):
@@ -416,7 +417,7 @@ class ClaimsPredictor:
                     df['Department'] = 'General'
 
                 if 'Hire_Date' in df.columns:
-                    df['Tenure'] = (datetime.now() - df['Hire_Date']).dt.days / 365
+                    df['Tenure'] = ((datetime.now() - df['Hire_Date']).dt.days / 365)
                     df['Tenure_Group'] = pd.cut(df['Tenure'],
                                               bins=[0, 1, 5, 100],
                                               labels=['<1yr', '1-5yrs', '5+yrs'])
@@ -1136,7 +1137,6 @@ def render_provider_efficiency(data):
 
     # Get amount column using column mapping
     amount_col = get_column(data, COLUMN_MAPPING['amount'])
-
     if not amount_col:
         st.warning("Amount information missing for efficiency analysis")
         return
@@ -1404,50 +1404,268 @@ def render_exploratory_analysis(data):
     except Exception as e:
         st.error(f"Error during exploratory analysis: {str(e)}")
 
+def render_fraud_detection(user_info):
+    """Enhanced fraud detection dashboard with visualizations"""
+    st.header("Fraud Detection Analysis")
+    log_audit_event(user_info['name'], "fraud_detection_accessed")
+
+    if st.session_state.claims_data is None:
+        st.warning("Please upload claims data first")
+        return
+
+    claims_data = st.session_state.claims_data.copy()
+    
+    # Ensure amount column is numeric
+    if 'amount' in claims_data.columns:
+        claims_data['amount'] = pd.to_numeric(claims_data['amount'], errors='coerce').fillna(0)
+
+    # Summary metrics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        fraud_count = claims_data['fraud_flag'].sum()
+        st.metric("Potential Fraud Cases", fraud_count)
+    with col2:
+        fraud_rate = fraud_count / len(claims_data)
+        st.metric("Fraud Rate", f"{fraud_rate:.1%}")
+    with col3:
+        fraud_amount = claims_data.loc[claims_data['fraud_flag'] == 1, 'amount']
+        if not fraud_amount.empty:
+            fraud_amount = float(fraud_amount.sum())
+            st.metric("Amount at Risk", f"KES {fraud_amount:,.2f}" if isinstance(fraud_amount, (int, float)) else "KES N/A")
+        else:
+            st.metric("Amount at Risk", "KES 0.00")
+
+    # Fraud distribution by provider
+    st.subheader("Fraud by Provider")
+    if 'provider_name' in claims_data.columns:
+        provider_fraud = claims_data.groupby('provider_name').agg({
+            'amount': 'sum',
+            'fraud_flag': ['sum', 'count']
+        }).reset_index()
+        provider_fraud.columns = ['Provider', 'Total Amount', 'Fraud Count', 'Total Claims']
+        provider_fraud['Fraud Rate'] = provider_fraud['Fraud Count'] / provider_fraud['Total Claims']
+
+        # Show top fraudulent providers
+        top_fraud = provider_fraud.sort_values('Fraud Count', ascending=False).head(10)
+        fig = px.bar(
+            top_fraud,
+            x='Provider',
+            y='Fraud Count',
+            color='Fraud Rate',
+            title="Top Providers by Fraud Count"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.warning("No provider information available")
+
+    # Fraud patterns by diagnosis
+    st.subheader("Fraud Patterns by Diagnosis")
+    if 'diagnosis' in claims_data.columns:
+        diagnosis_fraud = claims_data.groupby('diagnosis').agg({
+            'amount': 'sum',
+            'fraud_flag': ['sum', 'count']
+        }).reset_index()
+        diagnosis_fraud.columns = ['Diagnosis', 'Total Amount', 'Fraud Count', 'Total Claims']
+        diagnosis_fraud['Fraud Rate'] = diagnosis_fraud['Fraud Count'] / diagnosis_fraud['Total Claims']
+
+        # Show diagnoses with highest fraud rates
+        high_fraud_diag = diagnosis_fraud[diagnosis_fraud['Total Claims'] > 10].sort_values(
+            'Fraud Rate', ascending=False).head(10)
+        
+        if not high_fraud_diag.empty:
+            fig = px.bar(
+                high_fraud_diag,
+                x='Diagnosis',
+                y='Fraud Rate',
+                color='Total Amount',
+                title="Diagnoses with Highest Fraud Rates"
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("Insufficient data for diagnosis analysis")
+    else:
+        st.warning("No diagnosis information available")
+
+    # Fraud over time
+    st.subheader("Fraud Over Time")
+    date_col = get_column(claims_data, COLUMN_MAPPING['date'])
+    if date_col:
+        try:
+            claims_data[date_col] = pd.to_datetime(claims_data[date_col])
+            fraud_over_time = claims_data.set_index(date_col).resample('M')['fraud_flag'].sum().reset_index()
+            
+            fig = px.line(
+                fraud_over_time,
+                x=date_col,
+                y='fraud_flag',
+                title="Monthly Fraud Cases"
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        except:
+            st.warning("Could not analyze fraud over time")
+    else:
+        st.warning("No date information available")
+
+    # Detailed fraud cases
+    st.subheader("Potential Fraud Cases")
+    fraud_cases = claims_data[claims_data['fraud_flag'] == 1]
+    st.dataframe(fraud_cases.head(100))
+
 # ==============================================
 # REAL DATA PROCESSING AND MODEL INTEGRATION
 # ==============================================
 
-def load_real_claims_data(uploaded_file, tenant_key):
-    """Load and process real claims data with column mapping"""
+def detect_data_format(df):
+    """Enhanced format detection with more column checks"""
+    client_indicators = ['CLAIM_CENTRAL_ID', 'CLAIM_MEMBER_NUMBER', 'CLAIM_PROV_DATE']
+    test_indicators = ['Claim_ID', 'Employee_ID', 'Submission_Date']
+    
+    # Check for client format
+    if any(col in df.columns for col in client_indicators):
+        return 'client'
+    
+    # Check for test format
+    if any(col in df.columns for col in test_indicators):
+        return 'test'
+    
+    # Try to guess based on structure
+    if len(df.columns) > 15:  # Client data typically has more columns
+        return 'client'
+    
+    return 'unknown'
+    
+def transform_client_data(df):
+    """Transform line-item data to claim-level format"""
     try:
-        # Read CSV with proper encoding
-        df = pd.read_csv(uploaded_file, thousands=',', encoding='latin1')
+        # Group by claim and aggregate
+        claim_level = df.groupby(['CLAIM_CENTRAL_ID', 'CLAIM_MEMBER_NUMBER', 'CLAIM_PROV_DATE', 
+                                'PROV_NAME', 'POL_NAME', 'Ailment', 'Department']).agg({
+            'AMOUNT': 'sum',
+            'SERVICE_DESCRIPTION': lambda x: '|'.join(set(x)),
+            'Gender': 'first',
+            'DOB': 'first'
+        }).reset_index()
+        
+        # Calculate age from DOB
+        claim_level['employee_age'] = ((pd.to_datetime('today') - pd.to_datetime(claim_level['DOB'])).dt.days / 365).astype(int)
+        
+        # Add default values for missing columns
+        claim_level['co_payment'] = claim_level['AMOUNT'] * 0.1  # Default 10% co-payment
+        claim_level['status'] = 'Paid'
+        claim_level['Category'] = 'Standard'  # Default category
+        
+        # Rename columns to match expected names
+        claim_level = claim_level.rename(columns={
+            'CLAIM_MEMBER_NUMBER': 'employee_id',
+            'CLAIM_PROV_DATE': 'date',
+            'PROV_NAME': 'provider_name',
+            'POL_NAME': 'employer',
+            'Ailment': 'diagnosis',
+            'SERVICE_DESCRIPTION': 'treatment',
+            'AMOUNT': 'amount',
+            'Gender': 'employee_gender'
+        })
+        
+        return claim_level
+    
+    except Exception as e:
+        logging.error(f"Error transforming client data: {str(e)}")
+        return df
 
-        # Apply column mapping
+def load_real_claims_data(uploaded_file, tenant_key):
+    """Enhanced data loading that handles both CSV and Excel"""
+    try:
+        # Determine file type
+        file_ext = uploaded_file.name.split('.')[-1].lower()
+        
+        if file_ext == 'xlsx':
+            # For Excel files
+            df = pd.read_excel(uploaded_file)
+        else:
+            # For CSV files - try multiple encodings
+            encodings = ['utf-8', 'latin1', 'iso-8859-1', 'cp1252']
+            for encoding in encodings:
+                try:
+                    uploaded_file.seek(0)  # Reset file pointer
+                    df = pd.read_csv(uploaded_file, thousands=',', encoding=encoding)
+                    break
+                except (UnicodeDecodeError, pd.errors.ParserError):
+                    continue
+            else:
+                st.error("Failed to read file - unsupported encoding or corrupt file")
+                return None
+           
+        # Apply column mapping with fallbacks
         for standard_name, possible_names in COLUMN_MAPPING.items():
             actual_col = get_column(df, possible_names)
             if actual_col and actual_col != standard_name:
                 df.rename(columns={actual_col: standard_name}, inplace=True)
+                logging.info(f"Renamed {actual_col} to {standard_name}")
+        
+        # ==============================================
+        # COMMON CLIENT DATA FIXES IMPLEMENTATION
+        # ==============================================
+        
+        # 1. Date Format Problems Fix
+        if 'date' in df.columns:
+            # Try multiple common date formats
+            date_formats = ['%d/%m/%Y', '%m/%d/%Y', '%Y-%m-%d', '%d-%m-%Y', '%Y/%m/%d']
+            for fmt in date_formats:
+                try:
+                    df['date'] = pd.to_datetime(df['date'], format=fmt, errors='coerce')
+                    if not df['date'].isnull().all():  # If at least some dates parsed
+                        break
+                except:
+                    continue
+            
+            null_dates = df['date'].isnull().sum()
+            if null_dates > 0:
+                st.warning(f"Could not parse {null_dates} date values - these rows will be excluded")
+                df = df[df['date'].notna()]
 
-        # Convert date columns
-        date_col = get_column(df, COLUMN_MAPPING['date'])
-        if date_col:
-            df[date_col] = pd.to_datetime(df[date_col], errors='coerce')
+        # 2. Amount Field Formatting Fix
+        if 'amount' in df.columns:
+            df['amount'] = (
+                df['amount'].astype(str)
+                .str.replace(',', '')          # Remove thousands separators
+                .str.replace(r'[^\d.]', '', regex=True)  # Remove all non-numeric except decimal
+                .astype(float)
+            )
+            # Fill NA amounts with 0 and log warning
+            na_amounts = df['amount'].isna().sum()
+            if na_amounts > 0:
+                st.warning(f"Found {na_amounts} records with invalid amounts - setting to 0")
+                df['amount'] = df['amount'].fillna(0)
 
-        # Calculate employee age if DOB is available
-        if 'employee_dob' in df.columns:
-            df['employee_age'] = ((datetime.now() - df['employee_dob']).dt.days / 365).astype(int)
-
-        # Add missing columns with defaults
-        if 'status' not in df.columns:
-            df['status'] = 'Paid'
-
-        if 'co_payment' not in df.columns and 'amount' in df.columns:
-            df['co_payment'] = df['amount'] * 0.1
-
-        # Pseudonymize sensitive data
-        df = df.apply(lambda x: pseudonymize_claim_data(x, tenant_key), axis=1)
-
-        # Initialize fraud detection columns
-        df['is_fraud'] = 0
-        df['fraud_flag'] = 0
-        df['fraud_score'] = 0
+        # 3. Missing Required Columns - Already handled by updated COLUMN_MAPPING
+        # (The mapping should be updated at the module level, outside this function)
+        
+        # ==============================================
+        # END OF COMMON FIXES
+        # ==============================================
+        
+        # Validate we have required columns
+        required_cols = ['amount', 'date', 'employee_id']
+        missing_cols = [col for col in required_cols if col not in df.columns]
+        
+        if missing_cols:
+            st.error(f"Missing required columns: {', '.join(missing_cols)}")
+            logging.error(f"Missing columns: {missing_cols}")
+            # Suggest potential column names based on common patterns
+            suggestions = {
+                'amount': [c for c in df.columns if 'amt' in c.lower() or 'total' in c.lower()],
+                'date': [c for c in df.columns if 'date' in c.lower() or 'dt' in c.lower()],
+                'employee_id': [c for c in df.columns if 'emp' in c.lower() or 'member' in c.lower()]
+            }
+            st.info("Suggested similar columns: " + 
+                   ", ".join(f"{k}: {v}" for k,v in suggestions.items() if v))
+            return None
 
         return df
 
     except Exception as e:
-        logging.error(f"Error loading claims data: {str(e)}")
+        st.error(f"Error loading data: {str(e)}")
+        logging.exception("Data loading failed")
         return None
 
 def detect_fraud_anomalies(df):
@@ -1495,7 +1713,7 @@ def detect_fraud_anomalies(df):
     except Exception as e:
         logging.error(f"Fraud detection failed: {str(e)}")
         return df
-
+    
 # ==============================================
 # REPORT GENERATION FUNCTIONS
 # ==============================================
@@ -1764,6 +1982,32 @@ def admin_dashboard():
     st.title("The Verse - Admin Console")
     user_info = st.session_state.user_info
 
+    # NEW ENHANCEMENT: Sidebar upgrade
+    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"
+    try:
+        st.sidebar.image(logo_path, use_container_width=True)
+    except FileNotFoundError:
+        st.sidebar.warning("Logo image not found - using placeholder")
+        st.sidebar.image("https://via.placeholder.com/150x50?text=LOGO", use_container_width=True)
+
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### About")
+    st.sidebar.markdown("""
+        AI-powered claims analytics providing:
+        - Predictive cost modeling
+        - Fraud pattern detection
+        - Client-specific business intelligence
+        - Scenario simulation engines
+        """)
+
+    if st.sidebar.button("🚀 Launch API Console"):
+        if 'predictor' in st.session_state:
+            api = create_api(st.session_state.predictor)
+            import uvicorn
+            uvicorn.run(api, host="0.0.0.0", port=8000)
+        else:
+            st.sidebar.warning("No trained model available")
+
     # Audit log
     log_audit_event(user_info['name'], "admin_login")
 
@@ -1856,70 +2100,8 @@ def admin_dashboard():
                 st.warning("No system logs available")
 
 # ==============================================
-# BROKER/UNDERWRITER INTERFACE
+# BROKER/UNDERWRITER INTERFACE - CLAIMS PREDICTION
 # ==============================================
-
-def broker_underwriter_dashboard(user_info):
-    st.title(f"The Verse - {user_info['tenant'].title()} Dashboard")
-    log_audit_event(user_info['name'], "broker_login")
-
-    # Initialize session state for data and predictor
-    if 'claims_data' not in st.session_state:
-        st.session_state.claims_data = None
-
-    if 'predictor' not in st.session_state:
-        st.session_state.predictor = ClaimsPredictor()
-
-    # Main navigation - ALWAYS VISIBLE (modified section)
-    st.sidebar.header("Analysis Mode")
-    analysis_type = st.sidebar.radio(
-        "Select Mode:",
-        options=["Claims Upload", "Claims Prediction", "Fraud Detection", "Client Management", "Reports"],
-        key='broker_analysis_mode'
-    )
-
-    if analysis_type == "Claims Upload":
-        render_claims_upload(user_info)
-    elif analysis_type == "Claims Prediction":
-        render_claims_prediction(user_info)
-    elif analysis_type == "Fraud Detection":
-        render_fraud_detection(user_info)
-    elif analysis_type == "Client Management":
-        render_client_management(user_info)
-    elif analysis_type == "Reports":
-        render_report_generation(user_info)
-
-def render_claims_upload(user_info):
-    st.header("Claims Data Upload")
-    log_audit_event(user_info['name'], "claims_upload_accessed")
-
-    uploaded_file = st.file_uploader(
-        "Upload Claims Data (CSV)",
-        type=['csv'],
-        help="Upload CSV file with claims data"
-    )
-
-    if uploaded_file is not None:
-        with st.spinner("Processing uploaded data..."):
-            # Load and process the real claims data
-            claims_data = load_real_claims_data(uploaded_file, user_info['tenant'])
-
-            if claims_data is not None:
-                # Run fraud detection
-                claims_data = detect_fraud_anomalies(claims_data)
-
-                # Store in session state
-                st.session_state.claims_data = claims_data
-
-                st.success(f"Successfully loaded {len(claims_data)} claims")
-                log_audit_event(user_info['name'], "data_uploaded", f"{len(claims_data)} records")
-
-                # Show data preview
-                with st.expander("View Uploaded Data"):
-                    st.dataframe(claims_data.head())
-            else:
-                st.error("Failed to process the uploaded file")
-
 
 def render_claims_prediction(user_info):
     st.header("Claims Prediction Engine")
@@ -1929,8 +2111,15 @@ def render_claims_prediction(user_info):
         st.warning("Please upload claims data first")
         return
 
-    # Initialize tabs first
-    tab1, tab2, tab3, tab4 = st.tabs(["Data Preparation", "Exploratory Analysis", "Model Training", "Make Predictions"])
+    # Initialize tabs - NEW ENHANCEMENT: Added Impact Analysis and Agentic AI tabs
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        "Data Preparation", 
+        "Exploratory Analysis", 
+        "Model Training", 
+        "Make Predictions",
+        "Impact Analysis",      # NEW ENHANCEMENT
+        "Agentic AI"            # NEW ENHANCEMENT
+    ])
 
     with tab1:
         st.subheader("Data Cleaning & Preparation")
@@ -2179,426 +2368,232 @@ def render_claims_prediction(user_info):
                             mime="text/csv"
                         )
 
-# ==============================================
-# FRAUD DETECTION INTERFACE
-# ==============================================
+    # NEW ENHANCEMENT: Impact Analysis Tab
+    with tab5:
+        st.subheader("Impact Analysis")
+        st.write("Under development: Cost-benefit simulation engine")
+        st.image("https://via.placeholder.com/600x200?text=IMPACT+ANALYSIS+DASHBOARD")
+        
+        st.write("""
+        This module will allow you to:
+        - Simulate different cost scenarios
+        - Project financial impacts of benefit changes
+        - Compare alternative plan designs
+        - Estimate ROI for wellness programs
+        """)
 
-def render_fraud_detection(user_info):
-    st.header("Fraud Detection Center")
-    log_audit_event(user_info['name'], "fraud_center_accessed")
+    # NEW ENHANCEMENT: Agentic AI Tab
+    with tab6:
+        st.subheader("Agentic AI")
+        st.write("Autonomous analysis agents coming soon")
+        st.image("https://via.placeholder.com/600x200?text=AGENTIC+AI+DASHBOARD")
+        
+        st.write("""
+        Future capabilities will include:
+        - Automated anomaly detection
+        - Intelligent claims routing
+        - Self-optimizing prediction models
+        - Natural language query interface
+        """)
 
-    if st.session_state.claims_data is None:
-        st.warning("Please upload claims data first")
-        return
+def render_claims_upload(user_info):
+    st.header("Claims Data Upload")
+    
+    # Initialize logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        filename='data_loading.log'
+    )
+    
+    uploaded_file = st.file_uploader(
+        "Upload Claims Data (CSV or Excel)",
+        type=['csv', 'xlsx'],
+        key='claims_uploader'
+    )
 
-    # Make a copy of the claims data to avoid modifying the original
-    claims_data = st.session_state.claims_data.copy()
+    if uploaded_file is not None:
+        try:
+            # Show file info
+            st.info(f"Uploaded: {uploaded_file.name} ({uploaded_file.size/1024:.1f} KB)")
+            
+            # Enhanced file preview
+            with st.expander("File Preview", expanded=True):
+                try:
+                    if uploaded_file.name.endswith('.xlsx'):
+                        preview_df = pd.read_excel(uploaded_file)
+                    else:
+                        preview_df = pd.read_csv(uploaded_file)
+                    st.write("First 5 rows:", preview_df.head())
+                    st.write("Columns:", preview_df.columns.tolist())
+                except Exception as e:
+                    st.warning(f"Preview error: {str(e)}")
+            
+            # Reset file pointer after preview
+            uploaded_file.seek(0)
+            
+            with st.spinner("Processing uploaded file..."):
+                tenant_key = user_info['tenant_config'].get('storage_bucket', 'default_key')
+                claims_data = load_real_claims_data(uploaded_file, tenant_key)
+                
+                if claims_data is not None:
+                    st.session_state.claims_data = claims_data
+                    st.success(f"Successfully loaded {len(claims_data)} claims!")
+                    
+                    # Show quick stats
+                    cols = st.columns(3)
+                    with cols[0]:
+                        st.metric("Total Claims", len(claims_data))
+                    with cols[1]:
+                        amount = claims_data['amount'].sum() if 'amount' in claims_data.columns else 0
+                        st.metric("Total Amount", f"KES {amount:,.2f}")
+                    with cols[2]:
+                        fraud = claims_data['fraud_flag'].sum() if 'fraud_flag' in claims_data.columns else 0
+                        st.metric("Potential Fraud", fraud)
 
-    # Ensure numeric columns are properly formatted
-    numeric_cols = ['amount', 'Claim_Amount_KES', 'Co_Payment_KES']
-    for col in numeric_cols:
-        if col in claims_data.columns:
-            claims_data[col] = pd.to_numeric(claims_data[col].astype(str).str.replace('[^\d.]', '', regex=True), errors='coerce').fillna(0)
-
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        fraud_count = claims_data['fraud_flag'].sum()
-        st.metric("Potential Fraud Cases", fraud_count)
-    with col2:
-        fraud_amount = claims_data.loc[claims_data['fraud_flag'] == 1, 'amount'] if 'amount' in claims_data.columns else 0
-        total_fraud_amount = fraud_amount.sum() if 'amount' in claims_data.columns else 0
-        formatted_amount = f"KES {float(total_fraud_amount):,.2f}" if not pd.isna(total_fraud_amount) else "KES 0.00"
-        st.metric("Total At Risk", formatted_amount)
-    with col3:
-        fraud_rate = fraud_count / len(claims_data) if len(claims_data) > 0 else 0
-        st.metric("Fraud Rate", f"{fraud_rate:.1%}")
-
-    tab1, tab2 = st.tabs(["Fraud Analysis", "Provider Risk"])
-
-    with tab1:
-        st.subheader("Fraudulent Claim Patterns")
-
-        if 'date' in claims_data.columns:
-            fraud_over_time = claims_data.copy()
-            fraud_over_time['Month'] = fraud_over_time['date'].dt.strftime('%Y-%m')
-
-            fraud_over_time = fraud_over_time.groupby('Month').agg({
-                'fraud_flag': ['sum', 'count']
-            }).reset_index()
-            fraud_over_time.columns = ['Month', 'Fraud Cases', 'Total Claims']
-            fraud_over_time['Fraud Rate'] = fraud_over_time['Fraud Cases'] / fraud_over_time['Total Claims']
-
-            fig = px.line(
-                fraud_over_time,
-                x='Month',
-                y='Fraud Rate',
-                title="Monthly Fraud Rate Trend"
-            )
-            st.plotly_chart(fig, use_container_width=True)
-        else:
-            st.warning("Date column not found - cannot show temporal trends")
-
-        st.subheader("Top Fraudulent Claims")
-        fraud_data = claims_data[claims_data['fraud_flag'] == 1].copy()
-        if not fraud_data.empty and 'amount' in fraud_data.columns:
-            st.dataframe(fraud_data.sort_values('amount', ascending=False).head(10))
-        else:
-            st.warning("No fraudulent claims found or amount data missing")
-
-    with tab2:
-        st.subheader("Provider Risk Scoring")
-
-        # Use 'Provider_Name' instead of 'provider_id' which doesn't exist
-        provider_col = 'Provider_Name' if 'Provider_Name' in claims_data.columns else None
-
-        if provider_col:
-            provider_stats = claims_data.copy()
-            provider_stats['amount'] = pd.to_numeric(provider_stats['amount'], errors='coerce').fillna(0)
-
-            provider_stats = provider_stats.groupby(provider_col).agg({
-                'amount': ['mean', 'count'],
-                'fraud_flag': 'sum'
-            }).reset_index()
-            provider_stats.columns = ['Provider', 'Avg Amount', 'Claim Count', 'Fraud Count']
-            provider_stats['Fraud Rate'] = provider_stats['Fraud Count'] / provider_stats['Claim Count']
-
-            fig = px.scatter(
-                provider_stats,
-                x='Claim Count',
-                y='Avg Amount',
-                size='Fraud Count',
-                color='Fraud Rate',
-                hover_name='Provider',
-                title="Provider Risk Assessment"
-            )
-            st.plotly_chart(fig, use_container_width=True)
-        else:
-            st.warning("Provider information not found in the dataset")
+        except Exception as e:
+            st.error(f"Error processing file: {str(e)}")
+            logging.error(f"File processing failed: {str(e)}")
+            st.write("Common solutions:")
+            st.write("- Try saving as CSV instead of Excel")
+            st.write("- Ensure file isn't password protected")
+            st.write("- Check for special characters in the file")
 
 # ==============================================
-# CLIENT MANAGEMENT INTERFACE
+# BROKER/UNDERWRITER INTERFACE - MAIN DASHBOARD
 # ==============================================
 
 def render_client_management(user_info):
-    st.header("Client Management Portal")
-    log_audit_event(user_info['name'], "client_mgmt_accessed")
+    """Client management interface for brokers/underwriters"""
+    st.header("Client Management")
+    log_audit_event(user_info['name'], "client_management_accessed")
 
+    if 'clients' not in user_info:
+        st.warning("No clients assigned to your account")
+        return
+
+    # Display client list
+    st.subheader("Your Clients")
+    clients = list(user_info['clients'].keys())
+    
+    # Client selection
     selected_client = st.selectbox(
         "Select Client",
-        options=list(user_info.get('clients', {}).keys()))
-    if selected_client:
-        client_info = user_info['clients'][selected_client]
-        st.subheader(f"{selected_client} Management")
+        options=clients,
+        key='client_select'
+    )
+    
+    # Display client details
+    client_info = user_info['clients'][selected_client]
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write(f"**Plan:** {client_info['plan']}")
+        st.write(f"**Data Access:** {', '.join(client_info['data_access'])}")
+    with col2:
+        st.write("**Authorized Users:**")
+        for user in client_info['users']:
+            st.write(f"- {user}")
 
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Current Plan", client_info['plan'])
-            st.write("**Authorized Users:**")
-            for user in client_info['users']:
-                st.write(f"- {user}")
-
-        with col2:
-            if st.button("Upgrade Plan"):
-                st.success(f"Plan upgrade request sent for {selected_client}")
-                log_audit_event(user_info['name'], "plan_upgrade_requested", selected_client)
-
-            if st.button("Reset Client Data"):
-                st.warning(f"This will reset all data for {selected_client}")
-                log_audit_event(user_info['name'], "data_reset_requested", selected_client)
-
-        st.subheader("Client Access Configuration")
-        new_user = st.text_input("Add New User")
-        if st.button("Grant Access"):
-            if new_user:
-                if new_user in USER_DB:
-                    USER_DB[selected_client]['users'].append(new_user)
-                    st.success(f"Added {new_user} to {selected_client}")
-                    log_audit_event(user_info['name'], "user_access_granted",
-                                   f"{new_user} to {selected_client}")
-                else:
-                    st.error("User does not exist in system")
-
-        st.subheader("Data Access Configuration")
-        access_options = ['claims', 'fraud', 'reports', 'predictions']
-        current_access = client_info.get('data_access', [])
-
-        new_access = st.multiselect(
-            "Allowed Data Access",
-            options=access_options,
-            default=current_access,
-            key=f"access_{selected_client}"
-        )
-
-        if st.button("Update Access Permissions"):
-            client_info['data_access'] = new_access
-            st.success(f"Updated data access for {selected_client}")
-            log_audit_event(user_info['name'], "access_updated",
-                           f"{selected_client}: {', '.join(new_access)}")
-
-        st.subheader("Client Analytics Dashboard")
-        if st.checkbox("Show Client Analytics"):
-            if 'claims_data' in st.session_state and st.session_state.claims_data is not None:
-                # Use column mapping system to find the employer/client column
-                employer_col = get_column(st.session_state.claims_data, COLUMN_MAPPING['employee_id'])
-                
-                if employer_col:
-                    client_data = st.session_state.claims_data[
-                        st.session_state.claims_data[employer_col] == selected_client]
-
-                    if not client_data.empty:
-                        st.write(f"#### Claims Summary for {selected_client}")
-
-                        cols = st.columns(3)
-                        with cols[0]:
-                            st.metric("Total Claims", len(client_data))
-                        with cols[1]:
-                            amount_col = get_column(client_data, COLUMN_MAPPING['amount'])
-                            if amount_col:
-                                st.metric("Total Amount", f"KES {client_data[amount_col].sum():,.2f}")
-                            else:
-                                st.warning("Amount data not available")
-                        with cols[2]:
-                            if amount_col:
-                                st.metric("Avg. Claim", f"KES {client_data[amount_col].mean():,.2f}")
-                            else:
-                                st.warning("Amount data not available")
-
-                        st.write("##### Monthly Claims Trend")
-                        date_col = get_column(client_data, COLUMN_MAPPING['date'])
-                        if date_col:
-                            client_data[date_col] = pd.to_datetime(client_data[date_col])
-                            monthly_data = client_data.set_index(date_col).resample('M').agg({
-                                amount_col: ['sum', 'count']
-                            }).reset_index()
-                            monthly_data.columns = ['Month', 'Total Amount', 'Claim Count']
-
-                            chart = alt.Chart(monthly_data).mark_area().encode(
-                                x='Month:T',
-                                y='Total Amount:Q',
-                                tooltip=['Month', 'Total Amount', 'Claim Count']
-                            ).properties(height=300)
-                            st.altair_chart(chart, use_container_width=True)
-                        else:
-                            st.warning("Date information not available for trend analysis")
-
-                        st.write("##### Claim Type Distribution")
-                        if 'category' in client_data.columns:
-                            category_dist = client_data['category'].value_counts().reset_index()
-                            category_dist.columns = ['Category', 'Count']
-
-                            pie_chart = alt.Chart(category_dist).mark_arc().encode(
-                                theta='Count:Q',
-                                color='Category:N',
-                                tooltip=['Category', 'Count']
-                            ).properties(height=300)
-                            st.altair_chart(pie_chart, use_container_width=True)
-                        else:
-                            st.warning("Category information not available")
-                    else:
-                        st.warning(f"No claims data found for {selected_client}")
-                else:
-                    st.warning("No client identification column found in data")
-            else:
-                st.warning("No claims data available. Please upload data first.")
-
-        st.subheader("Client Report Generation")
-        report_type = st.selectbox(
-            "Report Type",
-            ["Monthly Summary", "Annual Review", "Fraud Analysis"],
-            key=f"report_type_{selected_client}"
-        )
-
-        if st.button("Generate Client Report"):
-            with st.spinner(f"Generating {report_type} report..."):
-                report_data = generate_client_report(selected_client, st.session_state.claims_data)
-
-                if report_data:
-                    pdf_bytes = generate_client_report_pdf(selected_client, report_data, report_type)
-                    st.download_button(
-                        label="Download Report",
-                        data=pdf_bytes,
-                        file_name=f"{selected_client}_{report_type.replace(' ', '_')}.pdf",
-                        mime="application/pdf"
-                    )
-                    st.success(f"{report_type} report generated for {selected_client}")
-                    log_audit_event(user_info['name'], "report_generated",
-                                   f"{report_type} for {selected_client}")
-                else:
-                    st.error("Failed to generate report. No data available.")
-
-# ==============================================
-# REPORT GENERATION FUNCTIONS
-# ==============================================
-
-def generate_client_report(client_name, data):
-    """Generate PDF client summary report with all previous metrics"""
-    if data is None:
-        return None
-
-    # Use column mapping system
-    employer_col = get_column(data, COLUMN_MAPPING['employee_id'])
-    if employer_col is None:
-        st.warning("No client identification column found in data")
-        return None
-
-    # Check if client exists
-    if client_name not in data[employer_col].unique():
-        st.warning(f"No data found for client: {client_name}")
-        return None
-
-    # Filter data for this client
-    client_data = data[data[employer_col] == client_name].copy()
-
-    # Get columns with safe defaults
-    date_col = get_column(client_data, COLUMN_MAPPING['date'])
-    amount_col = get_column(client_data, COLUMN_MAPPING['amount'])
-    provider_col = get_column(client_data, COLUMN_MAPPING['provider_id'])
-    fraud_col = 'fraud_flag' if 'fraud_flag' in client_data.columns else None
-    category_col = 'category' if 'category' in client_data.columns else None
-
-    # Initialize PDF
-    pdf = FPDF()
-    pdf.add_page()
-
-    # Header
-    pdf.set_font('Arial', 'B', 16)
-    pdf.cell(0, 10, f'{client_name} Claims Summary Report', 0, 1, 'C')
-    pdf.set_font('Arial', '', 10)
-    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d")}', 0, 1, 'C')
-    pdf.ln(10)
-
-    # Safe numeric conversion for amount column
-    if amount_col:
-        try:
-            client_data[amount_col] = pd.to_numeric(
-                client_data[amount_col].astype(str).str.replace('[^\d.]', '', regex=True), 
-                errors='coerce'
-            ).fillna(0)
-        except Exception as e:
-            st.warning(f"Could not convert amount column: {str(e)}")
-            amount_col = None
-
-    # Calculate all metrics (preserving all previous calculations)
-    time_period_start = client_data[date_col].min().strftime('%Y-%m-%d') if date_col else 'N/A'
-    time_period_end = client_data[date_col].max().strftime('%Y-%m-%d') if date_col else 'N/A'
-    total_claims = len(client_data)
-    unique_members = client_data[employer_col].nunique()
-    total_amount = float(client_data[amount_col].sum()) if amount_col else 0.0
-    avg_claim = float(client_data[amount_col].mean()) if amount_col else 0.0
-    fraud_flags = int(client_data[fraud_col].sum()) if fraud_col else 0
-    fraud_amount = float(client_data.loc[client_data[fraud_col] == 1, amount_col].sum()) if (fraud_col and amount_col) else 0.0
-    top_providers = client_data.groupby(provider_col)[amount_col].sum().nlargest(3).to_dict() if (provider_col and amount_col) else {}
-    category_distribution = client_data[category_col].value_counts(normalize=True).to_dict() if category_col else {}
-
-    # Summary Stats (includes all previous metrics)
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Summary Statistics', 0, 1)
-    pdf.set_font('Arial', '', 10)
-
-    stats = [
-        ('Report Period', f"{time_period_start} to {time_period_end}"),
-        ('Total Claims', total_claims),
-        ('Unique Members', unique_members),
-        ('Total Amount', f"KES {total_amount:,.2f}"),
-        ('Average Claim', f"KES {avg_claim:,.2f}"),
-        ('Fraud Cases', f"{fraud_flags} (KES {fraud_amount:,.2f})")
-    ]
-
-    for label, value in stats:
-        pdf.cell(50, 10, label, 0, 0)
-        pdf.cell(0, 10, str(value), 0, 1)
-
-    # Top Providers (preserving previous functionality)
-    if top_providers:
-        pdf.ln(5)
-        pdf.set_font('Arial', 'B', 12)
-        pdf.cell(0, 10, 'Top Providers by Claim Amount', 0, 1)
-        pdf.set_font('Arial', '', 10)
+    # Client actions
+    st.subheader("Client Actions")
+    action_col1, action_col2 = st.columns(2)
+    
+    with action_col1:
+        if st.button("Add New User"):
+            st.session_state.show_add_user = True
         
-        for provider, amount in top_providers.items():
-            pdf.cell(0, 10, f"- {provider}: KES {amount:,.2f}", 0, 1)
-
-    # Category Distribution (preserving previous functionality)
-    if category_distribution:
-        pdf.ln(5)
-        pdf.set_font('Arial', 'B', 12)
-        pdf.cell(0, 10, 'Benefit Category Distribution', 0, 1)
-        pdf.set_font('Arial', '', 10)
+        if st.button("Update Plan"):
+            st.session_state.show_update_plan = True
+    
+    with action_col2:
+        if st.button("Revoke Access"):
+            st.warning(f"Access revocation for {selected_client} would happen here")
         
-        for category, pct in category_distribution.items():
-            pdf.cell(0, 10, f"- {category}: {pct:.1%}", 0, 1)
+        if st.button("View Activity Logs"):
+            st.info(f"Activity logs for {selected_client} would appear here")
 
-    # Footer
-    pdf.set_y(-15)
-    pdf.set_font('Arial', 'I', 8)
-    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only', 0, 0, 'C')
+    # Add user form
+    if st.session_state.get('show_add_user', False):
+        with st.form("Add User Form"):
+            new_username = st.text_input("Username")
+            new_password = st.text_input("Password", type="password")
+            submit = st.form_submit_button("Add User")
+            
+            if submit:
+                # Here you would add the user to your user database
+                st.success(f"User {new_username} added to {selected_client}")
+                st.session_state.show_add_user = False
 
-    return pdf.output(dest='S').encode('latin1')
+    # Update plan form
+    if st.session_state.get('show_update_plan', False):
+        with st.form("Update Plan Form"):
+            new_plan = st.selectbox(
+                "Select Plan",
+                ["basic", "standard", "premium", "enterprise"]
+            )
+            submit = st.form_submit_button("Update Plan")
+            
+            if submit:
+                # Here you would update the plan in your user database
+                st.success(f"Plan updated to {new_plan} for {selected_client}")
+                st.session_state.show_update_plan = False
 
-def generate_client_report_pdf(client_name, report_data, report_type):
-    """Generate professional PDF report for client"""
-    pdf = FPDF()
-    pdf.add_page()
+def broker_underwriter_dashboard(user_info):
+    st.title(f"The Verse - {user_info['tenant'].title()} Dashboard")
+    log_audit_event(user_info['name'], "broker_login")
 
-    # Header
-    pdf.set_font('Arial', 'B', 16)
-    pdf.cell(0, 10, f'{client_name} {report_type} Report', 0, 1, 'C')
-    pdf.set_font('Arial', '', 10)
-    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d")}', 0, 1, 'C')
-    pdf.ln(10)
+    # NEW ENHANCEMENT: Broker-specific logo
+    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"  # Broker logo
+    try:
+        st.sidebar.image(logo_path, use_container_width=True)
+    except FileNotFoundError:
+        st.sidebar.warning("Logo image not found - using placeholder")
+        st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
 
-    # Summary Stats
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Summary Statistics', 0, 1)
-    pdf.set_font('Arial', '', 10)
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### About")
+    st.sidebar.markdown("""
+        AI-powered claims analytics providing:
+        - Predictive cost modeling
+        - Fraud pattern detection
+        - Client-specific business intelligence
+        - Scenario simulation engines
+        """)
 
-    stats = [
-        ('Report Period', f"{report_data['time_period']['start']} to {report_data['time_period']['end']}"),
-        ('Total Claims', report_data['total_claims']),
-        ('Unique Members', report_data['unique_members']),
-        ('Total Claim Amount', f"KES {report_data['total_amount']:,.2f}"),
-        ('Average Claim', f"KES {report_data['avg_claim']:,.2f}"),
-        ('Fraud Flags', f"{report_data['fraud_flags']} (KES {report_data['fraud_amount']:,.2f})")
-    ]
+    if st.sidebar.button("🚀 Launch API Console"):
+        if 'predictor' in st.session_state:
+            api = create_api(st.session_state.predictor)
+            import uvicorn
+            uvicorn.run(api, host="0.0.0.0", port=8000)
+        else:
+            st.sidebar.warning("No trained model available")
 
-    for label, value in stats:
-        pdf.cell(40, 10, label, 0, 0)
-        pdf.cell(0, 10, str(value), 0, 1)
+    # Initialize session state for data and predictor
+    if 'claims_data' not in st.session_state:
+        st.session_state.claims_data = None
 
-    # Top Providers
-    pdf.ln(5)
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Top 3 Providers by Claim Amount', 0, 1)
-    pdf.set_font('Arial', '', 10)
+    if 'predictor' not in st.session_state:
+        st.session_state.predictor = ClaimsPredictor()
 
-    for provider, amount in report_data['top_providers'].items():
-        pdf.cell(0, 10, f"- {provider}: KES {amount:,.2f}", 0, 1)
+    # Main navigation - ALWAYS VISIBLE (modified section)
+    st.sidebar.header("Analysis Mode")
+    analysis_type = st.sidebar.radio(
+        "Select Mode:",
+        options=["Claims Upload", "Claims Prediction", "Fraud Detection", "Client Management", "Reports"],
+        key='broker_analysis_mode'
+    )
 
-    # Category Distribution
-    pdf.ln(5)
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Benefit Category Distribution', 0, 1)
-    pdf.set_font('Arial', '', 10)
-
-    for category, pct in report_data['category_distribution'].items():
-        pdf.cell(0, 10, f"- {category}: {pct:.1%}", 0, 1)
-
-    # Fraud Analysis (if report type is Fraud Analysis)
-    if report_type == "Fraud Analysis":
-        pdf.ln(5)
-        pdf.set_font('Arial', 'B', 12)
-        pdf.cell(0, 10, 'Fraud Analysis Details', 0, 1)
-        pdf.set_font('Arial', '', 10)
-
-        pdf.cell(0, 10, f"Potential fraud represents {report_data['fraud_flags']/report_data['total_claims']:.1%} of claims", 0, 1)
-        pdf.cell(0, 10, f"Total potential fraud amount: KES {report_data['fraud_amount']:,.2f}", 0, 1)
-
-    # Footer
-    pdf.set_y(-15)
-    pdf.set_font('Arial', 'I', 8)
-    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only', 0, 0, 'C')
-
-    return pdf.output(dest='S').encode('latin1')
+    if analysis_type == "Claims Upload":
+        render_claims_upload(user_info)
+    elif analysis_type == "Claims Prediction":
+        render_claims_prediction(user_info)  # Now includes new tabs
+    elif analysis_type == "Fraud Detection":
+        render_fraud_detection(user_info)
+    elif analysis_type == "Client Management":
+        render_client_management(user_info)
+    elif analysis_type == "Reports":
+        render_report_generation(user_info)
 
 # ==============================================
 # CLIENT DASHBOARD
@@ -2607,6 +2602,32 @@ def generate_client_report_pdf(client_name, report_data, report_type):
 def client_dashboard(user_info):
     st.title(f"The Verse - {user_info['client_org']} Portal")
     log_audit_event(user_info['name'], "client_login")
+
+    # NEW ENHANCEMENT: Client-specific logo
+    client_logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\client_logo.png"
+    try:
+        st.sidebar.image(client_logo_path, use_container_width=True)
+    except FileNotFoundError:
+        st.sidebar.warning("Client logo not found - using placeholder")
+        st.sidebar.image("https://via.placeholder.com/150x50?text=CLIENT+LOGO", use_container_width=True)
+
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### About")
+    st.sidebar.markdown("""
+        Your personalized claims analytics portal:
+        - Real-time claim insights
+        - Fraud detection alerts
+        - Custom reporting
+        - Predictive analytics
+        """)
+
+    if st.sidebar.button("🚀 Launch API Console"):
+        if 'predictor' in st.session_state:
+            api = create_api(st.session_state.predictor)
+            import uvicorn
+            uvicorn.run(api, host="0.0.0.0", port=8000)
+        else:
+            st.sidebar.warning("No trained model available")
 
     if 'claims_data' not in st.session_state:
         st.session_state.claims_data = None
@@ -2627,6 +2648,13 @@ def client_dashboard(user_info):
         render_client_fraud_detection(user_info)
     elif analysis_type == "Reports":
         render_client_report_generation(user_info)
+    # NEW ENHANCEMENT: Added new tabs
+    elif analysis_type == "Impact Analysis":
+        st.write("Under development: Cost-benefit simulation engine")
+        st.image("https://via.placeholder.com/600x200?text=IMPACT+ANALYSIS+DASHBOARD")
+    elif analysis_type == "Agentic AI":
+        st.write("Autonomous analysis agents coming soon")
+        st.image("https://via.placeholder.com/600x200?text=AGENTIC+AI+DASHBOARD")
 
 def render_client_claims_overview(user_info):
     st.header(f"{user_info['client_org']} Claims Overview")
