@@ -1,7 +1,6 @@
-# Required packages
 streamlit>=1.40.1
 pandas>=2.0
-numpy==1.23.5
+numpy==1.26.4
 matplotlib
 seaborn
 plotly
@@ -13,13 +12,8 @@ xgboost
 joblib
 streamlit-aggrid
 textblob
-WordCloud
+wordcloud
 fpdf
-shap
 dask
 optuna
-
-
-
-
 
