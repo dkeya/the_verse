@@ -16,5 +16,5 @@ wordcloud
 fpdf
 dask
 optuna
-echo "ydata-profiling>=4.0.0" > requirements.txt
-echo "streamlit-pandas-profiling>=0.1.3" >> requirements.txt
+ydata-profiling>=4.0.0"
+streamlit-pandas-profiling>=0.1.3"
