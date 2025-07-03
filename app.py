@@ -17,8 +17,6 @@ import tempfile
 import os
 import hmac
 import joblib
-from ydata_profiling import ProfileReport
-from streamlit_pandas_profiling import st_profile_report
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -27,7 +25,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 import logging
 import altair as alt
+from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 import dask.dataframe as dd
+import shap
 import optuna
 import joblib
 import gc
@@ -38,20 +39,6 @@ from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.inspection import partial_dependence
 from sklearn.model_selection import RandomizedSearchCV
 import matplotlib.pyplot as plt
-# At the VERY TOP with other imports (around line 20 where your error occurs)
-try:
-    from ydata_profiling import ProfileReport
-    from streamlit_pandas_profiling import st_profile_report
-except ImportError:
-    # Fallback for older versions
-    from pandas_profiling import ProfileReport
-    from streamlit_pandas_profiling import st_profile_report
-
-# Then continue with your existing imports:
-import streamlit as st
-import pandas as pd
-import numpy as np
-# ... all your other existing imports ...
 
 # ==============================================
 # ENHANCED DATA MODEL WITH REAL DATA INTEGRATION
@@ -1998,12 +1985,12 @@ def admin_dashboard():
     user_info = st.session_state.user_info
 
     # NEW ENHANCEMENT: Sidebar upgrade
-    # logo_path = "static/logo.png"
-    # try:
-    #     st.sidebar.image(logo_path, use_container_width=True)
-    # except FileNotFoundError:
-    #     st.sidebar.warning("Logo image not found - using placeholder")
-    #     st.sidebar.image("https://via.placeholder.com/150x50?text=LOGO", use_container_width=True)
+    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"
+    try:
+        st.sidebar.image(logo_path, use_container_width=True)
+    except FileNotFoundError:
+        st.sidebar.warning("Logo image not found - using placeholder")
+        st.sidebar.image("https://via.placeholder.com/150x50?text=LOGO", use_container_width=True)
 
     st.sidebar.markdown("---")
     st.sidebar.markdown("### About")
@@ -2013,7 +2000,7 @@ def admin_dashboard():
         - Fraud pattern detection
         - Client-specific business intelligence
         - Scenario simulation engines
-    """)
+        """)
 
     if st.sidebar.button("🚀 Launch API Console"):
         if 'predictor' in st.session_state:
@@ -2558,13 +2545,13 @@ def broker_underwriter_dashboard(user_info):
     st.title(f"The Verse - {user_info['tenant'].title()} Dashboard")
     log_audit_event(user_info['name'], "broker_login")
 
-    # # NEW ENHANCEMENT: Broker-specific logo 
-    # logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"  # Broker logo
-    # try:
-    #     st.sidebar.image(logo_path, use_container_width=True)
-    # except FileNotFoundError:
-    #     st.sidebar.warning("Logo image not found - using placeholder")
-    #     st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
+    # NEW ENHANCEMENT: Broker-specific logo
+    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"  # Broker logo
+    try:
+        st.sidebar.image(logo_path, use_container_width=True)
+    except FileNotFoundError:
+        st.sidebar.warning("Logo image not found - using placeholder")
+        st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
 
     st.sidebar.markdown("---")
     st.sidebar.markdown("### About")
