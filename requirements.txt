@@ -1,6 +1,6 @@
 streamlit>=1.40.1
 pandas>=2.0
-numpy==1.26.4
+numpy>=1.26.0
 matplotlib
 seaborn
 plotly
@@ -16,4 +16,3 @@ wordcloud
 fpdf
 dask
 optuna
-
