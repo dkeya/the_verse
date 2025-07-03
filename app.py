@@ -1982,7 +1982,7 @@ def admin_dashboard():
     user_info = st.session_state.user_info
 
     # NEW ENHANCEMENT: Sidebar upgrade
-    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"
+    logo_path = "static/logo.png"
     try:
         st.sidebar.image(logo_path, use_container_width=True)
     except FileNotFoundError:
@@ -1997,7 +1997,7 @@ def admin_dashboard():
         - Fraud pattern detection
         - Client-specific business intelligence
         - Scenario simulation engines
-        """)
+    """)
 
     if st.sidebar.button("🚀 Launch API Console"):
         if 'predictor' in st.session_state:
