@@ -1,6 +1,7 @@
+# Required packages
 streamlit>=1.40.1
 pandas>=2.0
-numpy>=1.26.0
+numpy==1.23.5
 matplotlib
 seaborn
 plotly
@@ -18,7 +19,7 @@ shap
 dask
 optuna
 
-# Profiling packages - compatible with Python 3.10
+# Profiling tools
 ydata-profiling==4.1.2
 streamlit-pandas-profiling==0.1.3
 
