@@ -38,6 +38,20 @@ from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.inspection import partial_dependence
 from sklearn.model_selection import RandomizedSearchCV
 import matplotlib.pyplot as plt
+# At the VERY TOP with other imports (around line 20 where your error occurs)
+try:
+    from ydata_profiling import ProfileReport
+    from streamlit_pandas_profiling import st_profile_report
+except ImportError:
+    # Fallback for older versions
+    from pandas_profiling import ProfileReport
+    from streamlit_pandas_profiling import st_profile_report
+
+# Then continue with your existing imports:
+import streamlit as st
+import pandas as pd
+import numpy as np
+# ... all your other existing imports ...
 
 # ==============================================
 # ENHANCED DATA MODEL WITH REAL DATA INTEGRATION
