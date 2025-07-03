@@ -26,7 +26,6 @@ from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 import logging
 import altair as alt
 import dask.dataframe as dd
-import shap
 import optuna
 import joblib
 import gc
