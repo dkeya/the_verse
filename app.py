@@ -1982,12 +1982,12 @@ def admin_dashboard():
     user_info = st.session_state.user_info
 
     # NEW ENHANCEMENT: Sidebar upgrade
-    logo_path = "static/logo.png"
-    try:
-        st.sidebar.image(logo_path, use_container_width=True)
-    except FileNotFoundError:
-        st.sidebar.warning("Logo image not found - using placeholder")
-        st.sidebar.image("https://via.placeholder.com/150x50?text=LOGO", use_container_width=True)
+    # logo_path = "static/logo.png"
+    # try:
+    #     st.sidebar.image(logo_path, use_container_width=True)
+    # except FileNotFoundError:
+    #     st.sidebar.warning("Logo image not found - using placeholder")
+    #     st.sidebar.image("https://via.placeholder.com/150x50?text=LOGO", use_container_width=True)
 
     st.sidebar.markdown("---")
     st.sidebar.markdown("### About")
