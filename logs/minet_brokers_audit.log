@@ -2324,3 +2324,7 @@
 {"timestamp": "2025-07-03T07:47:39.823982", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
 {"timestamp": "2025-07-03T07:47:44.022823", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
 {"timestamp": "2025-07-03T07:47:44.023766", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T12:40:31.609585", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T12:59:47.442960", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:22:57.934452", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:47:54.394381", "user": "broker1", "action": "login_success", "target": null, "ip": ""}

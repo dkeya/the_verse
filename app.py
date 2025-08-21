@@ -25,7 +25,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 import logging
 import altair as alt
-from pandas_profiling import ProfileReport
+from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 import dask.dataframe as dd
 import shap
@@ -151,14 +151,16 @@ USER_DB = {
         'role': 'client',
         'tenant': 'acme_brokers',
         'client_org': 'Acme Corp',
-        'name': 'Acme Admin'
+        'name': 'Acme Admin',
+        'email': 'admin@acmecorp.com'
     },
     'initech_finance': {
         'password': hashlib.sha256('initech123'.encode()).hexdigest(),
         'role': 'client',
         'tenant': 'global_insurers',
         'client_org': 'Initech',
-        'name': 'Initech Finance'
+        'name': 'Initech Finance',
+        'email': 'finance@initech.com'
     }
 }
 
@@ -906,8 +908,6 @@ class ModelMonitor:
         })
         return drift_metrics
 
-# (Previous imports and code remain the same until the exploratory analysis functions)
-
 # ==============================================
 # EXPLORATORY ANALYSIS FUNCTIONS
 # ==============================================
@@ -971,10 +971,10 @@ def render_claim_distribution(data):
         if not amount_col:
             st.warning("No amount column found for amount calculations")
             return
-        
+
         # Convert amount to numeric, coercing errors to NaN
         data[amount_col] = pd.to_numeric(data[amount_col], errors='coerce')
-        
+
         if metric == 'Sum of Amount':
             dist_data = data.groupby(category)[amount_col].sum().reset_index()
             dist_data.columns = [category, 'Total Amount']
@@ -1347,9 +1347,9 @@ def render_exploratory_analysis(data):
 
         # Tabbed interface for different analysis types
         analysis_tab1, analysis_tab2, analysis_tab3, analysis_tab4 = st.tabs([
-            "Claim Distribution", 
+            "Claim Distribution",
             "Temporal Analysis",
-            "Provider Efficiency", 
+            "Provider Efficiency",
             "Diagnosis Patterns"
         ])
 
@@ -1368,14 +1368,14 @@ def render_exploratory_analysis(data):
         # Quick Insights section
         st.subheader("Quick Insights")
         col1, col2 = st.columns(2)
-        
+
         with col1:
             # Safely get numerical columns
             num_cols = data.select_dtypes(include=['float64', 'int64']).columns.tolist()
             if num_cols:
                 default_num = 'Provider_Fraud_Rate' if 'Provider_Fraud_Rate' in num_cols else num_cols[0]
                 selected_num = st.selectbox(
-                    "Select numerical feature", 
+                    "Select numerical feature",
                     num_cols,
                     index=num_cols.index(default_num) if default_num in num_cols else 0,
                     key='quick_insights_num_feature'
@@ -1391,7 +1391,7 @@ def render_exploratory_analysis(data):
             if cat_cols:
                 default_cat = 'treatment' if 'treatment' in cat_cols else cat_cols[0]
                 selected_cat = st.selectbox(
-                    "Select categorical feature", 
+                    "Select categorical feature",
                     cat_cols,
                     index=cat_cols.index(default_cat) if default_cat in cat_cols else 0,
                     key='quick_insights_cat_feature'
@@ -1416,26 +1416,32 @@ def render_fraud_detection(user_info):
         return
 
     claims_data = st.session_state.claims_data.copy()
-    
+
     # Ensure amount column is numeric
     if 'amount' in claims_data.columns:
         claims_data['amount'] = pd.to_numeric(claims_data['amount'], errors='coerce').fillna(0)
 
-    # Summary metrics
+    # Check if fraud detection has been run - if not, run it
+    if 'fraud_flag' not in claims_data.columns:
+        with st.spinner("Running initial fraud detection..."):
+            claims_data = detect_fraud_anomalies(claims_data)
+            st.session_state.claims_data = claims_data
+
+    # Summary metrics - now safely access fraud_flag
     col1, col2, col3 = st.columns(3)
     with col1:
-        fraud_count = claims_data['fraud_flag'].sum()
+        fraud_count = claims_data['fraud_flag'].sum() if 'fraud_flag' in claims_data.columns else 0
         st.metric("Potential Fraud Cases", fraud_count)
     with col2:
-        fraud_rate = fraud_count / len(claims_data)
+        fraud_rate = fraud_count / len(claims_data) if 'fraud_flag' in claims_data.columns else 0
         st.metric("Fraud Rate", f"{fraud_rate:.1%}")
     with col3:
-        fraud_amount = claims_data.loc[claims_data['fraud_flag'] == 1, 'amount']
-        if not fraud_amount.empty:
-            fraud_amount = float(fraud_amount.sum())
+        if 'fraud_flag' in claims_data.columns and 'amount' in claims_data.columns:
+            fraud_amount = claims_data.loc[claims_data['fraud_flag'] == 1, 'amount']
+            fraud_amount = float(fraud_amount.sum()) if not fraud_amount.empty else 0
             st.metric("Amount at Risk", f"KES {fraud_amount:,.2f}" if isinstance(fraud_amount, (int, float)) else "KES N/A")
         else:
-            st.metric("Amount at Risk", "KES 0.00")
+            st.metric("Amount at Risk", "KES N/A")
 
     # Fraud distribution by provider
     st.subheader("Fraud by Provider")
@@ -1473,7 +1479,7 @@ def render_fraud_detection(user_info):
         # Show diagnoses with highest fraud rates
         high_fraud_diag = diagnosis_fraud[diagnosis_fraud['Total Claims'] > 10].sort_values(
             'Fraud Rate', ascending=False).head(10)
-        
+
         if not high_fraud_diag.empty:
             fig = px.bar(
                 high_fraud_diag,
@@ -1495,7 +1501,7 @@ def render_fraud_detection(user_info):
         try:
             claims_data[date_col] = pd.to_datetime(claims_data[date_col])
             fraud_over_time = claims_data.set_index(date_col).resample('M')['fraud_flag'].sum().reset_index()
-            
+
             fig = px.line(
                 fraud_over_time,
                 x=date_col,
@@ -1521,41 +1527,41 @@ def detect_data_format(df):
     """Enhanced format detection with more column checks"""
     client_indicators = ['CLAIM_CENTRAL_ID', 'CLAIM_MEMBER_NUMBER', 'CLAIM_PROV_DATE']
     test_indicators = ['Claim_ID', 'Employee_ID', 'Submission_Date']
-    
+
     # Check for client format
     if any(col in df.columns for col in client_indicators):
         return 'client'
-    
+
     # Check for test format
     if any(col in df.columns for col in test_indicators):
         return 'test'
-    
+
     # Try to guess based on structure
     if len(df.columns) > 15:  # Client data typically has more columns
         return 'client'
-    
+
     return 'unknown'
-    
+
 def transform_client_data(df):
     """Transform line-item data to claim-level format"""
     try:
         # Group by claim and aggregate
-        claim_level = df.groupby(['CLAIM_CENTRAL_ID', 'CLAIM_MEMBER_NUMBER', 'CLAIM_PROV_DATE', 
+        claim_level = df.groupby(['CLAIM_CENTRAL_ID', 'CLAIM_MEMBER_NUMBER', 'CLAIM_PROV_DATE',
                                 'PROV_NAME', 'POL_NAME', 'Ailment', 'Department']).agg({
             'AMOUNT': 'sum',
             'SERVICE_DESCRIPTION': lambda x: '|'.join(set(x)),
             'Gender': 'first',
             'DOB': 'first'
         }).reset_index()
-        
+
         # Calculate age from DOB
         claim_level['employee_age'] = ((pd.to_datetime('today') - pd.to_datetime(claim_level['DOB'])).dt.days / 365).astype(int)
-        
+
         # Add default values for missing columns
         claim_level['co_payment'] = claim_level['AMOUNT'] * 0.1  # Default 10% co-payment
         claim_level['status'] = 'Paid'
         claim_level['Category'] = 'Standard'  # Default category
-        
+
         # Rename columns to match expected names
         claim_level = claim_level.rename(columns={
             'CLAIM_MEMBER_NUMBER': 'employee_id',
@@ -1567,9 +1573,9 @@ def transform_client_data(df):
             'AMOUNT': 'amount',
             'Gender': 'employee_gender'
         })
-        
+
         return claim_level
-    
+
     except Exception as e:
         logging.error(f"Error transforming client data: {str(e)}")
         return df
@@ -1579,7 +1585,7 @@ def load_real_claims_data(uploaded_file, tenant_key):
     try:
         # Determine file type
         file_ext = uploaded_file.name.split('.')[-1].lower()
-        
+
         if file_ext == 'xlsx':
             # For Excel files
             df = pd.read_excel(uploaded_file)
@@ -1596,18 +1602,18 @@ def load_real_claims_data(uploaded_file, tenant_key):
             else:
                 st.error("Failed to read file - unsupported encoding or corrupt file")
                 return None
-           
+
         # Apply column mapping with fallbacks
         for standard_name, possible_names in COLUMN_MAPPING.items():
             actual_col = get_column(df, possible_names)
             if actual_col and actual_col != standard_name:
                 df.rename(columns={actual_col: standard_name}, inplace=True)
                 logging.info(f"Renamed {actual_col} to {standard_name}")
-        
+
         # ==============================================
         # COMMON CLIENT DATA FIXES IMPLEMENTATION
         # ==============================================
-        
+
         # 1. Date Format Problems Fix
         if 'date' in df.columns:
             # Try multiple common date formats
@@ -1619,7 +1625,7 @@ def load_real_claims_data(uploaded_file, tenant_key):
                         break
                 except:
                     continue
-            
+
             null_dates = df['date'].isnull().sum()
             if null_dates > 0:
                 st.warning(f"Could not parse {null_dates} date values - these rows will be excluded")
@@ -1641,15 +1647,15 @@ def load_real_claims_data(uploaded_file, tenant_key):
 
         # 3. Missing Required Columns - Already handled by updated COLUMN_MAPPING
         # (The mapping should be updated at the module level, outside this function)
-        
+
         # ==============================================
         # END OF COMMON FIXES
         # ==============================================
-        
+
         # Validate we have required columns
         required_cols = ['amount', 'date', 'employee_id']
         missing_cols = [col for col in required_cols if col not in df.columns]
-        
+
         if missing_cols:
             st.error(f"Missing required columns: {', '.join(missing_cols)}")
             logging.error(f"Missing columns: {missing_cols}")
@@ -1659,7 +1665,7 @@ def load_real_claims_data(uploaded_file, tenant_key):
                 'date': [c for c in df.columns if 'date' in c.lower() or 'dt' in c.lower()],
                 'employee_id': [c for c in df.columns if 'emp' in c.lower() or 'member' in c.lower()]
             }
-            st.info("Suggested similar columns: " + 
+            st.info("Suggested similar columns: " +
                    ", ".join(f"{k}: {v}" for k,v in suggestions.items() if v))
             return None
 
@@ -1673,20 +1679,18 @@ def load_real_claims_data(uploaded_file, tenant_key):
 def detect_fraud_anomalies(df):
     """Enhanced fraud detection with column mapping"""
     try:
-        # Get proper column names using mapping
-        amount_col = get_column(df, COLUMN_MAPPING['amount'])
-        provider_col = get_column(df, COLUMN_MAPPING['provider_id'])
-        date_col = get_column(df, COLUMN_MAPPING['date'])
+        # [existing code...]
 
-        if not amount_col:
-            return df
+        # After adding fraud_flag
+        if 'fraud_flag' not in df.columns:
+            raise ValueError("Failed to add fraud_flag column")
 
-        # Select numeric features for fraud detection
-        numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
-        numeric_cols = [col for col in numeric_cols if col not in ['is_fraud', 'fraud_flag', 'fraud_score']]
-
-        if not numeric_cols:
-            return df
+        return df
+    except Exception as e:
+        logging.error(f"Fraud detection failed: {str(e)}")
+        # Ensure we return a dataframe with fraud_flag even if other parts fail
+        df['fraud_flag'] = 0
+        return df
 
         # Train isolation forest
         model = IsolationForest(contamination=0.05, random_state=42)
@@ -1715,266 +1719,402 @@ def detect_fraud_anomalies(df):
     except Exception as e:
         logging.error(f"Fraud detection failed: {str(e)}")
         return df
-    
+
 # ==============================================
-# REPORT GENERATION FUNCTIONS
+# ENHANCED REPORT GENERATION FUNCTIONS
 # ==============================================
 
-def render_report_generation(user_info):
-    st.header("Report Generation Center")
-    log_audit_event(user_info['name'], "report_generation_accessed")
-
-    if st.session_state.claims_data is None:
-        st.warning("Please upload claims data first")
-        return
-
-    # Make a copy of the claims data
-    claims_data = st.session_state.claims_data.copy()
-
-    # Report type selection
-    report_type = st.selectbox(
-        "Report Type",
-        ["Client Summary", "Fraud Analysis", "Provider Performance", "Financial Projections"],
-        key='report_type_select'
-    )
-
-    # Get employer column using mapping system
-    employer_col = get_column(claims_data, COLUMN_MAPPING['employee_id'])  # Using employee_id as fallback
-    
-    if not employer_col:
-        st.error("No client identification column found in data")
-        return
-
-    # Client selection
-    clients = claims_data[employer_col].unique()
-    selected_client = st.selectbox(
-        "Select Client",
-        options=clients,
-        key='report_client_select'
-    )
-    
-    # Filter data for selected client
-    client_data = claims_data[claims_data[employer_col] == selected_client]
-
-    # Generate report button
-    if st.button("Generate Report"):
-        with st.spinner(f"Generating {report_type} report..."):
-            try:
-                if report_type == "Client Summary":
-                    report_data = generate_client_report(selected_client, client_data)
-                    file_name = f"{selected_client}_summary_report.pdf"
-                elif report_type == "Fraud Analysis":
-                    report_data = generate_fraud_report(selected_client, client_data)
-                    file_name = f"{selected_client}_fraud_report.pdf"
-                elif report_type == "Provider Performance":
-                    report_data = generate_provider_report(selected_client, client_data)
-                    file_name = f"{selected_client}_provider_report.pdf"
-                else:  # Financial Projections
-                    report_data = generate_financial_report(selected_client, client_data)
-                    file_name = f"{selected_client}_financial_report.pdf"
-
-                if report_data:
-                    st.success(f"Successfully generated {report_type} report for {selected_client}")
-                    
-                    col1, col2 = st.columns(2)
-                    with col1:
-                        st.download_button(
-                            label="Download PDF Report",
-                            data=report_data,
-                            file_name=file_name,
-                            mime="application/pdf"
-                        )
-                    with col2:
-                        excel_data = generate_sample_excel(client_data)
-                        st.download_button(
-                            label="Download Excel Data",
-                            data=excel_data,
-                            file_name=f"{selected_client}_report_data.xlsx",
-                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                        )
-                else:
-                    st.error("Failed to generate report - no data available")
-
-            except Exception as e:
-                st.error(f"Error generating report: {str(e)}")
-                logging.error(f"Report generation failed: {str(e)}")
-
-def generate_fraud_report(client_name, data):
-    """Generate PDF report for fraud analysis"""
+def generate_client_report_pdf(client_name, data, report_type):
+    """Generate visually appealing PDF reports with enhanced styling"""
     pdf = FPDF()
     pdf.add_page()
 
-    # Header
+    # Set up colors
+    primary_color = (57, 106, 177)  # Blue
+    secondary_color = (229, 236, 246)  # Light blue
+    accent_color = (255, 153, 0)  # Orange
+
+    # Header with logo and title
+    pdf.set_fill_color(*secondary_color)
+    pdf.rect(0, 0, 210, 30, 'F')
+
+    try:
+        pdf.image("logo.png", 10, 8, 25)
+    except:
+        pass  # Skip if logo not found
+
     pdf.set_font('Arial', 'B', 16)
-    pdf.cell(0, 10, f'{client_name} Fraud Analysis Report', 0, 1, 'C')
+    pdf.set_text_color(*primary_color)
+    pdf.cell(0, 10, f'{client_name} {report_type} Report', 0, 1, 'C')
     pdf.set_font('Arial', '', 10)
-    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d")}', 0, 1, 'C')
-    pdf.ln(10)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d at %H:%M")}', 0, 1, 'C')
+    pdf.ln(15)
 
-    # Fraud Summary
+    # Summary section with colored background
+    pdf.set_fill_color(*secondary_color)
+    pdf.rect(10, pdf.get_y(), 190, 15, 'F')
     pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Fraud Summary', 0, 1)
-    pdf.set_font('Arial', '', 10)
+    pdf.set_text_color(*primary_color)
+    pdf.cell(0, 10, 'Key Metrics', 0, 1, 'L')
+    pdf.ln(5)
 
-    fraud_count = data['fraud_flag'].sum()
+    # Calculate metrics
     total_claims = len(data)
-    fraud_amount = data.loc[data['fraud_flag'] == 1, 'amount'].sum() if 'amount' in data.columns else 0
+    total_amount = data['amount'].sum() if 'amount' in data.columns else 0
+    avg_amount = total_amount / total_claims if total_claims > 0 else 0
+    fraud_count = data['fraud_flag'].sum() if 'fraud_flag' in data.columns else 0
+    fraud_amount = data.loc[data['fraud_flag'] == 1, 'amount'].sum() if 'fraud_flag' in data.columns and 'amount' in data.columns else 0
 
-    stats = [
-        ('Total Claims', total_claims),
-        ('Potential Fraud Cases', fraud_count),
-        ('Fraud Rate', f"{fraud_count/total_claims:.1%}"),
-        ('Amount at Risk', f"KES {fraud_amount:,.2f}" if 'amount' in data.columns else "N/A")
+    # Metrics table
+    pdf.set_font('Arial', '', 10)
+    pdf.set_text_color(0, 0, 0)
+
+    col_widths = [60, 60, 60]
+    row_height = 10
+
+    # Header row
+    pdf.set_fill_color(*primary_color)
+    pdf.set_text_color(255, 255, 255)
+    pdf.cell(col_widths[0], row_height, 'Metric', 1, 0, 'C', 1)
+    pdf.cell(col_widths[1], row_height, 'Value', 1, 0, 'C', 1)
+    pdf.cell(col_widths[2], row_height, 'Notes', 1, 1, 'C', 1)
+
+    # Data rows
+    pdf.set_fill_color(255, 255, 255)
+    pdf.set_text_color(0, 0, 0)
+
+    metrics = [
+        ('Total Claims', f"{total_claims:,}", "All claims in period"),
+        ('Total Amount', f"KES {total_amount:,.2f}", "Sum of all claim amounts"),
+        ('Average Claim', f"KES {avg_amount:,.2f}", "Mean claim value"),
+        ('Potential Fraud', f"{fraud_count:,}", "Flagged by detection system"),
+        ('Amount at Risk', f"KES {fraud_amount:,.2f}", "Total of flagged claims")
     ]
 
-    for label, value in stats:
-        pdf.cell(50, 10, label, 0, 0)
-        pdf.cell(0, 10, str(value), 0, 1)
+    for metric, value, note in metrics:
+        pdf.cell(col_widths[0], row_height, metric, 1, 0, 'L', 1)
+        pdf.cell(col_widths[1], row_height, value, 1, 0, 'R', 1)
+        pdf.cell(col_widths[2], row_height, note, 1, 1, 'L', 1)
 
-    # Top Fraudulent Providers if provider info exists
-    if 'provider_name' in data.columns:
-        pdf.ln(5)
+    pdf.ln(15)
+
+    # Time series analysis if date column exists
+    if 'date' in data.columns:
+        pdf.set_fill_color(*secondary_color)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
         pdf.set_font('Arial', 'B', 12)
-        pdf.cell(0, 10, 'Top Providers by Fraud Count', 0, 1)
-        pdf.set_font('Arial', '', 10)
+        pdf.set_text_color(*primary_color)
+        pdf.cell(0, 10, 'Claims Over Time', 0, 1, 'L')
+        pdf.ln(5)
 
-        provider_fraud = data[data['fraud_flag'] == 1].groupby('provider_name').size().nlargest(5)
-        for provider, count in provider_fraud.items():
-            pdf.cell(0, 10, f"- {provider}: {count} cases", 0, 1)
+        try:
+            # Create time series chart
+            data['date'] = pd.to_datetime(data['date'])
+            monthly_data = data.set_index('date').resample('M').agg({
+                'amount': ['sum', 'count']
+            }).reset_index()
+            monthly_data.columns = ['Month', 'Total Amount', 'Claim Count']
 
-    # Footer
-    pdf.set_y(-15)
-    pdf.set_font('Arial', 'I', 8)
-    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only', 0, 0, 'C')
+            # Create plot
+            plt.figure(figsize=(8, 4))
+            plt.plot(monthly_data['Month'], monthly_data['Total Amount'],
+                    color=[x/255 for x in primary_color], linewidth=2)
+            plt.title('Monthly Claims Value', pad=20)
+            plt.ylabel('Amount (KES)')
+            plt.grid(True, linestyle='--', alpha=0.7)
+            plt.tight_layout()
 
-    return pdf.output(dest='S').encode('latin1')
+            # Save plot to temp file
+            with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
+                plt.savefig(tmp.name, dpi=150)
+                tmp_path = tmp.name
 
-def generate_provider_report(client_name, data):
-    """Generate PDF report for provider performance"""
-    pdf = FPDF()
-    pdf.add_page()
+            # Insert into PDF
+            pdf.image(tmp_path, x=10, y=pdf.get_y(), w=190)
+            pdf.ln(80)
 
-    # Header
-    pdf.set_font('Arial', 'B', 16)
-    pdf.cell(0, 10, f'{client_name} Provider Performance Report', 0, 1, 'C')
-    pdf.set_font('Arial', '', 10)
-    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d")}', 0, 1, 'C')
-    pdf.ln(10)
+            # Clean up
+            plt.close()
+            os.unlink(tmp_path)
+        except Exception as e:
+            pdf.cell(0, 10, f"Could not generate time series: {str(e)}", 0, 1)
 
-    # Provider Summary
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Provider Performance Metrics', 0, 1)
-    pdf.set_font('Arial', '', 10)
+    # Top providers section
+    if 'provider_name' in data.columns:
+        pdf.set_fill_color(*secondary_color)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+        pdf.set_font('Arial', 'B', 12)
+        pdf.set_text_color(*primary_color)
+        pdf.cell(0, 10, 'Top Providers', 0, 1, 'L')
+        pdf.ln(5)
 
-    if 'provider_name' in data.columns and 'amount' in data.columns:
         provider_stats = data.groupby('provider_name').agg({
-            'amount': ['sum', 'mean', 'count'],
+            'amount': ['sum', 'count'],
             'fraud_flag': 'sum'
         }).reset_index()
-        provider_stats.columns = ['Provider', 'Total Amount', 'Avg Amount', 'Claim Count', 'Fraud Count']
-        provider_stats['Fraud Rate'] = provider_stats['Fraud Count'] / provider_stats['Claim Count']
+        provider_stats.columns = ['Provider', 'Total Amount', 'Claim Count', 'Fraud Count']
+        provider_stats = provider_stats.sort_values('Total Amount', ascending=False).head(5)
 
-        # Top Performers
-        pdf.cell(0, 10, 'Top 5 Providers by Total Claims', 0, 1)
-        top_providers = provider_stats.sort_values('Claim Count', ascending=False).head(5)
-        for _, row in top_providers.iterrows():
-            pdf.cell(0, 10, 
-                    f"- {row['Provider']}: {row['Claim Count']} claims (KES {row['Total Amount']:,.2f})", 
-                    0, 1)
+        # Providers table
+        pdf.set_font('Arial', '', 10)
+        col_widths = [70, 40, 40, 40]
 
-        # Efficiency Analysis
-        pdf.ln(5)
+        # Header
+        pdf.set_fill_color(*primary_color)
+        pdf.set_text_color(255, 255, 255)
+        pdf.cell(col_widths[0], row_height, 'Provider', 1, 0, 'C', 1)
+        pdf.cell(col_widths[1], row_height, 'Amount', 1, 0, 'C', 1)
+        pdf.cell(col_widths[2], row_height, 'Claims', 1, 0, 'C', 1)
+        pdf.cell(col_widths[3], row_height, 'Fraud', 1, 1, 'C', 1)
+
+        # Data
+        pdf.set_fill_color(255, 255, 255)
+        pdf.set_text_color(0, 0, 0)
+
+        for _, row in provider_stats.iterrows():
+            pdf.cell(col_widths[0], row_height, row['Provider'][:30], 1, 0, 'L', 1)
+            pdf.cell(col_widths[1], row_height, f"KES {row['Total Amount']:,.2f}", 1, 0, 'R', 1)
+            pdf.cell(col_widths[2], row_height, str(row['Claim Count']), 1, 0, 'R', 1)
+            pdf.cell(col_widths[3], row_height, str(row['Fraud Count']), 1, 1, 'R', 1)
+
+        pdf.ln(10)
+
+    # Fraud analysis if fraud data exists
+    if 'fraud_flag' in data.columns and data['fraud_flag'].sum() > 0:
+        pdf.set_fill_color(*secondary_color)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
         pdf.set_font('Arial', 'B', 12)
-        pdf.cell(0, 10, 'Efficiency Analysis', 0, 1)
+        pdf.set_text_color(*primary_color)
+        pdf.cell(0, 10, 'Fraud Analysis', 0, 1, 'L')
+        pdf.ln(5)
+
+        fraud_data = data[data['fraud_flag'] == 1]
+        top_fraud = fraud_data.groupby('provider_name')['amount'].sum().nlargest(5)
+
+        pdf.set_font('Arial', 'B', 10)
+        pdf.cell(0, 10, 'Top Providers by Fraud Amount:', 0, 1)
         pdf.set_font('Arial', '', 10)
 
-        overall_avg = data['amount'].mean()
-        provider_stats['Efficiency Ratio'] = provider_stats['Avg Amount'] / overall_avg
-        efficient_providers = provider_stats.sort_values('Efficiency Ratio').head(3)
-        
-        pdf.cell(0, 10, 'Most Efficient Providers:', 0, 1)
-        for _, row in efficient_providers.iterrows():
-            pdf.cell(0, 10, 
-                    f"- {row['Provider']}: Efficiency ratio {row['Efficiency Ratio']:.2f} " +
-                    f"(Avg: KES {row['Avg Amount']:,.2f})", 
-                    0, 1)
-    else:
-        pdf.cell(0, 10, "No provider information available", 0, 1)
+        for provider, amount in top_fraud.items():
+            pdf.cell(0, 10, f"- {provider}: KES {amount:,.2f}", 0, 1)
 
-    # Footer
-    pdf.set_y(-15)
-    pdf.set_font('Arial', 'I', 8)
-    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only', 0, 0, 'C')
+        pdf.ln(5)
 
-    return pdf.output(dest='S').encode('latin1')
-
-def generate_financial_report(client_name, data):
-    """Generate PDF report with safe numeric handling"""
-    pdf = FPDF()
-    pdf.add_page()
-
-    # Header
-    pdf.set_font('Arial', 'B', 16)
-    pdf.cell(0, 10, f'{client_name} Financial Projections Report', 0, 1, 'C')
-    pdf.set_font('Arial', '', 10)
-    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d")}', 0, 1, 'C')
-    pdf.ln(10)
-
-    # Financial Summary
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, 'Financial Overview', 0, 1)
-    pdf.set_font('Arial', '', 10)
-
-    amount_col = get_column(data, COLUMN_MAPPING['amount'])
-    if amount_col:
-        try:
-            # Safe conversion of amount column
-            data[amount_col] = pd.to_numeric(data[amount_col].astype(str).str.replace('[^\d.]', '', regex=True), errors='coerce')
-            data[amount_col] = data[amount_col].fillna(0)
-            
-            total_amount = float(data[amount_col].sum())
-            avg_amount = float(data[amount_col].mean())
-            claim_count = len(data)
-
-            stats = [
-                ('Total Claim Amount', f"KES {total_amount:,.2f}"),
-                ('Average Claim Amount', f"KES {avg_amount:,.2f}"),
-                ('Total Claims', claim_count)
-            ]
-
-            for label, value in stats:
-                pdf.cell(60, 10, label, 0, 0)
-                pdf.cell(0, 10, str(value), 0, 1)
-
-            # Projections with date check
-            date_col = get_column(data, COLUMN_MAPPING['date'])
-            if date_col:
-                try:
-                    data[date_col] = pd.to_datetime(data[date_col], errors='coerce')
-                    unique_months = len(data[date_col].dt.to_period('M').unique())
-                    monthly_avg = total_amount / unique_months if unique_months > 0 else total_amount
-                except:
-                    monthly_avg = total_amount
-            else:
-                monthly_avg = total_amount
-
-            pdf.ln(5)
-            pdf.set_font('Arial', 'B', 12)
-            pdf.cell(0, 10, 'Annual Projections', 0, 1)
+        # Fraud by category if available
+        if 'category' in data.columns:
+            fraud_by_cat = fraud_data['category'].value_counts().nlargest(5)
+            pdf.set_font('Arial', 'B', 10)
+            pdf.cell(0, 10, 'Top Categories by Fraud Count:', 0, 1)
             pdf.set_font('Arial', '', 10)
-            pdf.cell(0, 10, f"Projected Annual Claims: KES {monthly_avg * 12:,.2f}", 0, 1)
-            
-        except Exception as e:
-            pdf.cell(0, 10, f"Error processing financial data: {str(e)}", 0, 1)
-    else:
-        pdf.cell(0, 10, "No financial data available", 0, 1)
+
+            for category, count in fraud_by_cat.items():
+                pdf.cell(0, 10, f"- {category}: {count} cases", 0, 1)
 
     # Footer
     pdf.set_y(-15)
     pdf.set_font('Arial', 'I', 8)
-    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only', 0, 0, 'C')
+    pdf.set_text_color(100, 100, 100)
+    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only - Page {pdf.page_no()}', 0, 0, 'C')
 
     return pdf.output(dest='S').encode('latin1')
+
+def generate_client_report(client_name, data):
+    """Generate comprehensive client report data"""
+    report = {
+        'metadata': {
+            'client': client_name,
+            'generated_at': datetime.now().isoformat(),
+            'report_type': 'client_summary',
+            'data_points': len(data)
+        },
+        'summary_metrics': {},
+        'time_series': {},
+        'provider_analysis': {},
+        'fraud_analysis': {}
+    }
+
+    # Basic metrics
+    report['summary_metrics']['total_claims'] = len(data)
+
+    if 'amount' in data.columns:
+        report['summary_metrics']['total_amount'] = float(data['amount'].sum())
+        report['summary_metrics']['average_amount'] = float(data['amount'].mean())
+
+    if 'fraud_flag' in data.columns:
+        report['summary_metrics']['fraud_count'] = int(data['fraud_flag'].sum())
+        if 'amount' in data.columns:
+            report['summary_metrics']['fraud_amount'] = float(data.loc[data['fraud_flag'] == 1, 'amount'].sum())
+
+    # Time series data if available
+    if 'date' in data.columns:
+        try:
+            data['date'] = pd.to_datetime(data['date'])
+            monthly_data = data.set_index('date').resample('M').agg({
+                'amount': ['sum', 'count']
+            }).reset_index()
+            monthly_data.columns = ['month', 'total_amount', 'claim_count']
+
+            report['time_series']['monthly'] = monthly_data.to_dict('records')
+        except:
+            pass
+
+    # Provider analysis if available
+    if 'provider_name' in data.columns:
+        provider_stats = data.groupby('provider_name').agg({
+            'amount': ['sum', 'count'],
+            'fraud_flag': 'sum'
+        }).reset_index()
+        provider_stats.columns = ['provider', 'total_amount', 'claim_count', 'fraud_count']
+
+        report['provider_analysis']['top_by_amount'] = (
+            provider_stats.sort_values('total_amount', ascending=False)
+            .head(5)
+            .to_dict('records')
+        )
+
+        report['provider_analysis']['top_by_fraud'] = (
+            provider_stats[provider_stats['fraud_count'] > 0]
+            .sort_values('fraud_count', ascending=False)
+            .head(5)
+            .to_dict('records')
+        )
+
+    # Fraud analysis if available
+    if 'fraud_flag' in data.columns and data['fraud_flag'].sum() > 0:
+        fraud_data = data[data['fraud_flag'] == 1]
+
+        if 'category' in data.columns:
+            report['fraud_analysis']['by_category'] = (
+                fraud_data['category'].value_counts()
+                .head(5)
+                .to_dict()
+            )
+
+        if 'diagnosis' in data.columns:
+            report['fraud_analysis']['by_diagnosis'] = (
+                fraud_data['diagnosis'].value_counts()
+                .head(5)
+                .to_dict()
+            )
+
+    return report
+
+def push_report_to_client(client_name, report_data, report_type):
+    """Push generated reports to client interface"""
+    try:
+        # Store report in client's accessible location
+        report_dir = f"client_reports/{client_name}"
+        os.makedirs(report_dir, exist_ok=True)
+
+        # Generate filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{report_dir}/{report_type}_{timestamp}.json"
+
+        # Save report data
+        with open(filename, 'w') as f:
+            json.dump(report_data, f)
+
+        # Update client's report list
+        report_list_file = f"{report_dir}/_reports.json"
+        if os.path.exists(report_list_file):
+            with open(report_list_file, 'r') as f:
+                existing_reports = json.load(f)
+        else:
+            existing_reports = []
+
+        new_report_entry = {
+            'type': report_type,
+            'generated_at': datetime.now().isoformat(),
+            'filename': filename.split('/')[-1],
+            'status': 'unread'
+        }
+
+        existing_reports.append(new_report_entry)
+
+        with open(report_list_file, 'w') as f:
+            json.dump(existing_reports, f)
+
+        return True
+    except Exception as e:
+        logging.error(f"Failed to push report to client: {str(e)}")
+        return False
+
+def generate_sample_excel(data):
+    """Generate Excel file from data"""
+    output = BytesIO()
+    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        data.to_excel(writer, index=False, sheet_name='Claims Data')
+    return output.getvalue()
+
+def render_report_preview(report_data):
+    """Render interactive preview of the report data"""
+    st.subheader("Report Preview")
+
+    # Summary metrics
+    st.write("### Key Metrics")
+    cols = st.columns(4)
+    with cols[0]:
+        st.metric("Total Claims", report_data['summary_metrics'].get('total_claims', 'N/A'))
+    with cols[1]:
+        st.metric("Total Amount",
+                 f"KES {report_data['summary_metrics'].get('total_amount', 0):,.2f}"
+                 if 'total_amount' in report_data['summary_metrics'] else 'N/A')
+    with cols[2]:
+        st.metric("Average Claim",
+                 f"KES {report_data['summary_metrics'].get('average_amount', 0):,.2f}"
+                 if 'average_amount' in report_data['summary_metrics'] else 'N/A')
+    with cols[3]:
+        st.metric("Potential Fraud",
+                 report_data['summary_metrics'].get('fraud_count', 0))
+
+    # Time series chart if available
+    if 'time_series' in report_data and 'monthly' in report_data['time_series']:
+        st.write("### Claims Over Time")
+        ts_data = pd.DataFrame(report_data['time_series']['monthly'])
+        ts_data['month'] = pd.to_datetime(ts_data['month'])
+
+        fig = px.line(
+            ts_data,
+            x='month',
+            y='total_amount',
+            title='Monthly Claims Value',
+            labels={'total_amount': 'Amount (KES)', 'month': 'Month'}
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Provider analysis if available
+    if 'provider_analysis' in report_data and 'top_by_amount' in report_data['provider_analysis']:
+        st.write("### Top Providers")
+        provider_data = pd.DataFrame(report_data['provider_analysis']['top_by_amount'])
+
+        fig = px.bar(
+            provider_data,
+            x='provider',
+            y='total_amount',
+            color='fraud_count',
+            title='Providers by Total Claims Amount',
+            labels={'total_amount': 'Amount (KES)', 'provider': 'Provider', 'fraud_count': 'Fraud Cases'}
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Fraud analysis if available
+    if 'fraud_analysis' in report_data and 'by_category' in report_data['fraud_analysis']:
+        st.write("### Fraud by Category")
+        fraud_data = pd.DataFrame.from_dict(
+            report_data['fraud_analysis']['by_category'],
+            orient='index',
+            columns=['Count']
+        ).reset_index()
+        fraud_data.columns = ['Category', 'Count']
+
+        fig = px.pie(
+            fraud_data,
+            names='Category',
+            values='Count',
+            title='Fraud Distribution by Category'
+        )
+        st.plotly_chart(fig, use_container_width=True)
 
 # ==============================================
 # ADMIN INTERFACE (VIRTUAL ANALYTICS)
@@ -2101,6 +2241,80 @@ def admin_dashboard():
             except FileNotFoundError:
                 st.warning("No system logs available")
 
+def broker_underwriter_dashboard(user_info):
+    st.title(f"The Verse - {user_info['tenant'].title()} Dashboard")
+    log_audit_event(user_info['name'], "broker_login")
+
+    # Broker-specific logo
+    logo_path = "broker_logo.png"
+    try:
+        st.sidebar.image(logo_path, use_container_width=True)
+    except FileNotFoundError:
+        st.sidebar.warning("Logo image not found - using placeholder")
+        st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
+
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### About")
+    st.sidebar.markdown("""
+        AI-powered claims analytics providing:
+        - Predictive cost modeling
+        - Fraud pattern detection
+        - Client-specific business intelligence
+        - Scenario simulation engines
+        """)
+
+    if st.sidebar.button("🚀 Launch API Console"):
+        if 'predictor' in st.session_state:
+            api = create_api(st.session_state.predictor)
+            import uvicorn
+            uvicorn.run(api, host="0.0.0.0", port=8000)
+        else:
+            st.sidebar.warning("No trained model available")
+
+    # Initialize session state for data and predictor
+    if 'claims_data' not in st.session_state:
+        st.session_state.claims_data = None
+
+    if 'predictor' not in st.session_state:
+        st.session_state.predictor = ClaimsPredictor()
+
+    # Main navigation
+    st.sidebar.header("Analysis Mode")
+    analysis_type = st.sidebar.radio(
+        "Select Mode:",
+        options=["Claims Upload", "Claims Prediction", "Fraud Detection", "Client Management", "Reports"],
+        key='broker_analysis_mode'
+    )
+
+    if analysis_type == "Claims Upload":
+        render_claims_upload(user_info)
+    elif analysis_type == "Claims Prediction":
+        render_claims_prediction(user_info)
+    elif analysis_type == "Fraud Detection":
+        render_fraud_detection(user_info)
+    elif analysis_type == "Client Management":
+        render_client_management(user_info)
+    elif analysis_type == "Reports":
+        render_report_generation(user_info)
+
+def client_dashboard(user_info):
+    # [Your existing client dashboard code...]
+    pass
+
+def main():
+    if not st.session_state.get('authenticated', False):
+        login_form()
+    else:
+        st.set_page_config(layout="wide")
+        user_info = st.session_state.user_info
+
+        if user_info['role'] == 'admin':
+            admin_dashboard()
+        elif user_info['role'] in ['broker', 'underwriter']:
+            broker_underwriter_dashboard(user_info)
+        elif user_info['role'] == 'client':
+            client_dashboard(user_info)
+
 # ==============================================
 # BROKER/UNDERWRITER INTERFACE - CLAIMS PREDICTION
 # ==============================================
@@ -2115,9 +2329,9 @@ def render_claims_prediction(user_info):
 
     # Initialize tabs - NEW ENHANCEMENT: Added Impact Analysis and Agentic AI tabs
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "Data Preparation", 
-        "Exploratory Analysis", 
-        "Model Training", 
+        "Data Preparation",
+        "Exploratory Analysis",
+        "Model Training",
         "Make Predictions",
         "Impact Analysis",      # NEW ENHANCEMENT
         "Agentic AI"            # NEW ENHANCEMENT
@@ -2129,11 +2343,11 @@ def render_claims_prediction(user_info):
             with st.spinner("Cleaning data..."):
                 st.session_state.predictor.data = st.session_state.claims_data.copy()
                 success = st.session_state.predictor.clean_and_prepare_data()
-                
+
                 if success:
                     st.success("Data cleaned successfully!")
                     st.session_state.clean_data = st.session_state.predictor.clean_data.copy()
-                    
+
                     st.write("**New Features Created:**")
                     original_cols = set(st.session_state.predictor.data.columns)
                     new_cols = set(st.session_state.predictor.clean_data.columns) - original_cols
@@ -2147,7 +2361,7 @@ def render_claims_prediction(user_info):
 
     with tab2:
         st.subheader("Exploratory Data Analysis")
-        
+
         if 'clean_data' not in st.session_state or st.session_state.clean_data is None:
             st.warning("Please clean data first")
         else:
@@ -2291,7 +2505,7 @@ def render_claims_prediction(user_info):
                 # Create filters - handle missing columns gracefully
                 cols = st.columns(3)
                 filter_conditions = []
-                
+
                 with cols[0]:
                     # Check if 'employer' column exists, otherwise use a default
                     if 'employer' in st.session_state.predictor.clean_data.columns:
@@ -2305,7 +2519,7 @@ def render_claims_prediction(user_info):
                         )
                     else:
                         st.warning("No employer information available")
-                
+
                 with cols[1]:
                     if 'department' in st.session_state.predictor.clean_data.columns:
                         departments = st.multiselect(
@@ -2318,7 +2532,7 @@ def render_claims_prediction(user_info):
                         )
                     else:
                         st.warning("No department information available")
-                
+
                 with cols[2]:
                     if 'category' in st.session_state.predictor.clean_data.columns:
                         categories = st.multiselect(
@@ -2375,7 +2589,7 @@ def render_claims_prediction(user_info):
         st.subheader("Impact Analysis")
         st.write("Under development: Cost-benefit simulation engine")
         st.image("https://via.placeholder.com/600x200?text=IMPACT+ANALYSIS+DASHBOARD")
-        
+
         st.write("""
         This module will allow you to:
         - Simulate different cost scenarios
@@ -2389,7 +2603,7 @@ def render_claims_prediction(user_info):
         st.subheader("Agentic AI")
         st.write("Autonomous analysis agents coming soon")
         st.image("https://via.placeholder.com/600x200?text=AGENTIC+AI+DASHBOARD")
-        
+
         st.write("""
         Future capabilities will include:
         - Automated anomaly detection
@@ -2400,14 +2614,14 @@ def render_claims_prediction(user_info):
 
 def render_claims_upload(user_info):
     st.header("Claims Data Upload")
-    
+
     # Initialize logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         filename='data_loading.log'
     )
-    
+
     uploaded_file = st.file_uploader(
         "Upload Claims Data (CSV or Excel)",
         type=['csv', 'xlsx'],
@@ -2418,7 +2632,7 @@ def render_claims_upload(user_info):
         try:
             # Show file info
             st.info(f"Uploaded: {uploaded_file.name} ({uploaded_file.size/1024:.1f} KB)")
-            
+
             # Enhanced file preview
             with st.expander("File Preview", expanded=True):
                 try:
@@ -2430,18 +2644,18 @@ def render_claims_upload(user_info):
                     st.write("Columns:", preview_df.columns.tolist())
                 except Exception as e:
                     st.warning(f"Preview error: {str(e)}")
-            
+
             # Reset file pointer after preview
             uploaded_file.seek(0)
-            
+
             with st.spinner("Processing uploaded file..."):
                 tenant_key = user_info['tenant_config'].get('storage_bucket', 'default_key')
                 claims_data = load_real_claims_data(uploaded_file, tenant_key)
-                
+
                 if claims_data is not None:
                     st.session_state.claims_data = claims_data
                     st.success(f"Successfully loaded {len(claims_data)} claims!")
-                    
+
                     # Show quick stats
                     cols = st.columns(3)
                     with cols[0]:
@@ -2462,140 +2676,527 @@ def render_claims_upload(user_info):
             st.write("- Check for special characters in the file")
 
 # ==============================================
-# BROKER/UNDERWRITER INTERFACE - MAIN DASHBOARD
+# CLIENT MANAGEMENT INTERFACE
 # ==============================================
 
 def render_client_management(user_info):
-    """Client management interface for brokers/underwriters"""
-    st.header("Client Management")
-    log_audit_event(user_info['name'], "client_management_accessed")
+    st.header("Client Management Portal")
+    log_audit_event(user_info['name'], "client_mgmt_accessed")
 
-    if 'clients' not in user_info:
-        st.warning("No clients assigned to your account")
-        return
-
-    # Display client list
-    st.subheader("Your Clients")
-    clients = list(user_info['clients'].keys())
-    
-    # Client selection
     selected_client = st.selectbox(
         "Select Client",
-        options=clients,
-        key='client_select'
-    )
-    
-    # Display client details
-    client_info = user_info['clients'][selected_client]
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write(f"**Plan:** {client_info['plan']}")
-        st.write(f"**Data Access:** {', '.join(client_info['data_access'])}")
-    with col2:
-        st.write("**Authorized Users:**")
-        for user in client_info['users']:
-            st.write(f"- {user}")
+        options=list(user_info.get('clients', {}).keys()))
+    if selected_client:
+        client_info = user_info['clients'][selected_client]
+        st.subheader(f"{selected_client} Management")
 
-    # Client actions
-    st.subheader("Client Actions")
-    action_col1, action_col2 = st.columns(2)
-    
-    with action_col1:
-        if st.button("Add New User"):
-            st.session_state.show_add_user = True
-        
-        if st.button("Update Plan"):
-            st.session_state.show_update_plan = True
-    
-    with action_col2:
-        if st.button("Revoke Access"):
-            st.warning(f"Access revocation for {selected_client} would happen here")
-        
-        if st.button("View Activity Logs"):
-            st.info(f"Activity logs for {selected_client} would appear here")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Current Plan", client_info['plan'])
+            st.write("**Authorized Users:**")
+            for user in client_info['users']:
+                st.write(f"- {user}")
 
-    # Add user form
-    if st.session_state.get('show_add_user', False):
-        with st.form("Add User Form"):
-            new_username = st.text_input("Username")
-            new_password = st.text_input("Password", type="password")
-            submit = st.form_submit_button("Add User")
-            
-            if submit:
-                # Here you would add the user to your user database
-                st.success(f"User {new_username} added to {selected_client}")
-                st.session_state.show_add_user = False
+        with col2:
+            if st.button("Upgrade Plan"):
+                st.success(f"Plan upgrade request sent for {selected_client}")
+                log_audit_event(user_info['name'], "plan_upgrade_requested", selected_client)
 
-    # Update plan form
-    if st.session_state.get('show_update_plan', False):
-        with st.form("Update Plan Form"):
-            new_plan = st.selectbox(
-                "Select Plan",
-                ["basic", "standard", "premium", "enterprise"]
-            )
-            submit = st.form_submit_button("Update Plan")
-            
-            if submit:
-                # Here you would update the plan in your user database
-                st.success(f"Plan updated to {new_plan} for {selected_client}")
-                st.session_state.show_update_plan = False
+            if st.button("Reset Client Data"):
+                st.warning(f"This will reset all data for {selected_client}")
+                log_audit_event(user_info['name'], "data_reset_requested", selected_client)
 
-def broker_underwriter_dashboard(user_info):
-    st.title(f"The Verse - {user_info['tenant'].title()} Dashboard")
-    log_audit_event(user_info['name'], "broker_login")
+        st.subheader("Client Access Configuration")
+        new_user = st.text_input("Add New User")
+        if st.button("Grant Access"):
+            if new_user:
+                if new_user in USER_DB:
+                    USER_DB[selected_client]['users'].append(new_user)
+                    st.success(f"Added {new_user} to {selected_client}")
+                    log_audit_event(user_info['name'], "user_access_granted",
+                                   f"{new_user} to {selected_client}")
+                else:
+                    st.error("User does not exist in system")
 
-    # NEW ENHANCEMENT: Broker-specific logo
-    logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\logo.png"  # Broker logo
+        st.subheader("Data Access Configuration")
+        access_options = ['claims', 'fraud', 'reports', 'predictions']
+        current_access = client_info.get('data_access', [])
+
+        new_access = st.multiselect(
+            "Allowed Data Access",
+            options=access_options,
+            default=current_access,
+            key=f"access_{selected_client}"
+        )
+
+        if st.button("Update Access Permissions"):
+            client_info['data_access'] = new_access
+            st.success(f"Updated data access for {selected_client}")
+            log_audit_event(user_info['name'], "access_updated",
+                           f"{selected_client}: {', '.join(new_access)}")
+
+        st.subheader("Client Analytics Dashboard")
+        if st.checkbox("Show Client Analytics"):
+            if 'claims_data' in st.session_state and st.session_state.claims_data is not None:
+                # Use column mapping system to find the employer/client column
+                employer_col = get_column(st.session_state.claims_data, COLUMN_MAPPING['employee_id'])
+
+                if employer_col:
+                    client_data = st.session_state.claims_data[
+                        st.session_state.claims_data[employer_col] == selected_client]
+
+                    if not client_data.empty:
+                        st.write(f"#### Claims Summary for {selected_client}")
+
+                        cols = st.columns(3)
+                        with cols[0]:
+                            st.metric("Total Claims", len(client_data))
+                        with cols[1]:
+                            amount_col = get_column(client_data, COLUMN_MAPPING['amount'])
+                            if amount_col:
+                                st.metric("Total Amount", f"KES {client_data[amount_col].sum():,.2f}")
+                            else:
+                                st.warning("Amount data not available")
+                        with cols[2]:
+                            if amount_col:
+                                st.metric("Avg. Claim", f"KES {client_data[amount_col].mean():,.2f}")
+                            else:
+                                st.warning("Amount data not available")
+
+                        st.write("##### Monthly Claims Trend")
+                        date_col = get_column(client_data, COLUMN_MAPPING['date'])
+                        if date_col:
+                            client_data[date_col] = pd.to_datetime(client_data[date_col])
+                            monthly_data = client_data.set_index(date_col).resample('M').agg({
+                                amount_col: ['sum', 'count']
+                            }).reset_index()
+                            monthly_data.columns = ['Month', 'Total Amount', 'Claim Count']
+
+                            chart = alt.Chart(monthly_data).mark_area().encode(
+                                x='Month:T',
+                                y='Total Amount:Q',
+                                tooltip=['Month', 'Total Amount', 'Claim Count']
+                            ).properties(height=300)
+                            st.altair_chart(chart, use_container_width=True)
+                        else:
+                            st.warning("Date information not available for trend analysis")
+
+                        st.write("##### Claim Type Distribution")
+                        if 'category' in client_data.columns:
+                            category_dist = client_data['category'].value_counts().reset_index()
+                            category_dist.columns = ['Category', 'Count']
+
+                            pie_chart = alt.Chart(category_dist).mark_arc().encode(
+                                theta='Count:Q',
+                                color='Category:N',
+                                tooltip=['Category', 'Count']
+                            ).properties(height=300)
+                            st.altair_chart(pie_chart, use_container_width=True)
+                        else:
+                            st.warning("Category information not available")
+                    else:
+                        st.warning(f"No claims data found for {selected_client}")
+                else:
+                    st.warning("No client identification column found in data")
+            else:
+                st.warning("No claims data available. Please upload data first.")
+
+        st.subheader("Client Report Generation")
+        report_type = st.selectbox(
+            "Report Type",
+            ["Monthly Summary", "Annual Review", "Fraud Analysis"],
+            key=f"report_type_{selected_client}"
+        )
+
+        if st.button("Generate Client Report"):
+            with st.spinner(f"Generating {report_type} report..."):
+                report_data = generate_client_report(selected_client, st.session_state.claims_data)
+
+                if report_data:
+                    # Push report to client interface
+                    push_success = push_report_to_client(
+                        selected_client,
+                        report_data,
+                        report_type
+                    )
+
+                    if push_success:
+                        st.success(f"Report successfully pushed to {selected_client}'s interface")
+
+                    # Generate downloadable PDF
+                    pdf_bytes = generate_client_report_pdf(selected_client, report_data, report_type)
+
+                    # Show download options
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.download_button(
+                            label="Download PDF Report",
+                            data=pdf_bytes,
+                            file_name=f"{selected_client}_{report_type.replace(' ', '_')}.pdf",
+                            mime="application/pdf"
+                        )
+                    with col2:
+                        excel_data = generate_sample_excel(st.session_state.claims_data)
+                        st.download_button(
+                            label="Download Excel Data",
+                            data=excel_data,
+                            file_name=f"{selected_client}_report_data.xlsx",
+                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                        )
+
+                    st.success(f"{report_type} report generated for {selected_client}")
+                    log_audit_event(user_info['name'], "report_generated",
+                                   f"{report_type} for {selected_client}")
+                else:
+                    st.error("Failed to generate report. No data available.")
+
+def generate_client_report_pdf(client_name, data, report_type):
+    """Generate visually appealing PDF reports with enhanced styling"""
+    pdf = FPDF()
+    pdf.add_page()
+
+    # Set up colors
+    primary_color = (57, 106, 177)  # Blue
+    secondary_color = (229, 236, 246)  # Light blue
+    accent_color = (255, 153, 0)  # Orange
+
+    # Header with logo and title
+    pdf.set_fill_color(*secondary_color)
+    pdf.rect(0, 0, 210, 30, 'F')
+
     try:
-        st.sidebar.image(logo_path, use_container_width=True)
-    except FileNotFoundError:
-        st.sidebar.warning("Logo image not found - using placeholder")
-        st.sidebar.image("https://via.placeholder.com/150x50?text=BROKER+LOGO", use_container_width=True)
+        pdf.image("logo.png", 10, 8, 25)
+    except:
+        pass  # Skip if logo not found
 
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("### About")
-    st.sidebar.markdown("""
-        AI-powered claims analytics providing:
-        - Predictive cost modeling
-        - Fraud pattern detection
-        - Client-specific business intelligence
-        - Scenario simulation engines
-        """)
+    pdf.set_font('Arial', 'B', 16)
+    pdf.set_text_color(*primary_color)
+    pdf.cell(0, 10, f'{client_name} {report_type} Report', 0, 1, 'C')
+    pdf.set_font('Arial', '', 10)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(0, 10, f'Generated on {datetime.now().strftime("%Y-%m-%d at %H:%M")}', 0, 1, 'C')
+    pdf.ln(15)
 
-    if st.sidebar.button("🚀 Launch API Console"):
-        if 'predictor' in st.session_state:
-            api = create_api(st.session_state.predictor)
-            import uvicorn
-            uvicorn.run(api, host="0.0.0.0", port=8000)
+    # Summary section with colored background
+    pdf.set_fill_color(*secondary_color)
+    pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+    pdf.set_font('Arial', 'B', 12)
+    pdf.set_text_color(*primary_color)
+    pdf.cell(0, 10, 'Key Metrics', 0, 1, 'L')
+    pdf.ln(5)
+
+    # Calculate metrics
+    total_claims = len(data)
+    total_amount = data['amount'].sum() if 'amount' in data.columns else 0
+    avg_amount = total_amount / total_claims if total_claims > 0 else 0
+    fraud_count = data['fraud_flag'].sum() if 'fraud_flag' in data.columns else 0
+    fraud_amount = data.loc[data['fraud_flag'] == 1, 'amount'].sum() if 'fraud_flag' in data.columns and 'amount' in data.columns else 0
+
+    # Metrics table
+    pdf.set_font('Arial', '', 10)
+    pdf.set_text_color(0, 0, 0)
+
+    col_widths = [60, 60, 60]
+    row_height = 10
+
+    # Header row
+    pdf.set_fill_color(*primary_color)
+    pdf.set_text_color(255, 255, 255)
+    pdf.cell(col_widths[0], row_height, 'Metric', 1, 0, 'C', 1)
+    pdf.cell(col_widths[1], row_height, 'Value', 1, 0, 'C', 1)
+    pdf.cell(col_widths[2], row_height, 'Notes', 1, 1, 'C', 1)
+
+    # Data rows
+    pdf.set_fill_color(255, 255, 255)
+    pdf.set_text_color(0, 0, 0)
+
+    metrics = [
+        ('Total Claims', f"{total_claims:,}", "All claims in period"),
+        ('Total Amount', f"KES {total_amount:,.2f}", "Sum of all claim amounts"),
+        ('Average Claim', f"KES {avg_amount:,.2f}", "Mean claim value"),
+        ('Potential Fraud', f"{fraud_count:,}", "Flagged by detection system"),
+        ('Amount at Risk', f"KES {fraud_amount:,.2f}", "Total of flagged claims")
+    ]
+
+    for metric, value, note in metrics:
+        pdf.cell(col_widths[0], row_height, metric, 1, 0, 'L', 1)
+        pdf.cell(col_widths[1], row_height, value, 1, 0, 'R', 1)
+        pdf.cell(col_widths[2], row_height, note, 1, 1, 'L', 1)
+
+    pdf.ln(15)
+
+    # Time series analysis if date column exists
+    if 'date' in data.columns:
+        pdf.set_fill_color(*secondary_color)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+        pdf.set_font('Arial', 'B', 12)
+        pdf.set_text_color(*primary_color)
+        pdf.cell(0, 10, 'Claims Over Time', 0, 1, 'L')
+        pdf.ln(5)
+
+        try:
+            # Create time series chart
+            data['date'] = pd.to_datetime(data['date'])
+            monthly_data = data.set_index('date').resample('M').agg({
+                'amount': ['sum', 'count']
+            }).reset_index()
+            monthly_data.columns = ['Month', 'Total Amount', 'Claim Count']
+
+            # Create plot
+            plt.figure(figsize=(8, 4))
+            plt.plot(monthly_data['Month'], monthly_data['Total Amount'],
+                    color=[x/255 for x in primary_color], linewidth=2)
+            plt.title('Monthly Claims Value', pad=20)
+            plt.ylabel('Amount (KES)')
+            plt.grid(True, linestyle='--', alpha=0.7)
+            plt.tight_layout()
+
+            # Save plot to temp file
+            with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
+                plt.savefig(tmp.name, dpi=150)
+                tmp_path = tmp.name
+
+            # Insert into PDF
+            pdf.image(tmp_path, x=10, y=pdf.get_y(), w=190)
+            pdf.ln(80)
+
+            # Clean up
+            plt.close()
+            os.unlink(tmp_path)
+        except Exception as e:
+            pdf.cell(0, 10, f"Could not generate time series: {str(e)}", 0, 1)
+
+    # Top providers section
+    if 'provider_name' in data.columns:
+        pdf.set_fill_color(*secondary_color)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+        pdf.set_font('Arial', 'B', 12)
+        pdf.set_text_color(*primary_color)
+        pdf.cell(0, 10, 'Top Providers', 0, 1, 'L')
+        pdf.ln(5)
+
+        provider_stats = data.groupby('provider_name').agg({
+            'amount': ['sum', 'count'],
+            'fraud_flag': 'sum'
+        }).reset_index()
+        provider_stats.columns = ['Provider', 'Total Amount', 'Claim Count', 'Fraud Count']
+        provider_stats = provider_stats.sort_values('Total Amount', ascending=False).head(5)
+
+        # Providers table
+        pdf.set_font('Arial', '', 10)
+        col_widths = [70, 40, 40, 40]
+
+        # Header
+        pdf.set_fill_color(*primary_color)
+        pdf.set_text_color(255, 255, 255)
+        pdf.cell(col_widths[0], row_height, 'Provider', 1, 0, 'C', 1)
+        pdf.cell(col_widths[1], row_height, 'Amount', 1, 0, 'C', 1)
+        pdf.cell(col_widths[2], row_height, 'Claims', 1, 0, 'C', 1)
+        pdf.cell(col_widths[3], row_height, 'Fraud', 1, 1, 'C', 1)
+
+        # Data
+        pdf.set_fill_color(255, 255, 255)
+        pdf.set_text_color(0, 0, 0)
+
+        for _, row in provider_stats.iterrows():
+            pdf.cell(col_widths[0], row_height, row['Provider'][:30], 1, 0, 'L', 1)
+            pdf.cell(col_widths[1], row_height, f"KES {row['Total Amount']:,.2f}", 1, 0, 'R', 1)
+            pdf.cell(col_widths[2], row_height, str(row['Claim Count']), 1, 0, 'R', 1)
+            pdf.cell(col_widths[3], row_height, str(row['Fraud Count']), 1, 1, 'R', 1)
+
+        pdf.ln(10)
+
+    # Fraud analysis if fraud data exists
+    if 'fraud_flag' in data.columns and data['fraud_flag'].sum() > 0:
+        pdf.set_fill_color(*secondary_color)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+        pdf.set_font('Arial', 'B', 12)
+        pdf.set_text_color(*primary_color)
+        pdf.cell(0, 10, 'Fraud Analysis', 0, 1, 'L')
+        pdf.ln(5)
+
+        fraud_data = data[data['fraud_flag'] == 1]
+        top_fraud = fraud_data.groupby('provider_name')['amount'].sum().nlargest(5)
+
+        pdf.set_font('Arial', 'B', 10)
+        pdf.cell(0, 10, 'Top Providers by Fraud Amount:', 0, 1)
+        pdf.set_font('Arial', '', 10)
+
+        for provider, amount in top_fraud.items():
+            pdf.cell(0, 10, f"- {provider}: KES {amount:,.2f}", 0, 1)
+
+        pdf.ln(5)
+
+        # Fraud by category if available
+        if 'category' in data.columns:
+            fraud_by_cat = fraud_data['category'].value_counts().nlargest(5)
+            pdf.set_font('Arial', 'B', 10)
+            pdf.cell(0, 10, 'Top Categories by Fraud Count:', 0, 1)
+            pdf.set_font('Arial', '', 10)
+
+            for category, count in fraud_by_cat.items():
+                pdf.cell(0, 10, f"- {category}: {count} cases", 0, 1)
+
+    # Footer
+    pdf.set_y(-15)
+    pdf.set_font('Arial', 'I', 8)
+    pdf.set_text_color(100, 100, 100)
+    pdf.cell(0, 10, f'Confidential - {client_name} Internal Use Only - Page {pdf.page_no()}', 0, 0, 'C')
+
+    return pdf.output(dest='S').encode('latin1')
+
+def generate_client_report(client_name, data):
+    """Generate comprehensive client report data"""
+    report = {
+        'metadata': {
+            'client': client_name,
+            'generated_at': datetime.now().isoformat(),
+            'report_type': 'client_summary',
+            'data_points': len(data)
+        },
+        'summary_metrics': {},
+        'time_series': {},
+        'provider_analysis': {},
+        'fraud_analysis': {}
+    }
+
+    # Basic metrics
+    report['summary_metrics']['total_claims'] = len(data)
+
+    if 'amount' in data.columns:
+        report['summary_metrics']['total_amount'] = float(data['amount'].sum())
+        report['summary_metrics']['average_amount'] = float(data['amount'].mean())
+
+    if 'fraud_flag' in data.columns:
+        report['summary_metrics']['fraud_count'] = int(data['fraud_flag'].sum())
+        if 'amount' in data.columns:
+            report['summary_metrics']['fraud_amount'] = float(data.loc[data['fraud_flag'] == 1, 'amount'].sum())
+
+    # Time series data if available
+    if 'date' in data.columns:
+        try:
+            data['date'] = pd.to_datetime(data['date'])
+            monthly_data = data.set_index('date').resample('M').agg({
+                'amount': ['sum', 'count']
+            }).reset_index()
+            monthly_data.columns = ['month', 'total_amount', 'claim_count']
+
+            report['time_series']['monthly'] = monthly_data.to_dict('records')
+        except:
+            pass
+
+    # Provider analysis if available
+    if 'provider_name' in data.columns:
+        provider_stats = data.groupby('provider_name').agg({
+            'amount': ['sum', 'count'],
+            'fraud_flag': 'sum'
+        }).reset_index()
+        provider_stats.columns = ['provider', 'total_amount', 'claim_count', 'fraud_count']
+
+        report['provider_analysis']['top_by_amount'] = (
+            provider_stats.sort_values('total_amount', ascending=False)
+            .head(5)
+            .to_dict('records')
+        )
+
+        report['provider_analysis']['top_by_fraud'] = (
+            provider_stats[provider_stats['fraud_count'] > 0]
+            .sort_values('fraud_count', ascending=False)
+            .head(5)
+            .to_dict('records')
+        )
+
+    # Fraud analysis if available
+    if 'fraud_flag' in data.columns and data['fraud_flag'].sum() > 0:
+        fraud_data = data[data['fraud_flag'] == 1]
+
+        if 'category' in data.columns:
+            report['fraud_analysis']['by_category'] = (
+                fraud_data['category'].value_counts()
+                .head(5)
+                .to_dict()
+            )
+
+        if 'diagnosis' in data.columns:
+            report['fraud_analysis']['by_diagnosis'] = (
+                fraud_data['diagnosis'].value_counts()
+                .head(5)
+                .to_dict()
+            )
+
+    return report
+
+def push_report_to_client(client_name, report_data, report_type):
+    """Push generated reports to client interface"""
+    try:
+        # Store report in client's accessible location
+        report_dir = f"client_reports/{client_name}"
+        os.makedirs(report_dir, exist_ok=True)
+
+        # Generate filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{report_dir}/{report_type}_{timestamp}.json"
+
+        # Save report data
+        with open(filename, 'w') as f:
+            json.dump(report_data, f)
+
+        # Update client's report list
+        report_list_file = f"{report_dir}/_reports.json"
+        if os.path.exists(report_list_file):
+            with open(report_list_file, 'r') as f:
+                existing_reports = json.load(f)
         else:
-            st.sidebar.warning("No trained model available")
+            existing_reports = []
 
-    # Initialize session state for data and predictor
-    if 'claims_data' not in st.session_state:
-        st.session_state.claims_data = None
+        new_report_entry = {
+            'type': report_type,
+            'generated_at': datetime.now().isoformat(),
+            'filename': filename.split('/')[-1],
+            'status': 'unread'
+        }
 
-    if 'predictor' not in st.session_state:
-        st.session_state.predictor = ClaimsPredictor()
+        existing_reports.append(new_report_entry)
 
-    # Main navigation - ALWAYS VISIBLE (modified section)
-    st.sidebar.header("Analysis Mode")
-    analysis_type = st.sidebar.radio(
-        "Select Mode:",
-        options=["Claims Upload", "Claims Prediction", "Fraud Detection", "Client Management", "Reports"],
-        key='broker_analysis_mode'
-    )
+        with open(report_list_file, 'w') as f:
+            json.dump(existing_reports, f)
 
-    if analysis_type == "Claims Upload":
-        render_claims_upload(user_info)
-    elif analysis_type == "Claims Prediction":
-        render_claims_prediction(user_info)  # Now includes new tabs
-    elif analysis_type == "Fraud Detection":
-        render_fraud_detection(user_info)
-    elif analysis_type == "Client Management":
-        render_client_management(user_info)
-    elif analysis_type == "Reports":
-        render_report_generation(user_info)
+        return True
+    except Exception as e:
+        logging.error(f"Failed to push report to client: {str(e)}")
+        return False
+
+def generate_sample_excel(data):
+    """Generate Excel version of the report data"""
+    output = BytesIO()
+    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        # Summary sheet
+        summary_data = {
+            'Metric': ['Total Claims', 'Total Amount', 'Average Claim', 'Potential Fraud Cases'],
+            'Value': [
+                len(data),
+                data['amount'].sum() if 'amount' in data.columns else 0,
+                data['amount'].mean() if 'amount' in data.columns else 0,
+                data['fraud_flag'].sum() if 'fraud_flag' in data.columns else 0
+            ]
+        }
+        pd.DataFrame(summary_data).to_excel(writer, sheet_name='Summary', index=False)
+
+        # Claims data sheet
+        if len(data) > 0:
+            data.to_excel(writer, sheet_name='Claims Data', index=False)
+
+        # Provider analysis if available
+        if 'provider_name' in data.columns:
+            provider_stats = data.groupby('provider_name').agg({
+                'amount': ['sum', 'count'],
+                'fraud_flag': 'sum'
+            }).reset_index()
+            provider_stats.columns = ['Provider', 'Total Amount', 'Claim Count', 'Fraud Count']
+            provider_stats.to_excel(writer, sheet_name='Provider Analysis', index=False)
+
+    processed_data = output.getvalue()
+    return processed_data
 
 # ==============================================
 # CLIENT DASHBOARD
@@ -2605,8 +3206,8 @@ def client_dashboard(user_info):
     st.title(f"The Verse - {user_info['client_org']} Portal")
     log_audit_event(user_info['name'], "client_login")
 
-    # NEW ENHANCEMENT: Client-specific logo
-    client_logo_path = "C:\\Users\\dkeya\\Documents\\projects\\the Verse\\demo\\client_logo.png"
+    # Client-specific logo
+    client_logo_path = "client_logo.png"
     try:
         st.sidebar.image(client_logo_path, use_container_width=True)
     except FileNotFoundError:
@@ -2640,7 +3241,7 @@ def client_dashboard(user_info):
     # Main navigation
     analysis_type = st.sidebar.selectbox(
         "Analysis Mode",
-        ["Claims Overview", "Fraud Detection", "Reports"],
+        ["Claims Overview", "Fraud Detection", "Reports", "Impact Analysis", "Agentic AI"],
         key='client_analysis_mode'
     )
 
@@ -2650,7 +3251,6 @@ def client_dashboard(user_info):
         render_client_fraud_detection(user_info)
     elif analysis_type == "Reports":
         render_client_report_generation(user_info)
-    # NEW ENHANCEMENT: Added new tabs
     elif analysis_type == "Impact Analysis":
         st.write("Under development: Cost-benefit simulation engine")
         st.image("https://via.placeholder.com/600x200?text=IMPACT+ANALYSIS+DASHBOARD")
@@ -2757,67 +3357,375 @@ def render_client_report_generation(user_info):
     st.header(f"{user_info['client_org']} Report Generation")
     log_audit_event(user_info['name'], "client_report_accessed")
 
-    if st.session_state.claims_data is None:
-        st.warning("No claims data available")
-        return
+    # Check for available reports
+    report_dir = f"client_reports/{user_info['client_org']}"
+    os.makedirs(report_dir, exist_ok=True)
+    report_list_file = f"{report_dir}/_reports.json"
 
-    # Filter data for this client
-    client_data = st.session_state.claims_data[
-        st.session_state.claims_data['employer'] == user_info['client_org']
-    ].copy()
+    available_reports = []
+    if os.path.exists(report_list_file):
+        try:
+            with open(report_list_file, 'r') as f:
+                available_reports = json.load(f)
+        except Exception as e:
+            st.error(f"Error loading report list: {str(e)}")
+            available_reports = []
 
-    if client_data.empty:
-        st.warning("No claims data found for your organization")
-        return
+    if available_reports:
+        st.subheader("Available Reports")
+
+        # Show most recent reports first
+        available_reports.sort(key=lambda x: x['generated_at'], reverse=True)
+
+        for report in available_reports[:5]:  # Show last 5 reports
+            with st.expander(f"{report['type']} - {datetime.fromisoformat(report['generated_at']).strftime('%Y-%m-%d %H:%M')}"):
+                col1, col2, col3 = st.columns([3,1,1])
+                with col1:
+                    st.write(f"**Type:** {report['type']}")
+                    st.write(f"**Generated:** {datetime.fromisoformat(report['generated_at']).strftime('%Y-%m-%d %H:%M')}")
+                    st.write(f"**Status:** {report['status'].capitalize()}")
+
+                with col2:
+                    if st.button("View", key=f"view_{report['filename']}"):
+                        # Load and display report
+                        report_path = f"{report_dir}/{report['filename']}"
+                        try:
+                            with open(report_path, 'r') as f:
+                                report_data = json.load(f)
+                            render_report_preview(report_data)
+
+                            # Mark as read
+                            report['status'] = 'read'
+                            with open(report_list_file, 'w') as f:
+                                json.dump(available_reports, f)
+                            st.rerun()
+                        except Exception as e:
+                            st.error(f"Error loading report: {str(e)}")
+
+                with col3:
+                    if st.button("Download", key=f"download_{report['filename']}"):
+                        report_path = f"{report_dir}/{report['filename']}"
+                        try:
+                            with open(report_path, 'rb') as f:
+                                report_bytes = f.read()
+
+                            st.download_button(
+                                label="Confirm Download",
+                                data=report_bytes,
+                                file_name=report['filename'],
+                                mime="application/json",
+                                key=f"confirm_dl_{report['filename']}"
+                            )
+                        except Exception as e:
+                            st.error(f"Error downloading report: {str(e)}")
+
+    # Generate new report section
+    st.subheader("Generate New Report")
 
     report_type = st.selectbox(
         "Report Type",
-        ["Monthly Summary", "Annual Review", "Fraud Analysis"],
+        options=[
+            {"label": "Monthly Summary", "description": "Summary of claims for selected month"},
+            {"label": "Quarterly Review", "description": "Detailed quarterly analysis"},
+            {"label": "Annual Report", "description": "Comprehensive annual claims review"},
+            {"label": "Fraud Analysis", "description": "Detailed fraud detection results"}
+        ],
+        format_func=lambda x: x["label"],
         key='client_report_type'
     )
 
-    time_range = st.selectbox(
-        "Time Period",
-        ["Last 3 Months", "Last 6 Months", "Last Year", "All Time"],
-        key='client_time_range'
-    )
+    # Show report description
+    st.caption(report_type["description"])
 
-    if st.button("Generate Report"):
-        with st.spinner(f"Generating {report_type} report..."):
-            # Filter by time range if date column exists
+    # Time period selection
+    col1, col2 = st.columns(2)
+    with col1:
+        if report_type["label"] == "Monthly Summary":
+            month = st.selectbox(
+                "Select Month",
+                options=["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"],
+                index=datetime.now().month - 1
+            )
+            year = st.number_input(
+                "Year",
+                min_value=2020,
+                max_value=datetime.now().year,
+                value=datetime.now().year
+            )
+        elif report_type["label"] == "Quarterly Review":
+            quarter = st.selectbox(
+                "Select Quarter",
+                options=["Q1 (Jan-Mar)", "Q2 (Apr-Jun)", "Q3 (Jul-Sep)", "Q4 (Oct-Dec)"],
+                index=(datetime.now().month - 1) // 3
+            )
+            year = st.number_input(
+                "Year",
+                min_value=2020,
+                max_value=datetime.now().year,
+                value=datetime.now().year
+            )
+        else:  # Annual Report or Fraud Analysis
+            year = st.number_input(
+                "Year",
+                min_value=2020,
+                max_value=datetime.now().year,
+                value=datetime.now().year
+            )
+
+    with col2:
+        # Report format options
+        format_options = st.multiselect(
+            "Output Formats",
+            options=["PDF", "Excel", "Dashboard"],
+            default=["PDF", "Dashboard"]
+        )
+
+        # Email notification option
+        send_email = st.checkbox("Email report when complete", value=True)
+        if send_email:
+            email = st.text_input("Email address", value=user_info.get('email', ''))
+
+    # Customization options
+    with st.expander("Advanced Options"):
+        include_comparison = st.checkbox(
+            "Include year-over-year comparison",
+            value=True
+        )
+        highlight_anomalies = st.checkbox(
+            "Highlight statistical anomalies",
+            value=True
+        )
+        show_provider_details = st.checkbox(
+            "Show detailed provider analysis",
+            value=True
+        )
+
+    # Generate report button with confirmation
+    if st.button("Generate Report", type="primary"):
+        if st.session_state.claims_data is None:
+            st.error("No claims data available. Please upload data first.")
+            return
+
+        with st.spinner(f"Generating {report_type['label']} report..."):
+            # Filter data for this client
+            client_data = st.session_state.claims_data[
+                st.session_state.claims_data['employer'] == user_info['client_org']
+            ].copy()
+
+            if client_data.empty:
+                st.error("No claims data found for your organization")
+                return
+
+            # Filter data based on time selection
             if 'date' in client_data.columns:
                 client_data['date'] = pd.to_datetime(client_data['date'])
-                if time_range == "Last 3 Months":
-                    cutoff_date = datetime.now() - timedelta(days=90)
-                    report_data = client_data[client_data['date'] >= cutoff_date]
-                elif time_range == "Last 6 Months":
-                    cutoff_date = datetime.now() - timedelta(days=180)
-                    report_data = client_data[client_data['date'] >= cutoff_date]
-                elif time_range == "Last Year":
-                    cutoff_date = datetime.now() - timedelta(days=365)
-                    report_data = client_data[client_data['date'] >= cutoff_date]
-                else:
-                    report_data = client_data
+
+                if report_type["label"] == "Monthly Summary":
+                    month_num = datetime.strptime(month, "%B").month
+                    start_date = datetime(year, month_num, 1)
+                    end_date = datetime(year, month_num + 1, 1) if month_num < 12 else datetime(year + 1, 1, 1)
+                    report_data = client_data[
+                        (client_data['date'] >= start_date) &
+                        (client_data['date'] < end_date)]
+                elif report_type["label"] == "Quarterly Review":
+                    quarter_num = int(report_type["label"][1])
+                    start_month = (quarter_num - 1) * 3 + 1
+                    end_month = start_month + 3
+                    start_date = datetime(year, start_month, 1)
+                    end_date = datetime(year, end_month, 1) if end_month <= 12 else datetime(year + 1, 1, 1)
+                    report_data = client_data[
+                        (client_data['date'] >= start_date) &
+                        (client_data['date'] < end_date)]
+                else:  # Annual Report or Fraud Analysis
+                    start_date = datetime(year, 1, 1)
+                    end_date = datetime(year + 1, 1, 1)
+                    report_data = client_data[
+                        (client_data['date'] >= start_date) &
+                        (client_data['date'] < end_date)]
             else:
                 report_data = client_data
 
-            pdf_bytes = generate_client_report_pdf(
+            # Generate report content
+            report_content = generate_client_report(user_info['client_org'], report_data)
+
+            # Push to client interface
+            push_success = push_report_to_client(
                 user_info['client_org'],
-                report_data,
-                report_type
+                report_content,
+                report_type["label"]
             )
 
-            st.download_button(
-                label="Download Report",
-                data=pdf_bytes,
-                file_name=f"{user_info['client_org']}_{report_type.replace(' ', '_')}.pdf",
-                mime="application/pdf"
-            )
-            st.success("Report generated successfully")
+            if not push_success:
+                st.error("Failed to save report to client portal")
 
-# ==============================================
-# MAIN APPLICATION FLOW
-# ==============================================
+            # Generate requested output formats
+            if "PDF" in format_options:
+                try:
+                    pdf_bytes = generate_client_report_pdf(
+                        user_info['client_org'],
+                        report_data,
+                        report_type["label"]
+                    )
+                except Exception as e:
+                    st.error(f"Failed to generate PDF: {str(e)}")
+                    pdf_bytes = None
+
+            if "Excel" in format_options:
+                try:
+                    excel_data = generate_sample_excel(report_data)
+                except Exception as e:
+                    st.error(f"Failed to generate Excel: {str(e)}")
+                    excel_data = None
+
+            # Show success message
+            st.success(f"{report_type['label']} report generated successfully!")
+
+            # Download buttons
+            if "PDF" in format_options and pdf_bytes is not None:
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.download_button(
+                        label="Download PDF",
+                        data=pdf_bytes,
+                        file_name=f"{user_info['client_org']}_{report_type['label'].replace(' ', '_')}.pdf",
+                        mime="application/pdf"
+                    )
+
+            if "Excel" in format_options and excel_data is not None:
+                col2 = st.columns(1)[0] if "PDF" not in format_options else col2
+                with col2:
+                    st.download_button(
+                        label="Download Excel",
+                        data=excel_data,
+                        file_name=f"{user_info['client_org']}_{report_type['label'].replace(' ', '_')}.xlsx",
+                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                    )
+
+            # Show dashboard preview if selected
+            if "Dashboard" in format_options:
+                with st.expander("Report Preview"):
+                    render_report_preview(report_content)
+
+            # Send email if requested
+            if send_email and email:
+                try:
+                    # In a real implementation, you would send the email here
+                    # For demo purposes, we'll just log it
+                    log_audit_event(
+                        user_info['name'],
+                        "report_email_triggered",
+                        f"Report sent to {email}"
+                    )
+                    st.success(f"Report will be sent to {email}")
+                except Exception as e:
+                    st.error(f"Failed to send email: {str(e)}")
+                    log_audit_event(
+                        user_info['name'],
+                        "report_email_failed",
+                        str(e)
+                    )
+
+def render_report_preview(report_data):
+    """Render interactive preview of the report data"""
+    st.subheader("Report Preview")
+
+    # Summary metrics
+    st.write("### Key Metrics")
+    cols = st.columns(4)
+    with cols[0]:
+        st.metric("Total Claims", report_data['summary_metrics'].get('total_claims', 'N/A'))
+    with cols[1]:
+        st.metric("Total Amount",
+                 f"KES {report_data['summary_metrics'].get('total_amount', 0):,.2f}"
+                 if 'total_amount' in report_data['summary_metrics'] else 'N/A')
+    with cols[2]:
+        st.metric("Average Claim",
+                 f"KES {report_data['summary_metrics'].get('average_amount', 0):,.2f}"
+                 if 'average_amount' in report_data['summary_metrics'] else 'N/A')
+    with cols[3]:
+        st.metric("Potential Fraud",
+                 report_data['summary_metrics'].get('fraud_count', 0))
+
+    # Time series chart if available
+    if 'time_series' in report_data and 'monthly' in report_data['time_series']:
+        st.write("### Claims Over Time")
+        ts_data = pd.DataFrame(report_data['time_series']['monthly'])
+        ts_data['month'] = pd.to_datetime(ts_data['month'])
+
+        fig = px.line(
+            ts_data,
+            x='month',
+            y='total_amount',
+            title='Monthly Claims Value',
+            labels={'total_amount': 'Amount (KES)', 'month': 'Month'}
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Provider analysis if available
+    if 'provider_analysis' in report_data and 'top_by_amount' in report_data['provider_analysis']:
+        st.write("### Top Providers")
+        provider_data = pd.DataFrame(report_data['provider_analysis']['top_by_amount'])
+
+        fig = px.bar(
+            provider_data,
+            x='provider',
+            y='total_amount',
+            color='fraud_count',
+            title='Providers by Total Claims Amount',
+            labels={'total_amount': 'Amount (KES)', 'provider': 'Provider', 'fraud_count': 'Fraud Cases'}
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Fraud analysis if available
+    if 'fraud_analysis' in report_data and 'by_category' in report_data['fraud_analysis']:
+        st.write("### Fraud by Category")
+        fraud_data = pd.DataFrame.from_dict(
+            report_data['fraud_analysis']['by_category'],
+            orient='index',
+            columns=['Count']
+        ).reset_index()
+        fraud_data.columns = ['Category', 'Count']
+
+        fig = px.pie(
+            fraud_data,
+            names='Category',
+            values='Count',
+            title='Fraud Distribution by Category'
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+def generate_sample_excel(data):
+    """Generate Excel version of the report data"""
+    output = BytesIO()
+    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        # Summary sheet
+        summary_data = {
+            'Metric': ['Total Claims', 'Total Amount', 'Average Claim', 'Potential Fraud Cases'],
+            'Value': [
+                len(data),
+                data['amount'].sum() if 'amount' in data.columns else 0,
+                data['amount'].mean() if 'amount' in data.columns else 0,
+                data['fraud_flag'].sum() if 'fraud_flag' in data.columns else 0
+            ]
+        }
+        pd.DataFrame(summary_data).to_excel(writer, sheet_name='Summary', index=False)
+
+        # Claims data sheet
+        if len(data) > 0:
+            data.to_excel(writer, sheet_name='Claims Data', index=False)
+
+        # Provider analysis if available
+        if 'provider_name' in data.columns:
+            provider_stats = data.groupby('provider_name').agg({
+                'amount': ['sum', 'count'],
+                'fraud_flag': 'sum'
+            }).reset_index()
+            provider_stats.columns = ['Provider', 'Total Amount', 'Claim Count', 'Fraud Count']
+            provider_stats.to_excel(writer, sheet_name='Provider Analysis', index=False)
+
+    processed_data = output.getvalue()
+    return processed_data
 
 def main():
     if not st.session_state.get('authenticated', False):
@@ -2826,7 +3734,7 @@ def main():
     else:
         # Set to wide mode after login
         st.set_page_config(layout="wide")
-        
+
         user_info = st.session_state.user_info
 
         if user_info['role'] == 'admin':

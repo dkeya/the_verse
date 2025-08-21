@@ -13,3 +13,6 @@
 {"timestamp": "2025-07-03T05:15:03.151574", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
 {"timestamp": "2025-07-03T05:15:10.650569", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
 {"timestamp": "2025-07-03T05:15:12.065470", "user": "acme_admin", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:11:58.170280", "user": "acme", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:12:03.084155", "user": "acme", "action": "login_failed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:14:54.298194", "user": "broker1", "action": "login_failed", "target": null, "ip": ""}

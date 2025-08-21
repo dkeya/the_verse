@@ -102,3 +102,1019 @@
 {"timestamp": "2025-07-03T10:49:40.243164", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
 {"timestamp": "2025-07-03T10:49:40.530079", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
 {"timestamp": "2025-07-03T10:50:07.851848", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:15:36.661879", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:15:36.784363", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:15:39.896743", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:15:40.007087", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:15:41.941424", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:15:42.035450", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:19:37.333516", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:19:37.552037", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:19:40.226676", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:27:49.687807", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:27:49.785964", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:27:53.415456", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:27:53.502429", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:28:34.737601", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:28:34.823279", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:29:55.201835", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:29:55.460788", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:29:55.473664", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:35:55.214687", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:35:55.447328", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:35:57.883813", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:35:57.974398", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:00.658798", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:03.488990", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:08.181690", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:08.282204", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:10.342851", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:10.449970", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:13.196311", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:36:13.538428", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:37.954944", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:38.173950", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:41.958664", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:45.365733", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:45.473834", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:46.900021", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:47.001849", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:48.833610", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:46:48.913889", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:47:05.815337", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:47:05.916552", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:47:10.971608", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:47:11.075235", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:48:10.541800", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:48:10.625018", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:48:39.323772", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:48:39.425167", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:53:25.184798", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:53:25.287859", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:53:26.111597", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-03T11:53:26.206149", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:50:08.724646", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:50:08.924628", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:50:44.086912", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:51:08.054556", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:51:08.127176", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:51:21.665945", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:51:21.773117", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:51:52.679016", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:51:52.777752", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:52:22.005065", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:52:22.102223", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:53:15.763872", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:53:15.859579", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:56:48.662196", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:56:48.903120", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:56:48.952953", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:14.946447", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:15.180926", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:23.728856", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:33.217173", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:33.320351", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:42.329550", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:57:42.438620", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:58:58.569209", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:58:58.675174", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:59:14.640886", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:59:14.704305", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:59:32.511402", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:59:32.620912", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:59:36.340547", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T03:59:36.437197", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:06:55.566936", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:06:55.812007", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:09:53.661475", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:12:57.495284", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:12:57.573421", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:14:33.605859", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:14:33.717006", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:16:25.162310", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:16:25.272445", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:17:53.216367", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:17:53.324847", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:18:26.672588", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:18:26.785057", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:20:29.580683", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:20:29.688376", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:23:29.709234", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:23:29.802528", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:37:03.599058", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:37:03.702087", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:37:45.270326", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:37:45.381361", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:39:58.077889", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:39:58.177852", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:40:37.098080", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:40:37.205585", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:44:13.765921", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:44:13.855520", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:44:54.238026", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:44:54.344448", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:46:01.893801", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:46:01.984556", "user": "Broker User", "action": "report_generation_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:47:00.968775", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:47:01.241613", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:47:01.267002", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:49:14.914078", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:49:15.166996", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:55:30.170806", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:55:54.183967", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:55:54.439586", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:55:54.453762", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:56:33.919689", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:56:34.178820", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:56:38.075944", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:56:46.892345", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:56:46.989692", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:57:22.366056", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:57:22.468753", "user": "Broker User", "action": "report_generation_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T04:59:06.574907", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:00:39.579559", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:00:39.687742", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:09:45.269838", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:09:45.484400", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:09:48.291591", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:10:38.741393", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:10:38.984222", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:10:42.000361", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:29.401204", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:29.600270", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:32.259669", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:44.607084", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:44.741839", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:47.184930", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:21:54.934050", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:22:26.189968", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:22:40.666689", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:34:04.487086", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:34:04.694641", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:34:08.374659", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:39:51.742270", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:39:51.866240", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:39:53.772347", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:39:53.872513", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:44:41.707427", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:44:41.941795", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:44:46.426027", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:52:00.034578", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:52:00.131258", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:52:03.168879", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T05:52:03.276415", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:13:55.511414", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:13:55.747781", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:14:04.852894", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:18:53.935898", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:18:53.967317", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:18:55.567800", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:18:55.592309", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:23:41.645982", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:23:41.851813", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:24:08.039547", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:44:20.578244", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:44:20.743309", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T06:44:25.404294", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:12:10.024628", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:12:10.199715", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:12:10.217523", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:15:04.510002", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:15:04.689572", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:15:09.480890", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:38:30.177797", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:38:30.393137", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:38:42.310776", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:45:16.725336", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:45:16.930734", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:45:21.600490", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:53:29.749703", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:53:29.960069", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:53:34.686355", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:55:00.883737", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:55:00.914653", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:55:02.407151", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:55:02.439714", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:57:49.773833", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:57:49.930675", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T07:57:55.374717", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T08:00:10.260607", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T08:00:10.359382", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T08:00:13.329623", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T08:00:13.453289", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T09:05:12.696532", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T09:05:12.859176", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T09:05:38.762102", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T09:43:13.230248", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T09:43:13.476272", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T09:43:20.324140", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T10:41:19.534771", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T10:41:19.761011", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T10:41:24.039469", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-07T10:45:04.297710", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T11:05:55.523579", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T12:03:36.261716", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T12:03:36.480413", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T12:03:59.815113", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:50:44.720653", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:50:44.956187", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:50:54.720920", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:51:03.909689", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:51:04.003140", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:51:06.046221", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:51:06.145078", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:51:40.930058", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:51:41.038886", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:52:09.089406", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:52:09.161849", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:59:01.683150", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:59:01.866694", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T13:59:01.888188", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:22:41.977979", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:22:42.171517", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:22:48.732955", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:22:57.604683", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:22:57.702128", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:15.283058", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:15.485221", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:15.495561", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:20.416650", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:20.416650", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:20.750861", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:20.765567", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:59.710992", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:59.963194", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:23:59.972565", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:24:12.299937", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:24:12.303324", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:24:12.699043", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:24:12.715132", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:47.731734", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:47.734519", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:49.684579", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:49.691360", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:53.368753", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:53.372794", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:55.527263", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:55.533948", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:56.416213", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:56.417044", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:57.079396", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:26:57.079396", "user": "Acme Admin", "action": "client_advanced_analytics_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:25.440891", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:25.449555", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:26.470769", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:26.478755", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:28.981160", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:28.988345", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:30.854289", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:30.857001", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:32.236387", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:32.241327", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:33.478198", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:27:33.485600", "user": "Acme Admin", "action": "client_advanced_analytics_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:05.343167", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:05.542984", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:13.461833", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:42.472195", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:42.576742", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:46.286391", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:28:49.145089", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:29:00.854542", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:29:00.926856", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:29:02.672821", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:29:02.780116", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:29:37.163593", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:29:37.249212", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:30:11.645003", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:30:11.750338", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:30:50.137015", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:30:50.252842", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:31:58.229691", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:31:58.294827", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:32:07.444708", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:32:07.522635", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:32:09.536649", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:32:09.636996", "user": "Broker User", "action": "report_generation_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:40:39.563452", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:40:39.775632", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:40:39.785679", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:43:16.680320", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:43:16.685305", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:43:17.015177", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T14:43:17.031007", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:33:00.247365", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:33:00.491225", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:03.669471", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:03.794886", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:08.435885", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:29.809410", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:37.100539", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:37.136982", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:38.887182", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:51:38.921527", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:52:17.400123", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:52:17.431370", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:52:56.475811", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:52:56.511246", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:53:42.061203", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:53:42.106029", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:53:44.547847", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:53:44.581171", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:53:47.471902", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:53:47.502785", "user": "Broker User", "action": "report_generation_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:54:07.445367", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T15:54:07.571685", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T16:05:47.960882", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T16:05:48.060454", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T16:05:51.497096", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T16:07:22.855518", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-08T16:07:22.890145", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:00:03.946934", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:00:04.103704", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:00:08.253536", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:00:08.328782", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:00:10.331804", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:00:13.804872", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:08:57.453585", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:08:57.617835", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:11:03.901652", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:11:04.064975", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:11:07.487669", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:16:27.949538", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:16:28.112375", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:16:31.634132", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:17:12.159446", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:17:12.361453", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:17:36.646084", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:17:36.813579", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:17:40.457504", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:34:28.551470", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:34:28.712095", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:34:36.581148", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:34:42.439288", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:34:42.546481", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:05.279137", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:05.379597", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:05.864154", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:05.963276", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:17.906351", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:18.005178", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:54.260606", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:35:54.401562", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:36:45.499836", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:36:45.574775", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:43:50.372505", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:43:50.545176", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T12:43:53.847108", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:25:23.391124", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:25:23.616710", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:25:38.053531", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:26:28.672760", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:26:28.772643", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:26:33.096080", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:26:33.195396", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:29:48.871636", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:29:48.971682", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:29:53.482179", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:29:53.577666", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:06.680987", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:06.868090", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:10.355697", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:13.867720", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:13.962679", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:16.376735", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:16.481874", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:41.619264", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:41.714773", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:48.155712", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:38:48.269386", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:41:50.125880", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:41:50.335688", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:41:50.435229", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:41:54.593014", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:41:54.683751", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:43:47.968317", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:43:48.167406", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:43:48.282445", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:43:52.631079", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:43:52.718093", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:15.211588", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:15.420167", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:15.423640", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:39.245022", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:39.245022", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:39.651453", "user": "Broker User", "action": "data_uploaded", "target": "200 records", "ip": ""}
+{"timestamp": "2025-07-09T19:48:44.600602", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:44.604953", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:48.189688", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:48.193722", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:52.246943", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:48:52.255376", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:58:19.940039", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:58:20.152423", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:58:24.717860", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T19:58:24.809401", "user": "Broker User", "action": "client_management_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:08:44.500058", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:08:44.717884", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:08:48.004042", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:08:48.098979", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:12:43.210726", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:12:43.237047", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:12:58.766617", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:12:58.797243", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:12:58.797243", "user": "Broker User", "action": "plan_upgrade_requested", "target": "Acme Corp", "ip": ""}
+{"timestamp": "2025-07-09T20:13:01.826909", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:13:01.860431", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:13:01.862437", "user": "Broker User", "action": "plan_upgrade_requested", "target": "Acme Corp", "ip": ""}
+{"timestamp": "2025-07-09T20:13:04.161704", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:13:04.189508", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:13:04.189508", "user": "Broker User", "action": "data_reset_requested", "target": "Acme Corp", "ip": ""}
+{"timestamp": "2025-07-09T20:13:10.063448", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:13:10.095781", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T20:13:10.095781", "user": "Broker User", "action": "data_reset_requested", "target": "Acme Corp", "ip": ""}
+{"timestamp": "2025-07-09T21:34:53.539222", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:35:11.168215", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:35:11.359991", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:35:11.417559", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:35:57.108525", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:41:56.174675", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:41:56.315921", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:43:48.259192", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-09T21:43:48.405473", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:20:45.799972", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:20:45.880463", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:21:55.217687", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:21:55.300969", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:04.021090", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:11.649026", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:11.681197", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:13.766097", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:13.798555", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:29.272712", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:29.302847", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:42.971737", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:43.004768", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:44.726914", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:22:44.759232", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:06.597332", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:06.627049", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:28.671651", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:28.705060", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:31.952089", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:31.981694", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:42.709227", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:56.238480", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:56.340707", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:23:56.365994", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:01.100852", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:01.102850", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:04.489104", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:04.491844", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:23.865314", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:27.703604", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:27.706603", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:30.159961", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:30.163961", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:32.423237", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:24:32.426092", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:25:23.360031", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:25:23.361347", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:25:26.887339", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:25:26.891419", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:25:36.996054", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:25:36.996054", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:16.586211", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:16.589721", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:34.180540", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:34.193133", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:38.105925", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:38.106925", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:42.272495", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:42.274542", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:45.700604", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:45.703294", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:47.576296", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:29:47.579295", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:00.575723", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:00.577819", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:05.674042", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:05.683228", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:08.921970", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:08.925986", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:14.147723", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:32:14.147723", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:03.942067", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:11.762318", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:16.321932", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:16.325933", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:19.651445", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:19.657510", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:34.850782", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T07:36:34.854798", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T12:27:26.957195", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T12:27:27.136086", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T12:27:27.265238", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T12:27:32.484698", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-10T12:27:32.487697", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:29:33.686838", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:29:33.902724", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:29:39.022649", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:29:44.808019", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:29:44.892246", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:07.656752", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:07.754879", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:13.146596", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:13.242644", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:15.969375", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:16.079286", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:19.319036", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:30:19.413871", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:31:28.552355", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:31:28.735407", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:31:28.775530", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:31:35.565794", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:31:35.569301", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:32:48.874698", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:32:48.877697", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:32:51.867482", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:32:51.871399", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:32:55.316683", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T06:32:58.195724", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:29:20.268328", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:29:20.417739", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:29:20.527865", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:29:30.591272", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:29:30.594172", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:38:45.353757", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:38:45.488771", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:38:45.499549", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:39:14.672297", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:39:14.681665", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:39:18.111817", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:39:18.118086", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:39:21.591749", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-12T16:39:21.599473", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:46:48.103452", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:46:48.306524", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:46:53.484124", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:46:53.590476", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:15.442315", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:17.050625", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:17.146961", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:18.756321", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:18.857659", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:19.864019", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:27.342528", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:37.152704", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:37.255014", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:38.751138", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:47:38.860644", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:48:52.028465", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:48:52.127113", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:49:00.781391", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:49:00.885293", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:49:07.492959", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T15:49:07.669053", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T17:34:58.406741", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T17:34:58.609817", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T17:34:58.631444", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T17:35:03.100295", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-13T17:35:03.105319", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-14T06:46:35.171060", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-14T07:28:01.807215", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:18:04.423399", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:19.842444", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:20.026183", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:30.840043", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:42.809698", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:42.905707", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:51.073179", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:21:51.192251", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:23:03.470968", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:23:03.571959", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:24:51.459353", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:24:51.569490", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:24:56.887625", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:24:57.054048", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:25:32.574141", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:25:32.686837", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:26:53.982696", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:26:54.078730", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:27:25.451287", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:27:25.565702", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:28:00.293011", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:28:00.410445", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:28:35.278752", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:28:35.388426", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:05.795872", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:05.895253", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:30.108631", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:30.229698", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:33.037863", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:33.133417", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:36.860420", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:36.964422", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:40.542452", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:40.648059", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:44.411244", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:44.491216", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:50.547619", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:50.649298", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:55.531470", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:29:55.639433", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:06.196817", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:21.014250", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:21.274781", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:21.302247", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:34.984953", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:34.988455", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:51.564228", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:51.568583", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:53.030274", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:30:53.039017", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:49:50.958256", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:49:51.158474", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:50:14.578165", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:50:23.403444", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:50:23.518328", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:50:31.262533", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:50:31.381473", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:08.145806", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:08.251689", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:28.322330", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:28.387985", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:43.207150", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:43.321552", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:45.958576", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:46.062371", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:48.959209", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:49.061479", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:49.706511", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:49.803664", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:50.497558", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:52:50.590106", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:36.165800", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:36.273478", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:45.901047", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:50.470955", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:58.823554", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:59.123739", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:53:59.132368", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:54:42.593780", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:54:42.598648", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:25.875091", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:26.111571", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:38.756996", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:38.855177", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:40.814979", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:41.869235", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:41.971872", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:43.540967", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:46.914443", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:48.580999", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-16T06:55:48.666841", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T14:25:01.151055", "user": "Acme Admin", "action": "client_data_loaded", "target": "Acme Corp", "ip": ""}
+{"timestamp": "2025-07-18T14:25:01.181042", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T14:43:12.552914", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:13:31.126182", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:18:51.476362", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:18:51.656182", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:20:10.947141", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:21:01.785002", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:21:01.883588", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:21:19.998141", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:21:20.123202", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:22:36.788809", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:22:36.882211", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:23:50.301844", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:23:50.395015", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:25:44.691963", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:25:44.784885", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:27:51.494270", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:27:51.599419", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:27:58.070490", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:27:58.228380", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:28:18.823295", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:28:18.927186", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:33:05.850950", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:33:05.943053", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:33:53.872921", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:33:53.978164", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:35:29.241362", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:35:29.345574", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:36:42.639888", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:36:42.755658", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:36:43.692403", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:36:43.787843", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:08.687427", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:08.789329", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:20.150255", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:20.250165", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:21.951968", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:22.040455", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:27.575248", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:27.671816", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:32.339912", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:32.450257", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:36.895720", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:39:36.988183", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:41:17.637769", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:41:17.857273", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-18T15:41:17.886677", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:33:58.735262", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:33:58.889948", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:34:16.057289", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:37:24.602511", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:37:24.652393", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:38:32.538606", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:38:32.574991", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:39:16.880590", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:39:16.925905", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:40:13.301105", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:40:13.352209", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:46:04.315002", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:46:04.388822", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:46:56.409218", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:46:56.474513", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:47:07.967305", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:47:08.020052", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:48:10.568732", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:48:10.633738", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:48:39.938926", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:48:39.992295", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:52:42.096197", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:52:42.167495", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:53:33.742395", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:53:33.783509", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:39.628435", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:39.678114", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:41.106822", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:41.165347", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:44.850505", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:44.914879", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:48.460434", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:48.513244", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:53.068464", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:53.126101", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:54:59.799665", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:55:25.842073", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:55:25.989260", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T13:55:26.013122", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:22.126322", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:22.354589", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:29.970611", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:30.042157", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:31.743380", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:31.828957", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:33.697747", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:38.394363", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:43.638967", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:43.719917", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:45.326345", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:07:45.392301", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:10:18.577062", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-20T14:10:18.652906", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:08:17.678907", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:08:17.856323", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:08:37.572695", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:08:46.598347", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:08:46.738276", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:09:10.081902", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:09:10.186826", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:10:58.897873", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:10:58.978750", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:11:20.553161", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-21T13:11:20.696612", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:08:37.636050", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:08:37.835553", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:09:27.391777", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:09:41.872248", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:09:41.967714", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:09:44.301915", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:09:44.399632", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:12:18.697406", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:12:18.793249", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:12:58.832430", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:12:58.923065", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:13:31.290943", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:13:31.404552", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:19:52.372689", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:19:52.477910", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-23T19:19:53.477257", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:20:54.313402", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:20:54.505469", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:21:18.761793", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:21:47.260308", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:21:47.354505", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:22:10.655171", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:22:10.763096", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:24:23.945722", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:24:24.041928", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:25:23.242815", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:25:23.331278", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:26:09.260161", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:26:09.365808", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:30:30.932687", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:30:31.027989", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:31:23.194378", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:31:23.358108", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:31:49.900897", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:31:50.002369", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:35:17.033964", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:35:17.138607", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:35:22.275183", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:35:22.373989", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:36.501613", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:36.597409", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:38.515686", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:38.611674", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:42.135944", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:42.221612", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:43.579455", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:43.680533", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:50.987952", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:51.087630", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:55.757854", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:55.846302", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:59.705914", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:36:59.803964", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:02.901982", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:03.001350", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:03.011224", "user": "Broker User", "action": "access_updated", "target": "Acme Corp: claims, reports, fraud, predictions", "ip": ""}
+{"timestamp": "2025-07-25T13:37:21.695835", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:21.914252", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:21.963084", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:45.377680", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-25T13:37:45.385322", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:29.013525", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:29.263037", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:40.213605", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:47.446927", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:47.566591", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:48.771985", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:25:48.884084", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:26:16.229765", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:26:16.319096", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:27:34.274475", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:27:34.384797", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:27:55.820469", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:27:55.945130", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:14.540086", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:14.646519", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:39.505172", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:39.628986", "user": "Broker User", "action": "fraud_detection_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:47.378571", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:47.478711", "user": "Broker User", "action": "client_mgmt_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:28:50.162448", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:29:41.128846", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:29:43.488477", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:29:49.406730", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:37.944977", "user": "acme_admin", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:40.292974", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:40.331665", "user": "Acme Admin", "action": "client_claims_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:49.098134", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:49.117964", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:56.467508", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:30:56.484283", "user": "Acme Admin", "action": "client_fraud_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:36:06.777038", "user": "Acme Admin", "action": "client_login", "target": null, "ip": ""}
+{"timestamp": "2025-07-27T10:36:06.788959", "user": "Acme Admin", "action": "client_report_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:17:58.866488", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:17:59.086589", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:17:59.266764", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:16.121496", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:16.199311", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:21.341176", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:21.445924", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:28.226033", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:28.292777", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:35.070451", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:35.176982", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:37.935219", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:18:38.029356", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:23:11.448510", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:23:11.526967", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:23:19.872190", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:23:19.983770", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:23:25.223967", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T10:23:25.330351", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:34.652925", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:34.772806", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:34.780584", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:46.990526", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:46.997738", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:47.124081", "user": "Broker User", "action": "data_uploaded", "target": "200 records", "ip": ""}
+{"timestamp": "2025-08-09T14:08:50.959238", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:50.965259", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:52.615547", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:08:52.620882", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:10:01.554546", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-09T14:10:01.562893", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:27.599626", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:27.730753", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:27.738618", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:42.238757", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:42.238757", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:45.854416", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:45.854416", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:54.219802", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:54.219802", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:56.797328", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:12:56.803213", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:13:09.759968", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:13:09.761541", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:13:11.740140", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:13:11.743144", "user": "Broker User", "action": "claims_upload_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:20:29.714367", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:20:29.894694", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:20:46.027295", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:04.456749", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:04.551156", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:09.865225", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:09.980216", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:24.152906", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:24.248376", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:34.516545", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:21:34.626523", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:01.686233", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:01.868092", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:13.059866", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:16.987543", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:17.042418", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:18.624558", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:37:18.729674", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:38.919439", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:39.106224", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:44.337570", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:53.255687", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:53.312599", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:54.503944", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T09:39:54.638075", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:11.130198", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:27.166533", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:36.533406", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:36.627137", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:38.305283", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:38.400963", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:43.052772", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:47.152473", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:55.457823", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:55.551743", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:57.043883", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T10:08:57.144425", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:37:48.234684", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:37:48.462069", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:37:51.862998", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:52:44.549837", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:52:44.648072", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:55:57.723088", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T11:55:57.834762", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:03:58.638584", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:03:58.752351", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:04:04.295928", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:04:09.978029", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:04:10.009003", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:04:12.549589", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-16T14:04:12.582233", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:21:45.328944", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:21:45.531149", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:21:53.007922", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:22:18.456079", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:22:18.571609", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:22:23.368898", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:22:23.480841", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:28:07.453289", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-17T07:28:07.570838", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:25:29.384602", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:25:29.612397", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:25:53.730442", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:26:05.403976", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:26:05.514907", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:26:08.574278", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-18T19:26:08.677090", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:06:14.779703", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:06:14.962849", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:06:39.204243", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:07:07.455237", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:07:07.580364", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:07:11.063694", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:07:11.163890", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:07:58.015923", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:07:58.113538", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:11:02.959764", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:11:03.062549", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:11:46.054028", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:11:46.129776", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:12:48.591823", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:12:48.688787", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:13:31.968526", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:13:32.078700", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:27:25.449035", "user": "broker1", "action": "login_success", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:27:25.571494", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:28:10.267771", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:28:42.452123", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:28:42.480542", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:28:51.306500", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:28:51.339782", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:31:58.894551", "user": "Broker User", "action": "broker_login", "target": null, "ip": ""}
+{"timestamp": "2025-08-21T09:31:58.927332", "user": "Broker User", "action": "predictions_accessed", "target": null, "ip": ""}

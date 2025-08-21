@@ -1,0 +1,76 @@
+2025-07-09 15:00:16,510 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 15:00:16,510 - INFO - Renamed AMOUNT to amount
+2025-07-09 15:00:16,515 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 15:00:16,515 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 15:00:16,516 - INFO - Renamed Ailment to diagnosis
+2025-07-09 15:00:16,516 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 15:00:16,516 - INFO - Renamed POL_NAME to employer
+2025-07-09 15:00:16,517 - INFO - Renamed Department to department
+2025-07-09 15:11:07,772 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 15:11:07,781 - INFO - Renamed AMOUNT to amount
+2025-07-09 15:11:07,783 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 15:11:07,783 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 15:11:07,784 - INFO - Renamed Ailment to diagnosis
+2025-07-09 15:11:07,785 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 15:11:07,786 - INFO - Renamed POL_NAME to employer
+2025-07-09 15:11:07,786 - INFO - Renamed Department to department
+2025-07-09 15:16:31,905 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 15:16:31,905 - INFO - Renamed AMOUNT to amount
+2025-07-09 15:16:31,905 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 15:16:31,905 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 15:16:31,905 - INFO - Renamed Ailment to diagnosis
+2025-07-09 15:16:31,905 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 15:16:31,912 - INFO - Renamed POL_NAME to employer
+2025-07-09 15:16:31,913 - INFO - Renamed Department to department
+2025-07-09 15:16:51,820 - INFO - Claims data shared with client: Acme Corp (Saved to client_data/acme_corp_claims.csv)
+2025-07-09 15:16:51,828 - INFO - Claims data shared with client: Globex (Saved to client_data/globex_claims.csv)
+2025-07-09 15:17:40,755 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 15:17:40,755 - INFO - Renamed AMOUNT to amount
+2025-07-09 15:17:40,756 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 15:17:40,756 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 15:17:40,756 - INFO - Renamed Ailment to diagnosis
+2025-07-09 15:17:40,756 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 15:17:40,758 - INFO - Renamed POL_NAME to employer
+2025-07-09 15:17:40,758 - INFO - Renamed Department to department
+2025-07-09 15:34:36,820 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 15:34:36,820 - INFO - Renamed AMOUNT to amount
+2025-07-09 15:34:36,820 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 15:34:36,820 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 15:34:36,828 - INFO - Renamed Ailment to diagnosis
+2025-07-09 15:34:36,829 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 15:34:36,829 - INFO - Renamed POL_NAME to employer
+2025-07-09 15:34:36,829 - INFO - Renamed Department to department
+2025-07-09 15:35:17,896 - INFO - Claims data shared with client: Acme Corp (Saved to client_data/acme_corp_claims.csv)
+2025-07-09 15:35:17,904 - INFO - Claims data shared with client: Globex (Saved to client_data/globex_claims.csv)
+2025-07-09 15:43:54,140 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 15:43:54,140 - INFO - Renamed AMOUNT to amount
+2025-07-09 15:43:54,140 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 15:43:54,140 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 15:43:54,140 - INFO - Renamed Ailment to diagnosis
+2025-07-09 15:43:54,140 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 15:43:54,140 - INFO - Renamed POL_NAME to employer
+2025-07-09 15:43:54,140 - INFO - Renamed Department to department
+2025-07-09 22:25:38,350 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 22:25:38,350 - INFO - Renamed AMOUNT to amount
+2025-07-09 22:25:38,350 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 22:25:38,350 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 22:25:38,350 - INFO - Renamed Ailment to diagnosis
+2025-07-09 22:25:38,350 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 22:25:38,350 - INFO - Renamed POL_NAME to employer
+2025-07-09 22:25:38,359 - INFO - Renamed Department to department
+2025-07-09 22:26:33,254 - INFO - Data cleaning completed successfully
+2025-07-09 22:29:48,976 - ERROR - Fraud detection failed: Failed to add fraud_flag column
+2025-07-09 22:38:10,645 - INFO - Renamed PROV_NAME to provider_id
+2025-07-09 22:38:10,645 - INFO - Renamed AMOUNT to amount
+2025-07-09 22:38:10,645 - INFO - Renamed CLAIM_PROV_DATE to date
+2025-07-09 22:38:10,645 - INFO - Renamed CLAIM_MEMBER_NUMBER to employee_id
+2025-07-09 22:38:10,645 - INFO - Renamed Ailment to diagnosis
+2025-07-09 22:38:10,645 - INFO - Renamed SERVICE_DESCRIPTION to treatment
+2025-07-09 22:38:10,645 - INFO - Renamed POL_NAME to employer
+2025-07-09 22:38:10,645 - INFO - Renamed Department to department
+2025-07-09 22:38:16,512 - INFO - Data cleaning completed successfully
+2025-07-09 22:41:54,748 - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-09 22:43:52,729 - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-07-09 22:48:48,258 - INFO - Data cleaning completed successfully

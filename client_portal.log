@@ -1,0 +1,16 @@
+2025-08-09 13:17:25,963 - INFO - Pandas backend loaded 2.2.3
+2025-08-09 13:17:26,029 - INFO - Numpy backend loaded 1.26.4
+2025-08-09 13:17:26,030 - INFO - Pyspark backend NOT loaded
+2025-08-09 13:17:26,030 - INFO - Python backend loaded
+2025-08-09 13:18:16,234 - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-08-09 13:18:28,544 - ERROR - File processing error: Unknown format code 'f' for object of type 'str'
+2025-08-09 13:18:38,053 - ERROR - Error loading claims data: Error tokenizing data. C error: Expected 2 fields in line 8, saw 3
+
+2025-08-09 13:23:11,948 - ERROR - Error loading claims data: 'int' object has no attribute 'encode'
+2025-08-09 13:23:25,416 - ERROR - Error loading claims data: 'int' object has no attribute 'encode'
+2025-08-09 17:08:19,666 - INFO - Pandas backend loaded 2.2.3
+2025-08-09 17:08:19,672 - INFO - Numpy backend loaded 1.26.4
+2025-08-09 17:08:19,672 - INFO - Pyspark backend NOT loaded
+2025-08-09 17:08:19,674 - INFO - Python backend loaded
+2025-08-09 17:08:52,675 - INFO - Data cleaning completed successfully
