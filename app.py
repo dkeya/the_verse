@@ -13,7 +13,6 @@ from io import BytesIO
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 from fpdf import FPDF
-import data_sharing
 import tempfile
 import os
 import hmac
@@ -26,8 +25,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 import logging
 import altair as alt
-from ydata_profiling import ProfileReport
-from streamlit_pandas_profiling import st_profile_report
+# from ydata_profiling import ProfileReport
+# from streamlit_pandas_profiling import st_profile_report
 import dask.dataframe as dd
 import shap
 import optuna
