@@ -9,10 +9,11 @@ openpyxl
 scikit-learn
 xgboost
 joblib
-st-aggrid
+streamlit-aggrid
 textblob
 wordcloud
 fpdf
 dask
 optuna
 xlsxwriter
+
